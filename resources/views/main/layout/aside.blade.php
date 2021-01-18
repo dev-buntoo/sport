@@ -3,7 +3,7 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    <li class="submenu">
+                    <li >
                         <a href="{{ route('dashboard.show') }}"><i class="la la-dashboard"></i> <span> Dashboard</span></a>
                     </li>
                     <li>

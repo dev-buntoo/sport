@@ -13,7 +13,7 @@
                         <a href="{{ route('payroll.show') }}"><i class="la la-money"></i> <span> Payroll </span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="salary.html"> Payslip </a></li>
+                            <li><a href="{{ route('payroll.show') }}"> Payroll </a></li>
                             <!-- <li><a href="salary-view.html"> Payslip </a></li> -->
                             <li><a href="{{ route('payrun.show') }}"> Pay Run </a></li>
                         </ul>

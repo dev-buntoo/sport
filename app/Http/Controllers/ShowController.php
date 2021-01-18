@@ -67,15 +67,15 @@ class ShowController extends Controller
     //     PAYROLL
     public function showPayroll()
     {
-        # code...
+        return view('main.payroll.payroll');
     }
     public function showPayrun()
     {
-        # code...
+        return view('main.payroll.payrun');
     }
-    public function editPayrun()
+    public function showPayslip()
     {
-        # code...
+        return view('main.payroll.payslip');
     }
     //      END
     // ==================

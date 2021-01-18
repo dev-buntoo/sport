@@ -44,7 +44,7 @@ Route::get('appointment/edit','ShowController@editAppointment')->name('appointme
 Route::get('appointment/update-rate','ShowController@showUpdaterate')->name('appointment.update-rate');
 Route::get('payroll','ShowController@showPayroll')->name('payroll.show');
 Route::get('payrun','ShowController@showPayrun')->name('payrun.show');
-Route::get('payrun/edit/{id}','ShowController@editPayrun')->name('payrun.edit');
+Route::get('payslip/{id}','ShowController@showPayslip')->name('payslip.show');
 
 Route::get('system/admin','ShowController@showAdmin')->name('system.admin');
 Route::get('system/role','ShowController@showRole')->name('system.role');

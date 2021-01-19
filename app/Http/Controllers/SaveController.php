@@ -43,9 +43,6 @@ class SaveController extends Controller
     {
         
     }
-    //       END
-    // ================
-    //   TRANSACTION 
     public function saveIncome(Request $request){
         Income::create($request->all());
         return redirect()->back()->with('tab','trans');

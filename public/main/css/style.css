@@ -1345,10 +1345,10 @@ table.dataTable thead>tr>td.sorting {
 
 .header {
 	background: #00c5fb;
-	background: -moz-linear-gradient(left, #00c5fb 0%, #0253cc 100%);
-	background: -webkit-linear-gradient(left, #00c5fb 0%, #0253cc 100%);
-	background: -ms-linear-gradient(left, #00c5fb 0%, #0253cc 100%);
-	background: linear-gradient(to right, #00c5fb 0%, #0253cc 100%);
+	background: -moz-linear-gradient(left, #00c5fb 0%, #002060 100%);
+	background: -webkit-linear-gradient(left, #00c5fb 0%, #002060 100%);
+	background: -ms-linear-gradient(left, #00c5fb 0%, #002060 100%);
+	background: linear-gradient(to right, #00c5fb 0%, #002060 100%);
 	border-bottom: 1px solid transparent;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
 	height: 60px;
@@ -2567,7 +2567,7 @@ table.dataTable thead>tr>td.sorting {
 	border-radius: 50px;
 	font-size: 18px;
 	font-weight: 600;
-	min-width: 200px;
+	min-width: 180px;
 	padding: 10px 20px;
 }
 
@@ -8976,6 +8976,19 @@ ul.comment-list li ul.children {
 	border: 1px solid #002060;
 }
 
+.trash-icon{
+	color: white;
+	background-color: #c32929;
+	padding: 5px;
+	margin-left: 5px;
+}
+
+.trash-icon:hover {
+	color: white;
+	background-color: #c32929;
+	padding: 5px;
+	
+}
 /*-----------------
 	64. Responsive
 -----------------------*/

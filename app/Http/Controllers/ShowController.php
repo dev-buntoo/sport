@@ -47,8 +47,9 @@ class ShowController extends Controller
         $memberlist = User::all();
         $income = Income::all();
         $expense = Expense::all();
+        $payrolls = Payout::all();
 
-        return view('main.member.edit',compact('member','members','income','expense'));
+        return view('main.member.edit',compact('member','members','income','expense','payrolls'));
     }
     //       END
     // ===================

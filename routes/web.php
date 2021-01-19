@@ -11,6 +11,38 @@
 |
 */
 
+Route::get('generate-docs', function(){
+
+    $headers = array(
+
+        "Content-type"=>"text/html",
+
+        "Content-Disposition"=>"attachment;Filename=myfile.doc"
+
+    );
+
+
+
+    $content = '<html>
+
+            <head><meta charset="utf-8"></head>
+
+            <body>
+
+                <p>My Content</p>
+
+                <ul><li>Cat</li><li>Cat</li></ul>
+
+            </body>
+
+            </html>';
+
+
+
+    return \Response::make($content,200, $headers);
+
+});
+
 Route::get('/', function () {
     // return view('welcome');
     return redirect()->route('login');
@@ -25,7 +57,7 @@ Route::get('/home', function () {
 Route::get('/logout', function () {
     // return view('welcome');
     Auth::logout();
-    return redirect()->route('login');    
+    return redirect()->route('login');
     // return redirect()->route('dashboard.show');
 });
 

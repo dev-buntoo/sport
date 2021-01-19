@@ -43,7 +43,7 @@
 
                             <a href="#" data-toggle="tooltip"
                                 data-placement="top" title="Delete"
-                                class="bell-icon">
+                                class="trash-icon">
                                 <i class="fa fa-trash fa-lg"></i>
                             </a>
                         </td>

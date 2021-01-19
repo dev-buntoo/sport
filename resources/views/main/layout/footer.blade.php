@@ -33,6 +33,15 @@
     <script src="{{asset('main')}}/plugins/summernote/dist/summernote-bs4.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
+
+       <!-- Select2 -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+       <script>
+           $('.js-example-basic-single').select2();
+       </script>
+   
+
 <script>
     @foreach ($errors->all() as $error)
                   toastr.error("{{ $error }}");

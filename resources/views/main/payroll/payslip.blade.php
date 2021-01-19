@@ -29,15 +29,15 @@
                                 <tbody>
                                     <tr>
                                         <th>Memeber Name</th>
-                                        <td>David Test</td>
+                                        <td>{{ $payslip->member->fname.' '.$payslip->member->lname }}</td>
                                     </tr>
                                     <tr>
                                         <th>Member Number</th>
-                                        <td>2311101</td>
+                                        <td>{{ $payslip->member->member_number }}</td>
                                     </tr>
                                     <tr>
                                         <th>Pay Roll Year</th>
-                                        <td>2021</td>
+                                        <td>{{ $payslip->date }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -47,7 +47,7 @@
 
                         <div class="card mb-0">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Payment for: <strong>2021</strong></h5>
+                                <h5 class="card-title mb-0">Payment for: <strong>{{ $payslip->date }}</strong></h5>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -57,17 +57,17 @@
                                                 <div class="col-md-12 mb-3">
                                                     <label for="gross_amount">Gross Amount</label>
                                                     <input type="number" class="form-control" id="gross_amount"
-                                                        name="gross_amount" value="214.00">
+                                                        name="gross_amount" value="{{ $payslip->gross_amount }}">
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label for="total_deduction">Total Deduction</label>
                                                     <input type="number" class="form-control" id="total_deduction"
-                                                        name="total_deduction" value="214.00">
+                                                        name="total_deduction" value="{{ $payslip->deduction }}">
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label for="net_amount">Net Amount</label>
                                                     <input type="number" class="form-control" id="net_amount"
-                                                        name="net_amount" value="214.00">
+                                                        name="net_amount" value="{{ $payslip->net_amount }}">
                                                 </div>
 
                                                 <div class="col-md-12 mb-3">
@@ -115,7 +115,7 @@
 
                         <div class="card mb-0">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Payment Summary for: <strong>David Test 2021</strong></h5>
+                                <h5 class="card-title mb-0">Payment Summary for: <strong>{{ $payslip->member->fname.' '.$payslip->member->lname.' '.$payslip->date }}</strong></h5>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -130,36 +130,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            @foreach($payslip->record as $rec)
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Trials Week 1</td>
-                                                    <td>$200.00</td>
-                                                    <td>$36</td>
+                                                    <td>{{ $loop->index+1 }}</td>
+                                                    <td>{{ $rec->name }}</td>
+                                                    <td>{{ $rec->debit }} </td>
+                                                    <td>{{ $rec->credit }} </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Trials Week 1</td>
-                                                    <td>$200.00</td>
-                                                    <td>$36</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Trials Week 1</td>
-                                                    <td>$200.00</td>
-                                                    <td>$36</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Trials Week 1</td>
-                                                    <td>$200.00</td>
-                                                    <td>$36</td>
-                                                </tr>
+                                            @endforeach
                                             </tbody>
                                             <thead>
                                                 <tr class="table-info">
                                                     <th colspan="2">Total</th>
-                                                    <th>$500.00</th>
-                                                    <th>$200.00</th>
+                                                    <th>{{ $payslip->record->sum('debit') }} $</th>
+                                                    <th>{{ $payslip->record->sum('credit') }} $</th>
 
                                                 </tr>
                                             </thead>

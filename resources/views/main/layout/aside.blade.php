@@ -18,18 +18,13 @@
                             <li><a href="{{ route('payrun.show') }}"> Pay Run </a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="{{ route('appointment.show') }}"><i class="la la-user-secret"></i> <span>Appointments</span></a>
-                    </li>
+                   
                     <li class="submenu">
-                        <a href="#"><i class="la la-columns"></i> <span> Pages </span> <span
+                        <a href="#"><i class="la la-columns"></i> <span> Appointments </span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="search.html"> Search </a></li>
-                            <li><a href="faq.html"> FAQ </a></li>
-                            <li><a href="terms.html"> Terms </a></li>
-                            <li><a href="privacy-policy.html"> Privacy Policy </a></li>
-                            <li><a href="blank-page.html"> Blank Page </a></li>
+                            <li><a href="{{ route('appointment.show') }}"> Appointment List </a></li>
+                            <li><a href="{{ route('appointment.update-rate') }}"> Update Rate </a></li>
                         </ul>
                     </li>
                     <li>

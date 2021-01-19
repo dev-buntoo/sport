@@ -9,7 +9,8 @@
 
             <!-- Page Header -->
             <div class="page-header">
-                <form action="">
+                <form action="{{ route('payroll.generate') }}" method="POST">
+                   @csrf
                     <div class="row align-items-center">
 
                         <div class="col-md-6">
@@ -23,9 +24,9 @@
 
                         <div class="col-md-3 float-right ml-auto">
                             <div class="form-group form-focus select-focus">
-                                <select class="select floating">
-                                    <option>2020</option>
+                                <select class="select floating" name="date">
                                     <option>2021</option>
+                                    <option>2020</option>
                                     <option>2019</option>
                                     <option>2015</option>
                                 </select>
@@ -33,7 +34,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <a href="#" class="btn add-btn">Generate</a>
+                            <button type="submit" class="btn add-btn">Generate</button>
                         </div>
 
                     </div>
@@ -51,7 +52,7 @@
                                 <tr>
                                     <th>Payroll Year</th>
                                     <th>Member Name</th>
-                                    <th>Cross Amount</th>
+                                    <th>Gross Amount</th>
                                     <th>Deductions</th>
                                     <th>Net Amount</th>
                                     <th>Status</th>
@@ -59,117 +60,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                </tr>
+                                @foreach($payrolls as $pay)
                                 <tr>
-                                    <td>#264641645</td>
-                                    <td>UserTest 1</td>
-                                    <td>$1321.00</td>
-                                    <td>$100.00</td>
-                                    <td>$900.00</td>
+                                    <td>{{ $pay->date }}</td>
+                                    <td>{{ $pay->member->fname.' '.$pay->member->lname }}</td>
+                                    <td>{{ $pay->gross_amount }} $</td>
+                                    <td>{{ $pay->deduction }} $</td>
+                                    <td>{{ $pay->net_amount }} $</td>
                                     <td><span class="badge bg-inverse-danger">Unpaid</span></td>
                                     <td>
-                                        <a href="./view-payrun.html" type="button"
+                                        <a href="{{ route('payslip.show',$pay->id) }}" type="button"
                                             class="btn btn-secondary">View</a>
                                     </td>
                                 </tr>
-                                </tr>
-                                <tr>
-                                    <td>#264641645</td>
-                                    <td>UserTest 1</td>
-                                    <td>$1321.00</td>
-                                    <td>$100.00</td>
-                                    <td>$900.00</td>
-                                    <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                    <td>
-                                        <a href="./view-payrun.html" type="button"
-                                            class="btn btn-secondary">View</a>
-                                    </td>
-                                </tr>
-                                </tr>
-                                <tr>
-                                    <td>#264641645</td>
-                                    <td>UserTest 1</td>
-                                    <td>$1321.00</td>
-                                    <td>$100.00</td>
-                                    <td>$900.00</td>
-                                    <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                    <td>
-                                        <a href="./view-payrun.html" type="button"
-                                            class="btn btn-secondary">View</a>
-                                    </td>
-                                </tr>
-                                </tr>
-                                <tr>
-                                    <td>#264641645</td>
-                                    <td>UserTest 1</td>
-                                    <td>$1321.00</td>
-                                    <td>$100.00</td>
-                                    <td>$900.00</td>
-                                    <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                    <td>
-                                        <a href="./view-payrun.html" type="button"
-                                            class="btn btn-secondary">View</a>
-                                    </td>
-                                </tr>
-                                </tr>
-                                <tr>
-                                    <td>#264641645</td>
-                                    <td>UserTest 1</td>
-                                    <td>$1321.00</td>
-                                    <td>$100.00</td>
-                                    <td>$900.00</td>
-                                    <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                    <td>
-                                        <a href="./view-payrun.html" type="button"
-                                            class="btn btn-secondary">View</a>
-                                    </td>
-                                </tr>
-                                </tr>
-                                <tr>
-                                    <td>#264641645</td>
-                                    <td>UserTest 1</td>
-                                    <td>$1321.00</td>
-                                    <td>$100.00</td>
-                                    <td>$900.00</td>
-                                    <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                    <td>
-                                        <a href="./view-payrun.html" type="button"
-                                            class="btn btn-secondary">View</a>
-                                    </td>
-                                </tr>
-                                </tr>
-                                <tr>
-                                    <td>#264641645</td>
-                                    <td>UserTest 1</td>
-                                    <td>$1321.00</td>
-                                    <td>$100.00</td>
-                                    <td>$900.00</td>
-                                    <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                    <td>
-                                        <a href="./view-payrun.html" type="button"
-                                            class="btn btn-secondary">View</a>
-                                    </td>
-                                </tr>
-                                </tr>
-                                <tr>
-                                    <td>#264641645</td>
-                                    <td>UserTest 1</td>
-                                    <td>$1321.00</td>
-                                    <td>$100.00</td>
-                                    <td>$900.00</td>
-                                    <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                    <td>
-                                        <a href="./view-payrun.html" type="button"
-                                            class="btn btn-secondary">View</a>
-                                    </td>
-                                </tr>
+                                @endforeach
+
                             </tbody>
                             <tfooter>
                                 <tr class="table-info">
                                     <th colspan="2">Totals</th>
-                                    <th>$44654</th>
-                                    <th>$15564</th>
-                                    <th colspan="3">$15456</th>
+                                    <th>{{ $payrolls->sum('gross_amount') }} $</th>
+                                    <th>{{ $payrolls->sum('deduction') }} $</th>
+                                    <th colspan="3">{{ $payrolls->sum('net_amount') }} $</th>
                                 </tr>
                             </tfooter>
                         </table>

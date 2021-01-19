@@ -56,3 +56,5 @@ Route::post('member/update','SaveController@updateMember')->name('member.update'
 
 Route::post('member/income/save','SaveController@saveIncome')->name('member.income.save');
 Route::post('member/expense/save','SaveController@saveExpense')->name('member.expense.save');
+
+Route::post('payroll/generate','SaveController@createPayslip')->name('payroll.generate');

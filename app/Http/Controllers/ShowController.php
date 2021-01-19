@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Model\Income;
 use App\Model\Expense;
+use App\Model\Payout;
 use Schema;
 
 class ShowController extends Controller
@@ -34,48 +35,54 @@ class ShowController extends Controller
     public function createMember()
     {
         $mem =Schema::getColumnListing('users');
-        
+
         $member = (object)array_fill_keys(array_keys(array_flip($mem)), '');
-        
+
         return view('main.member.create',compact('member'));
     }
     public function editMember($id)
     {
         $member = User::find($id);
+        $members = User::all();
         $memberlist = User::all();
         $income = Income::all();
         $expense = Expense::all();
-        return view('main.member.edit',compact('member','income','expense'));
+
+        return view('main.member.edit',compact('member','members','income','expense'));
     }
-    //       END 
+    //       END
     // ===================
     //     APPOINTMENT
     public function showAppointment()
     {
-        # code...
+        return view('main.appointment.view');
     }
     public function editAppointment()
     {
-        # code...
+        return view('main.appointment.edit');
     }
-    public function showUpdaterate(Type $var = null)
+    public function showUpdaterate()
     {
-        # code...
+        return view('main.appointment.updateRate');
     }
     //      END
     // ==================
     //     PAYROLL
     public function showPayroll()
     {
-        return view('main.payroll.payroll');
+        $payrolls = Payout::all();
+        return view('main.payroll.payroll',compact('payrolls'));
     }
     public function showPayrun()
     {
-        return view('main.payroll.payrun');
+        $payrolls = Payout::all();
+        return view('main.payroll.payrun',compact('payrolls'));
     }
-    public function showPayslip()
+    public function showPayslip($id)
     {
-        return view('main.payroll.payslip');
+        $payslip = Payout::find($id);
+    //    dd($payslip->record);
+        return view('main.payroll.payslip',compact('payslip'));
     }
     //      END
     // ==================
@@ -94,5 +101,5 @@ class ShowController extends Controller
     }
     //       END
     // ==================
-    //      
+    //
 }

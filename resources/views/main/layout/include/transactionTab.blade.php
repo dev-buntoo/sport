@@ -27,7 +27,7 @@
                     @foreach($expense as $exp)
                     <tr>
                         <td class="default-color"><span
-                                class="border-default p-2">{{$exp->member_id}}</span>
+                                class="border-default p-2">{{$exp->member->member_number}}</span>
                         </td>
                         <td>{{$exp->expense}}</td>
                         <td>{{$exp->amount}}</td>
@@ -79,7 +79,7 @@
                         <th>Income</th>
                         <th>Amount</th>
                         <th>Notes</th>
-                        <th>Dates</th>
+                        <th>Date</th>
                         <th>Payment</th>
                     </tr>
                 </thead>
@@ -87,7 +87,7 @@
                     @foreach($income as $inc)
                     <tr>
                         <td class="default-color"><span
-                                class="border-default p-2">{{$inc->member_id}}</span>
+                                class="border-default p-2">{{$inc->member->member_number}}</span>
                         </td>
                         <td>{{$inc->income}}</td>
                         <td>{{$inc->amount}}</td>
@@ -103,7 +103,7 @@
 
                             <a href="#" data-toggle="tooltip"
                                 data-placement="top" title="Delete"
-                                class="bell-icon">
+                                class="trash-icon">
                                 <i class="fa fa-trash fa-lg"></i>
                             </a>
                         </td>
@@ -135,7 +135,11 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="col-form-label">Member Name</label>
-                                            <input class="form-control" required name="member_id" type="text">
+                                            <select class="js-example-basic-single" name="member_id" required  style="width: 100%;">
+                                                @foreach($members as $mem)
+                                                <option value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
+                                                @endforeach
+                                                </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -199,7 +203,11 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="col-form-label">Member Name</label>
-                                            <input class="form-control" name="member_id" required type="text">
+                                            <select class="js-example-basic-single" name="member_id" required style="width: 100%;">
+                                            @foreach($members as $mem)
+                                                <option value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
+                                            @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -241,5 +249,5 @@
                     </div>
                 </div>
             </div>
-     
+
 @endpush

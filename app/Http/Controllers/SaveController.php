@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Model\Income;
 use App\Model\Expense;
+use App\Model\Payout;
+use App\Model\Payslip;
 use Illuminate\Support\Facades\Hash;
 
 class SaveController extends Controller
 {
     // =================
-    //      MEMBER    
+    //      MEMBER
     public function saveMember(Request $request)
     {
          $this->validate($request,[
@@ -35,13 +37,13 @@ class SaveController extends Controller
         }
 
        $request->merge(['password' => Hash::make($request->password)]);
-         
+
         $user->update($request->all());
         return redirect()->route('member.show');
     }
     public function deleteMember($id)
     {
-        
+
     }
     public function saveIncome(Request $request){
         Income::create($request->all());
@@ -51,4 +53,39 @@ class SaveController extends Controller
         Expense::create($request->all());
         return redirect()->back()->with('tab','trans');
     }
+    //       END
+    // ================
+    //   TRANSACTION
+
+    public function createPayslip(Request $request)
+    {
+        foreach(User::all() as $user){
+            $payout = new Payout();
+            $payout->deduction = $user->expense->sum('amount');
+            $payout->gross_amount = $user->income->sum('amount');
+            $payout->net_amount = $payout->gross_amount - $payout->deduction;
+            $payout->date = $request->date;
+            $payout->member_id = $user->id;
+            $payout->save();
+
+            foreach($user->income as $inc){
+                $payslip = new Payslip();
+                $payslip->payout_id = $payout->id;
+                $payslip->credit = $inc->amount;
+                $payslip->name = $inc->description;
+                $payslip->save();
+            }
+            foreach($user->expense as $exp){
+                $payslip = new Payslip();
+                $payslip->payout_id = $payout->id;
+                $payslip->debit = $exp->amount;
+                $payslip->name = $exp->description;
+                $payslip->save();
+            }
+
+        }
+        return redirect()->back();
+    }
+
+
 }

@@ -43,94 +43,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($payrolls as $pay)
                                     <tr>
-                                        <td>2021</td>
-                                        <td>UserTest 1</td>
-                                        <td>$1321.00</td>
+                                        <td>{{ $pay->date }}</td>
+                                        <td>{{ $pay->member->fname.' '.$pay->member->lname }}</td>
+                                        <td>{{ $pay->gross_amount+$pay->deduction }}</td>
                                         <td><span class="badge bg-inverse-danger">Unpaid</span></td>
                                         <td><span class="badge bg-inverse-danger">No</span></td>
                                         <td>
                                             <button type="button" class="btn btn-secondary">Email Payslip</button>
-                                            <button type="button" class="btn btn-warning">View Payslip</button>
+                                            <a href="{{ route('payslip.show',$pay->id) }}" class="btn btn-warning">View Payslip</a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2021</td>
-                                        <td>UserTest 1</td>
-                                        <td>$1321.00</td>
-                                        <td><span class="badge bg-inverse-success">Unpaid</span></td>
-                                        <td><span class="badge bg-inverse-success">No</span></td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary">Email Payslip</button>
-                                            <button type="button" class="btn btn-warning">View Payslip</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2021</td>
-                                        <td>UserTest 1</td>
-                                        <td>$1321.00</td>
-                                        <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                        <td><span class="badge bg-inverse-danger">No</span></td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary">Email Payslip</button>
-                                            <button type="button" class="btn btn-warning">View Payslip</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2021</td>
-                                        <td>UserTest 1</td>
-                                        <td>$1321.00</td>
-                                        <td><span class="badge bg-inverse-success">Unpaid</span></td>
-                                        <td><span class="badge bg-inverse-success">No</span></td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary">Email Payslip</button>
-                                            <button type="button" class="btn btn-warning">View Payslip</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2021</td>
-                                        <td>UserTest 1</td>
-                                        <td>$1321.00</td>
-                                        <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                        <td><span class="badge bg-inverse-danger">No</span></td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary">Email Payslip</button>
-                                            <button type="button" class="btn btn-warning">View Payslip</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2021</td>
-                                        <td>UserTest 1</td>
-                                        <td>$1321.00</td>
-                                        <td><span class="badge bg-inverse-success">Unpaid</span></td>
-                                        <td><span class="badge bg-inverse-success">No</span></td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary">Email Payslip</button>
-                                            <button type="button" class="btn btn-warning">View Payslip</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2021</td>
-                                        <td>UserTest 1</td>
-                                        <td>$1321.00</td>
-                                        <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                        <td><span class="badge bg-inverse-danger">No</span></td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary">Email Payslip</button>
-                                            <button type="button" class="btn btn-warning">View Payslip</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2021</td>
-                                        <td>UserTest 1</td>
-                                        <td>$1321.00</td>
-                                        <td><span class="badge bg-inverse-success">Unpaid</span></td>
-                                        <td><span class="badge bg-inverse-success">No</span></td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary">Email Payslip</button>
-                                            <button type="button" class="btn btn-warning">View Payslip</button>
-                                        </td>
-                                    </tr>
+
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>

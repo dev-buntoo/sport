@@ -7,6 +7,8 @@ use App\User;
 use App\Model\Income;
 use App\Model\Expense;
 use App\Model\Payout;
+use App\Model\Appointment;
+use App\Model\ImportData;
 use Schema;
 
 class ShowController extends Controller
@@ -56,16 +58,24 @@ class ShowController extends Controller
     //     APPOINTMENT
     public function showAppointment()
     {
-        return view('main.appointment.view');
+        $appoints = Appointment::all();
+        return view('main.appointment.view',compact('appoints'));
     }
-    public function editAppointment()
+    public function editAppointment($id)
     {
-        return view('main.appointment.edit');
+        $app = Appointment::find($id);
+        return view('main.appointment.edit',compact('app'));
+    }
+    public function showAppointmentGame()
+    {
+        $files= ImportData::all();
+        return view('main.appointment.uploaddoc',compact('files'));
     }
     public function showUpdaterate()
     {
         return view('main.appointment.updateRate');
     }
+
     //      END
     // ==================
     //     PAYROLL

@@ -72,7 +72,8 @@ Route::get('member/create','ShowController@createMember')
 Route::get('member/edit/{id}','ShowController@editMember')
 ->name('member.edit');
 Route::get('appointment','ShowController@showAppointment')->name('appointment.show');
-Route::get('appointment/edit','ShowController@editAppointment')->name('appointment.edit');
+Route::get('appointment/edit/{id}','ShowController@editAppointment')->name('appointment.edit');
+Route::get('appointment/Games','ShowController@showAppointmentGame')->name('appointment.game');
 Route::get('appointment/update-rate','ShowController@showUpdaterate')->name('appointment.update-rate');
 Route::get('payroll','ShowController@showPayroll')->name('payroll.show');
 Route::get('payrun','ShowController@showPayrun')->name('payrun.show');
@@ -87,6 +88,12 @@ Route::post('member/update','SaveController@updateMember')->name('member.update'
 
 
 Route::post('member/income/save','SaveController@saveIncome')->name('member.income.save');
+Route::get('member/income/delete/{id}','SaveController@deleteIncome')->name('member.income.delete');
 Route::post('member/expense/save','SaveController@saveExpense')->name('member.expense.save');
+Route::get('member/expense/delete/{id}','SaveController@deleteExpense')->name('member.expense.delete');
 
 Route::post('payroll/generate','SaveController@createPayslip')->name('payroll.generate');
+Route::post('appointment/update','SaveController@updateAppointment')->name('appointment.update');
+Route::post('appointment/excel-import','SaveController@appoint')->name('appointment.import');
+Route::get('appointment/deletefile/{id}','SaveController@deleteFile')->name('appointment.game.delete');
+

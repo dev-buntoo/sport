@@ -8,6 +8,11 @@ use App\Model\Income;
 use App\Model\Expense;
 use App\Model\Payout;
 use App\Model\Payslip;
+use App\Model\Appointment;
+use App\Model\ImportData;
+use App\Imports\ImportAppoint;
+use Maatwebsite\Excel\Facades\Excel;
+use Auth;
 use Illuminate\Support\Facades\Hash;
 
 class SaveController extends Controller
@@ -49,9 +54,21 @@ class SaveController extends Controller
         Income::create($request->all());
         return redirect()->back()->with('tab','trans');
     }
+    public function deleteIncome($id)
+    {
+      $income =  Income::find($id);
+      $income->delete();
+      return redirect()->back();
+    }
     public function saveExpense(Request $request){
         Expense::create($request->all());
         return redirect()->back()->with('tab','trans');
+    }
+    public function deleteExpense($id)
+    {
+      $expense =  Expense::find($id);
+      $expense->delete();
+      return redirect()->back();
     }
     //       END
     // ================
@@ -85,6 +102,36 @@ class SaveController extends Controller
 
         }
         return redirect()->back();
+    }
+//          END
+//   ================
+//      APPOINTMENT
+    public function appoint(Request $request)
+    {
+
+        $request->validate([
+            'import_file' => 'required'
+        ]);
+        $importdata = ImportData::create([
+            'filename'   => $request->file('import_file')->getClientOriginalName(),
+            'uploadedBy' => Auth::user()->id,
+        ]);
+        Excel::import(new ImportAppoint($importdata->id), request()->file('import_file'));
+        return back()->with('success', 'Appointment imported successfully.');
+    }
+    public function deleteFile($id)
+    {
+       $list = ImportData::find($id);
+       $list->list()->delete();
+       $list->delete();
+       return back()->with('success', 'Delete successfully.');
+
+    }
+    public function updateAppointment(Request $request)
+    {
+        $app = Appointment::find($request->id);
+        $app->update($request->all());
+        return redirect()->route('appointment.show');
     }
 
 

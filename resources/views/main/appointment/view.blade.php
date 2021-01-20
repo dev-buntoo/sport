@@ -18,9 +18,20 @@
                                 <li class="breadcrumb-item active">Appointments</li>
                             </ul>
                         </div>
-                        <div class="col float-right ml-auto">
+
+                        <form action="{{ route('appointment.import') }}" method="POST" name="importform" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="import_file"  class="form-control">
+                            <br>
+                            <div class="col float-right ml-auto">
+
+                            <button  type="file" class="btn add-btn"><i class="fa fa-plus"></i>  Import File</button>
+                            </div>
+                        </form>
+
+                        {{--  <div class="col float-right ml-auto">
                             <a href="#" class="btn add-btn"><i class="fa fa-plus"></i> Import</a>
-                        </div>
+                        </div>  --}}
                     </div>
                     <!-- Search Filter -->
                     <div class="row filter-row mt-3">
@@ -64,192 +75,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($appoints as $app)
                                     <tr>
                                         <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
+                                        <td>{{ $app->home_team }}</td>
+                                        <td>{{ $app->away_team }}</td>
+                                        <td>{{ $app->grade }}</td>
+                                        <td>{{ $app->referee }}</td>
+                                        <td>{{ $app->touch_judge_one }}</td>
+                                        <td>{{ $app->touch_judge_two }}</td>
+                                        <td>{{ $app->coach }}</td>
                                         <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
+                                            <a href="{{ route('appointment.edit',$app->id) }}" type="button" class="btn btn-success">Edit</a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
+                                @endforeach
 
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td>All Stains Toongabbie</td>
-                                        <td>Merrylands Harms</td>
-                                        <td>UI4S Division 3</td>
-                                        <td>Joal Deaves</td>
-                                        <td>Todd Pieters</td>
-                                        <td>Lukas Durrant</td>
-                                        <td>Allan Doochan</td>
-                                        <td>
-                                            <a href="./edit-appointment.html" type="button"
-                                                class="btn btn-success">Edit</a>
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>

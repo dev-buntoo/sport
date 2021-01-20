@@ -18,12 +18,13 @@
                             <li><a href="{{ route('payrun.show') }}"> Pay Run </a></li>
                         </ul>
                     </li>
-                   
+
                     <li class="submenu">
                         <a href="#"><i class="la la-columns"></i> <span> Appointments </span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="{{ route('appointment.show') }}"> Appointment List </a></li>
+                            <li><a href="{{ route('appointment.game') }}"> Appointment Game </a></li>
                             <li><a href="{{ route('appointment.update-rate') }}"> Update Rate </a></li>
                         </ul>
                     </li>

@@ -41,7 +41,7 @@
                                     aria-hidden="true"></i>
                             </a>
 
-                            <a href="#" data-toggle="tooltip"
+                            <a href="{{ route('member.expense.delete',$exp->id) }}" onclick="if(!confirm('Are you sure?')){return false;}" data-toggle="tooltip"
                                 data-placement="top" title="Delete"
                                 class="trash-icon">
                                 <i class="fa fa-trash fa-lg"></i>
@@ -101,7 +101,7 @@
                                     aria-hidden="true"></i>
                             </a>
 
-                            <a href="#" data-toggle="tooltip"
+                            <a href="{{ route('member.income.delete',$inc->id) }}" onclick="if(!confirm('Are you sure?')){return false;}" data-toggle="tooltip"
                                 data-placement="top" title="Delete"
                                 class="trash-icon">
                                 <i class="fa fa-trash fa-lg"></i>

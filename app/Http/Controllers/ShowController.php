@@ -9,7 +9,9 @@ use App\Model\Expense;
 use App\Model\Payout;
 use App\Model\Appointment;
 use App\Model\ImportData;
+use App\Model\Role;
 use Schema;
+use Auth;
 
 class ShowController extends Controller
 {
@@ -23,6 +25,7 @@ class ShowController extends Controller
     public function showDashboard()
     {
         // return 'hello';
+
         return view('main.dashboard.view');
     }
     //        END
@@ -30,7 +33,7 @@ class ShowController extends Controller
     //      MEMBERS
     public function showMember()
     {
-        $members = User::all();
+        $members = User::where('is_member',1)->get();
         return view('main.member.view',compact('members'));
 
     }
@@ -100,15 +103,22 @@ class ShowController extends Controller
     //      ADMIN
     public function showAdmin()
     {
-        # code...
+       return view('main.systemAdmin.user');
     }
     public function showRole()
     {
-        # code...
+        $roles = Role::where('id','!=',1)->get();
+        return view('main.systemAdmin.roles',compact('roles'));
+    }
+    public function editRole($id)
+    {
+        $role = Role::find($id);
+        return view('main.systemAdmin.editRoles',compact('role'));
     }
     public function showAuditlog()
     {
-        # code...
+        return view('main.systemAdmin.auditlog');
+
     }
     //       END
     // ==================

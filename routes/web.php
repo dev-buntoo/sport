@@ -81,6 +81,7 @@ Route::get('payslip/{id}','ShowController@showPayslip')->name('payslip.show');
 
 Route::get('system/admin','ShowController@showAdmin')->name('system.admin');
 Route::get('system/role','ShowController@showRole')->name('system.role');
+Route::get('system/role/edit/{id}','ShowController@editRole')->name('system.role.edit');
 Route::get('system/auditlog','ShowController@showAuditlog')->name('system.auditlog');
 
 Route::post('member/save','SaveController@saveMember')->name('member.save');
@@ -96,4 +97,7 @@ Route::post('payroll/generate','SaveController@createPayslip')->name('payroll.ge
 Route::post('appointment/update','SaveController@updateAppointment')->name('appointment.update');
 Route::post('appointment/excel-import','SaveController@appoint')->name('appointment.import');
 Route::get('appointment/deletefile/{id}','SaveController@deleteFile')->name('appointment.game.delete');
+
+Route::post('system/role/create','SaveController@createRole')->name('role.create');
+Route::post('system/role/update','SaveController@updateRole')->name('role.update');
 

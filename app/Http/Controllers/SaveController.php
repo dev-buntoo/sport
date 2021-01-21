@@ -8,6 +8,7 @@ use App\Model\Income;
 use App\Model\Expense;
 use App\Model\Payout;
 use App\Model\Payslip;
+use App\Model\Role;
 use App\Model\Appointment;
 use App\Model\ImportData;
 use App\Imports\ImportAppoint;
@@ -133,6 +134,27 @@ class SaveController extends Controller
         $app->update($request->all());
         return redirect()->route('appointment.show');
     }
-
+    //      END
+    // =============
+    //      ADMIN
+    public function createRole(Request $request)
+    {
+        Role::create($request->all());
+        return redirect()->back();
+    }
+    public function updateRole(Request $request)
+    {
+        // dd($request);
+        $role = Role::find($request->id);
+        $keys = array('view_member','create_member','edit_member',
+        'delete_member','view_payroll','edit_payroll',
+        'view_appointments','edit_appointments','manage_documents',
+        'view_roles','edit_roles');
+        $lang = array_fill_keys($keys, '0');
+        $role->update($lang);
+        // dd($request);
+        $role->update($request->all());
+        return redirect()->route('system.role');
+    }
 
 }

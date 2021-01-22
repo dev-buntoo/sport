@@ -137,6 +137,56 @@ class SaveController extends Controller
     //      END
     // =============
     //      ADMIN
+    public function createUser(Request $request)
+    {
+        $this->validate($request, [
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'role_id'  => ['required'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+         User::create([
+            'fname' => $request['fname'],
+            'lname' => $request['lname'],
+            'email' => $request['email'],
+            'is_member' => '0',
+            'role_id'=>$request['role_id'],
+            'password' => Hash::make($request['password']),
+        ]);
+
+        return redirect()->route('system.admin');
+
+    }
+    public function editUser(Request $request)
+    {
+
+        $this->validate($request, [
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        $user = User::find($request->id);
+        if($user->email != $request->email){
+            $this->validate($request, [
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            ]);
+        }
+        $user->update([
+            'fname' => $request['fname'],
+            'lname' => $request['lname'],
+            'email' => $request['email'],
+            'role_id' => $request['role_id'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->route('system.admin');
+    }
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back();
+    }
     public function createRole(Request $request)
     {
         Role::create($request->all());

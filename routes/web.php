@@ -80,9 +80,12 @@ Route::get('payrun','ShowController@showPayrun')->name('payrun.show');
 Route::get('payslip/{id}','ShowController@showPayslip')->name('payslip.show');
 
 Route::get('system/admin','ShowController@showAdmin')->name('system.admin');
+Route::get('system/admin/edit/{id}','ShowController@editUser')->name('user.edit');
+Route::get('system/admin/create','ShowController@createUser')->name('user.create');
 Route::get('system/role','ShowController@showRole')->name('system.role');
 Route::get('system/role/edit/{id}','ShowController@editRole')->name('system.role.edit');
 Route::get('system/auditlog','ShowController@showAuditlog')->name('system.auditlog');
+Route::get('system/admin/delete/{id}','SaveController@deleteUser')->name('user.delete');
 
 Route::post('member/save','SaveController@saveMember')->name('member.save');
 Route::post('member/update','SaveController@updateMember')->name('member.update');
@@ -100,4 +103,7 @@ Route::get('appointment/deletefile/{id}','SaveController@deleteFile')->name('app
 
 Route::post('system/role/create','SaveController@createRole')->name('role.create');
 Route::post('system/role/update','SaveController@updateRole')->name('role.update');
+
+Route::post('system/admin/save','SaveController@createUser')->name('user.save');
+Route::post('system/admin/update','SaveController@editUser')->name('user.update');
 

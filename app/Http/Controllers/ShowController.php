@@ -103,8 +103,21 @@ class ShowController extends Controller
     //      ADMIN
     public function showAdmin()
     {
-       return view('main.systemAdmin.user');
+       $users = User::where('is_member','!=',1)->get();
+       return view('main.systemAdmin.user',compact('users'));
     }
+    public function createUser()
+    {
+        $role = Role::where('id','!=',1)->get();
+        return view('main.systemAdmin.createUser',compact('role'));
+    }
+    public function editUser($id)
+    {
+      $user = User::find($id);
+      $role = Role::where('id','!=',1)->get();
+      return view('main.systemAdmin.editUser',compact('user','role'));
+    }
+
     public function showRole()
     {
         $roles = Role::where('id','!=',1)->get();

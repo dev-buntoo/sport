@@ -18,14 +18,12 @@ class ShowController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','admin']);
     }
     // ===================
     //      DASHBOARD
     public function showDashboard()
     {
-        // return 'hello';
-
         return view('main.dashboard.view');
     }
     //        END
@@ -33,12 +31,18 @@ class ShowController extends Controller
     //      MEMBERS
     public function showMember()
     {
+        if(!Auth::user()->roles->view_member){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $members = User::where('is_member',1)->get();
         return view('main.member.view',compact('members'));
 
     }
     public function createMember()
     {
+        if(!Auth::user()->roles->create_member){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $mem =Schema::getColumnListing('users');
 
         $member = (object)array_fill_keys(array_keys(array_flip($mem)), '');
@@ -47,6 +51,10 @@ class ShowController extends Controller
     }
     public function editMember($id)
     {
+        if(!Auth::user()->roles->edit_member){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
+
         $member = User::find($id);
         $members = User::all();
         $memberlist = User::all();
@@ -56,21 +64,51 @@ class ShowController extends Controller
 
         return view('main.member.edit',compact('member','members','income','expense','payrolls'));
     }
+
+    public function editIncome($id)
+    {
+        $memin = Income::find($id);
+        $members = User::where('is_member',1)->get();
+
+        return view('main.member.editIncome',compact('memin','members'));
+    }
+
+
+    public function editExpense($id)
+    {
+        $memexp = Expense::find($id);
+        $members = User::where('is_member',1)->get();
+        return view('main.member.editExpense',compact('memexp','members'));
+    }
+
     //       END
     // ===================
     //     APPOINTMENT
+
     public function showAppointment()
     {
+
+        if(!Auth::user()->roles->view_appointments){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $appoints = Appointment::all();
         return view('main.appointment.view',compact('appoints'));
     }
     public function editAppointment($id)
     {
+
+        if(!Auth::user()->roles->edit_appointments){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $app = Appointment::find($id);
         return view('main.appointment.edit',compact('app'));
     }
     public function showAppointmentGame()
     {
+
+        if(!Auth::user()->roles->manage_documents){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $files= ImportData::all();
         return view('main.appointment.uploaddoc',compact('files'));
     }
@@ -84,6 +122,11 @@ class ShowController extends Controller
     //     PAYROLL
     public function showPayroll()
     {
+
+        if(!Auth::user()->roles->view_payroll){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
+
         $payrolls = Payout::all();
         return view('main.payroll.payroll',compact('payrolls'));
     }
@@ -94,6 +137,10 @@ class ShowController extends Controller
     }
     public function showPayslip($id)
     {
+
+        if(!Auth::user()->roles->edit_payroll){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $payslip = Payout::find($id);
     //    dd($payslip->record);
         return view('main.payroll.payslip',compact('payslip'));
@@ -120,11 +167,20 @@ class ShowController extends Controller
 
     public function showRole()
     {
+
+        if(!Auth::user()->roles->view_roles){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $roles = Role::where('id','!=',1)->get();
         return view('main.systemAdmin.roles',compact('roles'));
     }
     public function editRole($id)
     {
+
+
+        if(!Auth::user()->roles->edit_roles){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $role = Role::find($id);
         return view('main.systemAdmin.editRoles',compact('role'));
     }

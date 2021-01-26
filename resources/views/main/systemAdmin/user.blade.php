@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                                 <h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">{{ $user->fname.' '.$user->lname }}</a></h4>
-                                <span class="badge bg-inverse-info mt-2 mb-2">Admin</span>
+                                <span class="badge bg-inverse-info mt-2 mb-2">{{ $user->roles->name }}</span>
                                 <div class="small text-muted">{{ $user->email }}</div>
                             </div>
                         </div>

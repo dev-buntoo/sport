@@ -53,13 +53,6 @@
         <!-- Header -->
         <div class="header">
 
-            <!-- Logo -->
-            <div class="header-left">
-                <a href="index.html" class="logo">
-                    <img src="{{asset('main')}}/img/logo.png" width="40" height="40" alt="">
-                </a>
-            </div>
-            <!-- /Logo -->
 
             <a id="toggle_btn" href="javascript:void(0);">
                 <span class="bar-icon">
@@ -84,7 +77,7 @@
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <span class="user-img"><img src="{{asset('main')}}/img/profiles/avatar-21.jpg" alt="">
                             <span class="status online"></span></span>
-                        <span>Admin</span>
+                            <span>{{ Auth::user()->roles->name }}</span>
                     </a>
                     <div class="dropdown-menu">
                         <!--<a class="dropdown-item" href="profile.html">My Profile</a>-->

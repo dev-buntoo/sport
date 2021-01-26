@@ -3,6 +3,11 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
+                    <li>
+						<a href="index.html" class="logo d-flex justify-content-center">
+							<img src="{{asset('main')}}/img/logo.png" width="100" height="auto" alt="">
+						</a>
+					</li>
                     <li >
                         <a href="{{ route('dashboard.show') }}"><i class="la la-dashboard"></i> <span> Dashboard</span></a>
                     </li>

@@ -34,7 +34,7 @@
                         <td>{{$exp->description}}</td>
                         <td>{{$exp->date}}</td>
                         <td>
-                            <a href="#" data-toggle="tooltip"
+                            <a href="{{ route('member.expense.edit',$exp->id) }}" data-toggle="tooltip"
                                 data-placement="top" title="Edit"
                                 class="bell-icon mr-2">
                                 <i class="fa fa-pencil fa-lg"
@@ -94,7 +94,7 @@
                         <td>{{$inc->description}}</td>
                         <td>{{$inc->date}}</td>
                         <td>
-                            <a href="#" data-toggle="tooltip"
+                            <a href="{{ route('member.income.edit',$inc->id) }}" data-toggle="tooltip"
                                 data-placement="top" title="Edit"
                                 class="bell-icon mr-2">
                                 <i class="fa fa-pencil fa-lg"

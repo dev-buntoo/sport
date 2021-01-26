@@ -19,8 +19,6 @@
     <script src="{{asset('main')}}/js/moment.min.js"></script>
     <script src="{{asset('main')}}/js/bootstrap-datetimepicker.min.js"></script>
 
-    <!-- Form Validation JS -->
-    <script src="{{asset('main')}}/js/form-validation.js"></script>
 
     <!-- Custom JS -->
     <script src="{{asset('main')}}/js/app.js"></script>
@@ -40,12 +38,27 @@
        <script>
            $('.js-example-basic-single').select2();
        </script>
-   
+
 
 <script>
-    @foreach ($errors->all() as $error)
-                  toastr.error("{{ $error }}");
-    @endforeach
+
+
+@if($msg =Session::get('success'))
+ toastr.success("{{ $msg }}" );
+        @endif
+
+        @if($msg =Session::get('error'))
+         toastr.error("{{ $msg }}" );
+        @endif
+
+
+    @if(count($errors->all()) > 0)
+   @foreach ($errors->all() as $error)
+    toastr.error("{{ $error }}");
+  @endforeach
+    @endif
+
+
 </script>
     @stack('script')
 

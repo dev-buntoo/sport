@@ -22,6 +22,9 @@ class SaveController extends Controller
     //      MEMBER
     public function saveMember(Request $request)
     {
+        if(!Auth::user()->roles->create_member){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
          $this->validate($request,[
              'email'=>'unique:users',
          ]);
@@ -33,7 +36,9 @@ class SaveController extends Controller
     public function updateMember(Request $request)
     {
 
-
+        if(!Auth::user()->roles->edit_member){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $user = User::find($request->id);
 
         if($request->email != $user->email){
@@ -49,17 +54,35 @@ class SaveController extends Controller
     }
     public function deleteMember($id)
     {
-
+        if(!Auth::user()->roles->delete_member){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
+        $member = User::find($id);
+        $member->delete();
+        return redirect()->back()->with('success','Member Deleted');
     }
     public function saveIncome(Request $request){
         Income::create($request->all());
         return redirect()->back()->with('tab','trans');
     }
+    public function updateIncome(Request $request)
+    {
+        $income = Income::find($request->id);
+        $income->update($request->all());
+        return redirect()->back()->with('tab','trans');
+    }
+    public function updateExpense(Request $request)
+    {
+        $expense = Expense::find($request->id);
+        $expense->update($request->all());
+        return redirect()->back()->with('tab','trans');
+        
+    }
     public function deleteIncome($id)
     {
       $income =  Income::find($id);
       $income->delete();
-      return redirect()->back();
+      return redirect()->back()->with('tab','trans');
     }
     public function saveExpense(Request $request){
         Expense::create($request->all());
@@ -69,7 +92,7 @@ class SaveController extends Controller
     {
       $expense =  Expense::find($id);
       $expense->delete();
-      return redirect()->back();
+      return redirect()->back()->with('tab','trans');
     }
     //       END
     // ================

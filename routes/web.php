@@ -63,6 +63,9 @@ Route::get('/logout', function () {
 
 Auth::routes();
 
+Route::get('verify/resend', 'Auth\TwoFactorController@resend')->name('verify.resend');
+Route::resource('verify', 'Auth\TwoFactorController')->only(['index', 'store']);
+
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('dashboard','ShowController@showDashboard')->name('dashboard.show');
 Route::get('member','ShowController@showMember')
@@ -71,6 +74,7 @@ Route::get('member/create','ShowController@createMember')
 ->name('member.create');
 Route::get('member/edit/{id}','ShowController@editMember')
 ->name('member.edit');
+Route::get('member/delete/{id}','SaveController@deleteMember')->name('member.delete');
 Route::get('appointment','ShowController@showAppointment')->name('appointment.show');
 Route::get('appointment/edit/{id}','ShowController@editAppointment')->name('appointment.edit');
 Route::get('appointment/Games','ShowController@showAppointmentGame')->name('appointment.game');
@@ -95,6 +99,11 @@ Route::post('member/income/save','SaveController@saveIncome')->name('member.inco
 Route::get('member/income/delete/{id}','SaveController@deleteIncome')->name('member.income.delete');
 Route::post('member/expense/save','SaveController@saveExpense')->name('member.expense.save');
 Route::get('member/expense/delete/{id}','SaveController@deleteExpense')->name('member.expense.delete');
+Route::get('member/expense/edit/{id}','ShowController@editExpense')->name('member.expense.edit');
+Route::get('member/income/edit/{id}','ShowController@editIncome')->name('member.income.edit');
+
+Route::post('member/income/update','SaveController@updateIncome')->name('member.income.update');
+Route::post('member/expense/update','SaveController@updateExpense')->name('member.expense.update');
 
 Route::post('payroll/generate','SaveController@createPayslip')->name('payroll.generate');
 Route::post('appointment/update','SaveController@updateAppointment')->name('appointment.update');

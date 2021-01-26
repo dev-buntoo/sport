@@ -2008,8 +2008,28 @@ table.dataTable thead>tr>td.sorting {
 	width: 100%;
 }
 
+.account-box .logout {
+	background: #FA8072;
+	background: -moz-linear-gradient(left, #FA8072 0%, #DC143C 100%);
+	background: -webkit-linear-gradient(left, #FA8072 0%, #DC143C 100%);
+	background: -ms-linear-gradient(left, #FA8072 0%, #DC143C 100%);
+	background: linear-gradient(to right, #FA8072 0%, #DC143C 100%);
+	border: 0;
+	border-radius: 4px;
+	display: block;
+	font-size: 22px;
+	padding: 10px 26px;
+	width: 100%;
+}
+
 .account-box .account-btn:hover,
 .account-box .account-btn:focus {
+	border: 0;
+	opacity: 0.8;
+}
+
+.account-box .logout:hover,
+.account-box .logout:focus {
 	border: 0;
 	opacity: 0.8;
 }
@@ -8929,7 +8949,8 @@ ul.comment-list li ul.children {
 	background-color: #002060;
 	padding: 5px;
 }
-.bell-icon:hover{
+
+.bell-icon:hover {
 	color: white;
 }
 
@@ -8972,11 +8993,21 @@ ul.comment-list li ul.children {
 	top: 16px;
 }
 
-.border-default{
+.search-button1 {
+	background-color: transparent;
+	border-color: transparent;
+	color: black;
+	padding: 7px 15px;
+	position: absolute;
+	right: 6px;
+	top: 4px;
+}
+
+.border-default {
 	border: 1px solid #002060;
 }
 
-.trash-icon{
+.trash-icon {
 	color: white;
 	background-color: #c32929;
 	padding: 5px;
@@ -8987,8 +9018,9 @@ ul.comment-list li ul.children {
 	color: white;
 	background-color: #c32929;
 	padding: 5px;
-	
+
 }
+
 /*-----------------
 	64. Responsive
 -----------------------*/
@@ -9015,6 +9047,10 @@ ul.comment-list li ul.children {
 
 	.mini-sidebar .sidebar {
 		width: 60px;
+	}
+
+	.mini-sidebar .sidebar img{
+		width: 50px;
 	}
 
 	.mini-sidebar.expand-menu .sidebar {
@@ -9185,13 +9221,14 @@ ul.comment-list li ul.children {
 	.nav-tabs-justified.nav-tabs-top>li>a:focus {
 		border-width: 2px 0 0 0;
 	}
-	
+
 }
 
 @media only screen and (max-width: 1199.98px) {
 	.page-title-box {
 		display: none;
 	}
+
 	#search-box {
 		float: none;
 	}
@@ -9226,6 +9263,7 @@ ul.comment-list li ul.children {
 	.profile-rightbar {
 		display: inline-block !important;
 	}
+
 	#search-box {
 		float: none;
 	}
@@ -9403,6 +9441,7 @@ ul.comment-list li ul.children {
 	body {
 		font-size: 0.875rem;
 	}
+
 	#search-box {
 		float: none;
 	}
@@ -9883,9 +9922,11 @@ ul.comment-list li ul.children {
 		font-size: 14px;
 		min-width: inherit;
 	}
+
 	#search-box {
 		float: none;
 	}
+
 	.search-button {
 		position: absolute;
 		top: 78px;

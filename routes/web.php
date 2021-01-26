@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
+
 Route::get('generate-docs', function(){
 
     $headers = array(

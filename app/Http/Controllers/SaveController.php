@@ -69,13 +69,13 @@ class SaveController extends Controller
     {
         $income = Income::find($request->id);
         $income->update($request->all());
-        return redirect()->back()->with('tab','trans');
+        return redirect()->route('member.edit',$income->member_id)->with('tab','trans');
     }
     public function updateExpense(Request $request)
     {
         $expense = Expense::find($request->id);
         $expense->update($request->all());
-        return redirect()->back()->with('tab','trans');
+        return redirect()->route('member.edit',$expense->member_id)->with('tab','trans');
         
     }
     public function deleteIncome($id)

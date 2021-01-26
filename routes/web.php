@@ -12,7 +12,7 @@
 */
 
 Route::get('/clear-cache', function() {
-    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('view:clear');
     // return what you want
 });
 

@@ -24,7 +24,15 @@ class ShowController extends Controller
     //      DASHBOARD
     public function showDashboard()
     {
-        return view('main.dashboard.view');
+        $audits = \OwenIt\Auditing\Models\Audit::all();
+        // foreach($audits as $audit){
+        //     print_r($audit->auditable);
+        // //  echo '<pre>';print_r($audit);
+        //  echo "<br><br><br>";
+        // }
+        // return Appointment::find(144)->audits;
+        // return 'ok';
+        return view('main.dashboard.view',compact('audits'));
     }
     //        END
     // ===================

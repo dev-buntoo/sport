@@ -43,96 +43,21 @@
 									<table class="table table-nowrap custom-table mb-0">
 
 										<tbody>
+                                            @foreach($audits as $audit)
+
+                                            @if($audit->user->is_member != 1)
 											<tr>
 												<td class="overflow-auto">
 													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
 																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
+														<h2 class="mt-2 admin-log">{{ $audit->user->fname.' '}} @if($audit->event == "created") {{$audit->event}} new {{ substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) }}  @elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'login') signed in at {{ date('g:i a',strtotime($audit->created_at)).' IP '.$audit->ip_address   }} @elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'verify')has received Verification Code @else {{$audit->event}} {{ substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) }} @endif
+															({{ date('d-m-Y',strtotime($audit->created_at)) }})</h2>
 													</a>
 												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
+                                            </tr>
+                                            @endif
+                                            @endforeach
+
 
 										</tbody>
 									</table>
@@ -164,96 +89,20 @@
 									<table class="table table-nowrap custom-table mb-0">
 
 										<tbody>
+                                            @foreach($audits as $audit)
+                                            @if($audit->user->is_member == 1)
 											<tr>
 												<td class="overflow-auto">
 													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
 																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
+														<h2 class="mt-2 admin-log">Member {{ $audit->user->fname.' '}} @if($audit->event == "created") new @elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'login') signed in at {{ date('g:i a',strtotime($audit->created_at)).' IP '.$audit->ip_address   }} @endif
+															({{ date('d-m-Y',strtotime($audit->created_at)) }})</h2>
 													</a>
 												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="overflow-auto">
-													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
-																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">Ethen added new member David Test
-															(20-01-2020)</h2>
-													</a>
-												</td>
-											</tr>
+                                            </tr>
+                                            @endif
+                                            @endforeach
+
 
 										</tbody>
 									</table>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Member;
 use App\Model\Income;
 use App\Model\Expense;
 use App\Model\Payout;
@@ -29,7 +30,7 @@ class SaveController extends Controller
              'email'=>'unique:users',
          ]);
          $request->merge(['password' => Hash::make($request->password)]);
-         User::create($request->all());
+         Member::create($request->all());
          return redirect()->route('member.show');
 
     }
@@ -39,7 +40,7 @@ class SaveController extends Controller
         if(!Auth::user()->roles->edit_member){
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
-        $user = User::find($request->id);
+        $user = Member::find($request->id);
 
         if($request->email != $user->email){
             $this->validate($request,[
@@ -57,7 +58,7 @@ class SaveController extends Controller
         if(!Auth::user()->roles->delete_member){
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
-        $member = User::find($id);
+        $member = Member::find($id);
         $member->delete();
         return redirect()->back()->with('success','Member Deleted');
     }
@@ -76,7 +77,7 @@ class SaveController extends Controller
         $expense = Expense::find($request->id);
         $expense->update($request->all());
         return redirect()->route('member.edit',$expense->member_id)->with('tab','trans');
-        
+
     }
     public function deleteIncome($id)
     {
@@ -100,7 +101,7 @@ class SaveController extends Controller
 
     public function createPayslip(Request $request)
     {
-        foreach(User::all() as $user){
+        foreach(User::where('is_member',1)->get() as $user){
             $payout = new Payout();
             $payout->deduction = $user->expense->sum('amount');
             $payout->gross_amount = $user->income->sum('amount');

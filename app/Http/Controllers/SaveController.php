@@ -11,6 +11,7 @@ use App\Model\Payout;
 use App\Model\Payslip;
 use App\Model\Role;
 use App\Model\Appointment;
+use App\Model\UpdateRate;
 use App\Model\ImportData;
 use App\Imports\ImportAppoint;
 use Maatwebsite\Excel\Facades\Excel;
@@ -19,6 +20,43 @@ use Illuminate\Support\Facades\Hash;
 
 class SaveController extends Controller
 {
+    public function saveProfile(Request $request)
+    {
+
+
+        $this->validate($request, [
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $user = Auth::user();
+        if($user->email != $request->email){
+            $this->validate($request, [
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            ]);
+        }
+        $imageName = time().'.'.$request->photo->extension();
+        $request->photo->move(public_path('main/img/profile'), $imageName);
+
+        $user->update([
+            'fname' => $request['fname'],
+            'lname' => $request['lname'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'photo' =>   $imageName ,
+
+
+        ]);
+        return redirect()->back()->with('success','Profile Updated');
+
+
+    }
+
+    //      Profile
+    // =================
+
+
     // =================
     //      MEMBER
     public function saveMember(Request $request)
@@ -28,8 +66,13 @@ class SaveController extends Controller
          }
          $this->validate($request,[
              'email'=>'unique:users',
+             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
          ]);
-         $request->merge(['password' => Hash::make($request->password)]);
+         $imageName = time().'.'.$request->photo->extension();
+
+         $request->photo->move(public_path('main/img/profile'), $imageName);
+
+         $request->merge(['password' => Hash::make($request->password),'photo' =>   $imageName ]);
          Member::create($request->all());
          return redirect()->route('member.show');
 
@@ -48,7 +91,14 @@ class SaveController extends Controller
             ]);
         }
 
-       $request->merge(['password' => Hash::make($request->password)]);
+        $this->validate($request,[
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = time().'.'.$request->photo->extension();
+
+        $request->photo->move(public_path('main/img/profile'), $imageName);
+
+        $request->merge(['password' => Hash::make($request->password),'photo' =>   $imageName ]);
 
         $user->update($request->all());
         return redirect()->route('member.show');
@@ -98,7 +148,12 @@ class SaveController extends Controller
     //       END
     // ================
     //   TRANSACTION
-
+    public function updatePayslip(Request $request)
+    {
+        $payslip = Payout::find($request->id);
+        $payslip->update($request->all());
+        return redirect()->back();
+    }
     public function createPayslip(Request $request)
     {
         foreach(User::where('is_member',1)->get() as $user){
@@ -156,7 +211,31 @@ class SaveController extends Controller
     {
         $app = Appointment::find($request->id);
         $app->update($request->all());
+         $grade = $app->rates;
+         $grade->refree_rate = $request->referee_rate;
+         $grade->touch_judge_rate = $request->touch_judge_rate;
+         $grade->coach_rate = $request->coach_rate;
+         $grade->save();
         return redirect()->route('appointment.show');
+    }
+    public function updateRate(Request $request)
+    {
+        // dd($request);
+       $counter = count($request->grade);
+       for($i=0;$i<$counter;$i++){
+         $update =  UpdateRate::updateOrCreate([
+                'id' =>$request->id[$i],
+            //    'grade' => $request->grade[$i]
+               ]);
+          $update->update([
+
+            'grade' => $request->grade[$i] , 'refree_rate' => $request->refree_rate[$i],'touch_judge_rate' => $request->touch_judge_rate[$i],'coach_rate' => $request->coach_rate[$i],
+          ]);
+        //   $update->save();
+       }
+
+       return redirect()->back()->with('success','Rates updated successfully');
+
     }
     //      END
     // =============
@@ -169,7 +248,12 @@ class SaveController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'role_id'  => ['required'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        $imageName = time().'.'.$request->photo->extension();
+
+        $request->photo->move(public_path('main/img/profile'), $imageName);
+
          User::create([
             'fname' => $request['fname'],
             'lname' => $request['lname'],
@@ -177,6 +261,7 @@ class SaveController extends Controller
             'is_member' => '0',
             'role_id'=>$request['role_id'],
             'password' => Hash::make($request['password']),
+            'photo' =>   $imageName
         ]);
 
         return redirect()->route('system.admin');
@@ -189,6 +274,7 @@ class SaveController extends Controller
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $user = User::find($request->id);
         if($user->email != $request->email){
@@ -196,12 +282,17 @@ class SaveController extends Controller
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             ]);
         }
+        $imageName = time().'.'.$request->photo->extension();
+
+        $request->photo->move(public_path('main/img/profile'), $imageName);
+
         $user->update([
             'fname' => $request['fname'],
             'lname' => $request['lname'],
             'email' => $request['email'],
             'role_id' => $request['role_id'],
             'password' => Hash::make($request['password']),
+            'photo' =>   $imageName
         ]);
         return redirect()->route('system.admin');
     }

@@ -42,6 +42,8 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         $user->generateTwoFactorCode();
+        if($user->is_member == 0){
         $user->notify(new TwoFactorCode());
+        }
     }
 }

@@ -52,7 +52,9 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm">
-                                        <form class="needs-validation">
+                                        <form class="needs-validation" method="POST" action="{{ route('payroll.update') }}">
+                                           @csrf
+                                           <input type="hidden" value="{{ $payslip->id }}" name="id">
                                             <div class="form-row">
                                                 <div class="col-md-12 mb-3">
                                                     <label for="gross_amount">Gross Amount</label>
@@ -62,7 +64,7 @@
                                                 <div class="col-md-12 mb-3">
                                                     <label for="total_deduction">Total Deduction</label>
                                                     <input type="number" class="form-control" id="total_deduction"
-                                                        name="total_deduction" value="{{ $payslip->deduction }}">
+                                                        name="deduction" value="{{ $payslip->deduction }}">
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label for="net_amount">Net Amount</label>
@@ -73,8 +75,8 @@
                                                 <div class="col-md-12 mb-3">
                                                     <label class="col-form-label">Payment Type</label>
                                                     <select class="select select2-hidden-accessible" data-select2-id="1"
-                                                        tabindex="-1" aria-hidden="true">
-                                                        <option value="Bannk Payment" data-select2-id="3">Bannk Payment
+                                                        tabindex="-1" aria-hidden="true" name="bank_pay">
+                                                        <option value="Bannk Payment" data-select2-id="3">Bank Payment
                                                         </option>
                                                         <option value="Cheque”">Cheque”</option>
                                                     </select>
@@ -84,21 +86,22 @@
                                                     <label for="bank_reference" class="col-form-label">Bank
                                                         Reference</label>
                                                     <input type="text" class="form-control" id="bank_reference"
-                                                        name="bank_reference">
+                                                        name="bank_ref">
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label for="payment_date">Payment Date</label>
                                                     <input type="text" class="form-control datetimepicker"
                                                         id="payment_date" name="payment_date" value="" required>
                                                 </div>
-
+@if(!Auth::user()->is_member)
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label>Note</label>
-                                                        <textarea class="form-control" rows="4" name="note"
+                                                        <textarea class="form-control" rows="4" name="description"
                                                             id="name"></textarea>
                                                     </div>
                                                 </div>
+@endif
                                                 <div class="submit-section">
                                                     <button class="btn btn-primary submit-btn">Save</button>
                                                     <button class="btn btn-info submit-btn"> Generate Payslip</button>

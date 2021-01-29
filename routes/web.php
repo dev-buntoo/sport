@@ -73,6 +73,8 @@ Route::resource('verify', 'Auth\TwoFactorController')->only(['index', 'store']);
 
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('dashboard','ShowController@showDashboard')->name('dashboard.show');
+Route::get('profile','ShowController@editProfile')->name('profile.show');
+Route::post('profile/save','SaveController@saveProfile')->name('profile.save');
 Route::get('member','ShowController@showMember')
 ->name('member.show');
 Route::get('member/create','ShowController@createMember')
@@ -84,9 +86,13 @@ Route::get('appointment','ShowController@showAppointment')->name('appointment.sh
 Route::get('appointment/edit/{id}','ShowController@editAppointment')->name('appointment.edit');
 Route::get('appointment/Games','ShowController@showAppointmentGame')->name('appointment.game');
 Route::get('appointment/update-rate','ShowController@showUpdaterate')->name('appointment.update-rate');
+Route::post('appointment/saveRate','SaveController@updateRate')->name('appointment.saveRate');
 Route::get('payroll','ShowController@showPayroll')->name('payroll.show');
 Route::get('payrun','ShowController@showPayrun')->name('payrun.show');
 Route::get('payslip/{id}','ShowController@showPayslip')->name('payslip.show');
+Route::post('payslip/update','SaveController@updatePayslip')->name('payroll.update');
+
+Route::get('generate/slip/{id}','ShowController@genrateSlip')->name('generate.slip');
 
 Route::get('system/admin','ShowController@showAdmin')->name('system.admin');
 Route::get('system/admin/edit/{id}','ShowController@editUser')->name('user.edit');

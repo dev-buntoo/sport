@@ -7,11 +7,13 @@ use App\User;
 use App\Model\Income;
 use App\Model\Expense;
 use App\Model\Payout;
+use App\Model\UpdateRate;
 use App\Model\Appointment;
 use App\Model\ImportData;
 use App\Model\Role;
 use Schema;
 use Auth;
+use Carbon\Carbon;
 
 class ShowController extends Controller
 {
@@ -33,6 +35,12 @@ class ShowController extends Controller
         // return Appointment::find(144)->audits;
         // return 'ok';
         return view('main.dashboard.view',compact('audits'));
+    }
+
+    public function editProfile()
+    {
+      $user = Auth::user();
+      return view('main.dashboard.profile',compact('user'));
     }
     //        END
     // ===================
@@ -109,6 +117,12 @@ class ShowController extends Controller
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
         $app = Appointment::find($id);
+        if(!$app->rates){
+            $app->rates =  UpdateRate::updateOrCreate([
+                'grade' =>$app->grade,
+            //    'grade' => $request->grade[$i]
+               ]);
+        }
         return view('main.appointment.edit',compact('app'));
     }
     public function showAppointmentGame()
@@ -122,7 +136,8 @@ class ShowController extends Controller
     }
     public function showUpdaterate()
     {
-        return view('main.appointment.updateRate');
+        $rates = UpdateRate::all();
+        return view('main.appointment.updateRate',compact('rates'));
     }
 
     //      END
@@ -151,7 +166,18 @@ class ShowController extends Controller
          }
         $payslip = Payout::find($id);
     //    dd($payslip->record);
+         if($payslip->member_id == Auth::user()->id){
+            $payslip->is_view = Carbon::now()->toDateTimeString();
+            $payslip->save();
+         }
         return view('main.payroll.payslip',compact('payslip'));
+    }
+
+    public function genrateSlip($id){
+            $payslip = Payout::find($id);
+        //    dd($payslip->record);
+            $slip = $payslip->record;
+            return view('main.slip.index',compact('payslip','slip'));
     }
     //      END
     // ==================

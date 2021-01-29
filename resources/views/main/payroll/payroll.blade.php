@@ -49,7 +49,7 @@
                                         <td>{{ $pay->member->fname.' '.$pay->member->lname }}</td>
                                         <td>{{ $pay->gross_amount+$pay->deduction }}</td>
                                         <td><span class="badge bg-inverse-danger">Unpaid</span></td>
-                                        <td><span class="badge bg-inverse-danger">No</span></td>
+                                        <td><span class="badge ">@if($pay->is_view) Yes {{ date('d-m-Y',strtotime($pay->created_at)) }} @else No @endif</span></td>
                                         <td>
                                             <button type="button" class="btn btn-secondary">Email Payslip</button>
                                             <a href="{{ route('payslip.show',$pay->id) }}" class="btn btn-warning">View Payslip</a>

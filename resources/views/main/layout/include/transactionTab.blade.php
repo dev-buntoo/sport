@@ -15,7 +15,7 @@
             <table class="table table-striped custom-table mb-0 datatable">
                 <thead>
                     <tr>
-                        <th>Member Number</th>
+                        <th>Member Name</th>
                         <th>Expense</th>
                         <th>Amount</th>
                         <th>Notes</th>
@@ -26,9 +26,7 @@
                 <tbody>
                     @foreach($expense as $exp)
                     <tr>
-                        <td class="default-color"><span
-                                class="border-default p-2">{{$exp->member->member_number}}</span>
-                        </td>
+                        <td>{{$exp->member->fname}}</td>
                         <td>{{$exp->expense}}</td>
                         <td>{{$exp->amount}}</td>
                         <td>{{$exp->description}}</td>
@@ -75,7 +73,7 @@
             <table class="table table-striped custom-table mb-0 datatable">
                 <thead>
                     <tr>
-                        <th>Member Number</th>
+                        <th>Member Name</th>
                         <th>Income</th>
                         <th>Amount</th>
                         <th>Notes</th>
@@ -86,9 +84,7 @@
                 <tbody>
                     @foreach($income as $inc)
                     <tr>
-                        <td class="default-color"><span
-                                class="border-default p-2">{{$inc->member->member_number}}</span>
-                        </td>
+                        <td>{{$inc->member->fname}}</td>
                         <td>{{$inc->income}}</td>
                         <td>{{$inc->amount}}</td>
                         <td>{{$inc->description}}</td>
@@ -160,7 +156,7 @@
                                             <option value="Social levy">Social levy</option>
                                             <option value="Social events">Social events</option>
                                             <option value="Gear">Gear</option>
-                                            <option value="Coaching Levy">Coaching Levy</option>
+                                            <option value="Coaching Levy">Coaching levy</option>
                                             <option value="Membership fee">Membership fee</option>
                                             <option value="MISC">MISC</option>
                                         </select>
@@ -226,8 +222,9 @@
                                         <label class="col-form-label">Income</label>
                                         <select class="select" name="income">
                                             <option value="Games through referee">Games through referee</option>
-                                            <option value="coach, MISC">coach, MISC</option>
+                                            <option value="Coach">Coach</option>
                                             <option value="Executive role">Executive role</option>
+                                            <option value="MISC">MISC</option>
                                         </select>
                                     </div>
 

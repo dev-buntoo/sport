@@ -12,7 +12,7 @@
     <title>Members Mcorpx</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('main')}}/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('main')}}/img/logo.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('main')}}/css/bootstrap.min.css">
@@ -80,7 +80,7 @@
                             <span>{{ Auth::user()->roles->name }}</span>
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('profile.show') }}">My Profile</a>
+                         <a class="dropdown-item" href="{{ route('profile.show') }}">My Profile</a>
                         <!--<a class="dropdown-item" href="settings.html">Settings</a>-->
                         <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                     </div>
@@ -93,7 +93,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
                         class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="{{ route('profile.show') }}">My Profile</a>
+                        <a class="dropdown-item" href="{{ route('profile.show') }}">My Profile</a>
                         <!--<a class="dropdown-item" href="settings.html">Settings</a>-->
                         <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                 </div>

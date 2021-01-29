@@ -14,7 +14,7 @@
                         <div class="col">
                             <h3 class="page-title">Memeber Payroll</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="./payrun.html">Pay Run</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('payrun.show')}}">Pay Run</a></li>
                                 <li class="breadcrumb-item active">View Pay Run</li>
                             </ul>
                         </div>
@@ -162,6 +162,32 @@
 
         </div>
         <!-- /Page Wrapper -->
+        
+         <!-- Payment Confirmation Modal -->
+			<div class="modal custom-modal fade" id="payment-save" role="dialog">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="form-header">
+								<h3>Payment Confirmation</h3>
+								<p>Are you sure want to update?</p>
+							</div>
+							<div class="modal-btn delete-action">
+								<div class="row">
+									<div class="col-6">
+										<a href="javascript:void(0);" class="btn btn-primary continue-btn">Update</a>
+									</div>
+									<div class="col-6">
+										<a href="javascript:void(0);" data-dismiss="modal"
+											class="btn btn-primary cancel-btn">Cancel</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Payment Confirmation Modal -->
 
 
 @endsection

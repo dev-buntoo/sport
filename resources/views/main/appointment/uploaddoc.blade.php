@@ -12,7 +12,7 @@
                         <div class="col">
                             <h3 class="page-title">Appointment Games</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="appointments.html">Appointments</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('appointment.show')}}">Appointments</a></li>
                                 <li class="breadcrumb-item active">Appointment Games</li>
                             </ul>
                         </div>

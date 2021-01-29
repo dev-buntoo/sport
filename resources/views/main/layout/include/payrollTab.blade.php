@@ -1,7 +1,4 @@
 <div class="row mt-3">
-    <div class="col">
-        <h3>Member Profile</h3>
-    </div>
     <div class="col-md-12">
         <div class="table-responsive">
 

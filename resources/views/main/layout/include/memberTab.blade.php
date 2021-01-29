@@ -1,5 +1,6 @@
-<form class="needs-validation" action="{{ route('member.update') }}" method="POST" enctype="multipart/form-data">
+<form class="needs-validation" action="{{ route('member.update') }}" method="POST" enctype="multipart/form-data" name="myform">
   @csrf
+  <input type="hidden" name="length" value="10">
   <input type="hidden" value="{{ $member->id }}" name="id">
     <div class="row">
 
@@ -44,14 +45,14 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="phone_one">Phone #1 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="tel"
+                                        <input type="number"
                                             
                                             class="form-control" id="phone_one"
                                             name="phone_1" value="{{ $member->phone_1 }}" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="phone_two">Phone #2</label>
-                                        <input type="tel"
+                                        <input type="number"
                                             
                                             class="form-control" id="phone_two"
                                             name="phone_2" value="{{ $member->phone_2 }}">
@@ -84,17 +85,36 @@
                                             class="col-form-label">Password
                                             <span
                                                 class="text-danger">*</span></label>
-                                        <input type="password"
-                                            class="form-control" id="password"
-                                            name="password"  required>
+                                                
+                                                <div class="input-group">
+													
+													<input type="text" class="form-control" id="password" name="password"  required>
+													<div class="input-group-prepend">
+														<button type="button" data-toggle="tooltip" data-placement="top" data-original-title="Generate Password" class="input-group-text" onClick="generate()" tabindex="2" value=""><i class="fa fa-refresh"></i> </button>
+													</div>
+												</div>
+                                       
                                     </div>
-                                    <div class="col-md-12 mb-3">
-                                        <label for="address">Address <span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" class="form-control"
-                                            id="address" name="address" value="{{ $member->address }}"
-                                            required>
-                                    </div>
+                                    
+                                   <div class="col-md-12 mb-3" id="mapDetails">
+                                      <label for="address">Address <span
+                                              class="text-danger">*</span></label>
+                                      <div class="input-group">
+                                          <input type="text" class="form-control"
+                                          id="fulladdressText" name="address" value="{{ $member->address }}"
+                                          required>
+                                          <div class="input-group-prepend">
+												<button id="geolocateButton" type="button" data-toggle="tooltip" data-placement="top" title="Use your current location" data-title-clear="Clear address field" data-title-geolocate="Use your current location" data-title-loading="Please wait, finding your loaction..." class="input-group-text"><i class="fa fa-location-arrow" aria-hidden="true"></i> </button>
+											</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-12 mb-3">
+                                       <div id="map-container">
+                                          <div id="map-container-inner">
+                                            <div id="map"></div>
+                                          </div>
+                                        </div>
+                                  </div>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +137,7 @@
                                         <label for="member_number">Member Number
                                             <span
                                                 class="text-danger">*</span></label>
-                                        <input type="tel" 
+                                        <input type="number" 
                                             
                                             class="form-control"
                                             id="member_number"
@@ -129,7 +149,7 @@
                                         <label class="col-form-label">Status
                                             <span
                                                 class="text-danger">*</span></label>
-                                        <select name="status" class="select">
+                                        <select name="status" class="select" required>
                                             <option @if($member->status == "Active") selected @endif value="Active">Active
                                             </option>
                                             <option @if($member->status == "Non-Active") selected @endif value="Non-Active">
@@ -139,9 +159,11 @@
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label">Role <span
                                                 class="text-danger">*</span></label>
-                                        <select name="role" class="select">
+                                        <select name="role" class="select" required>
                                             <option  @if($member->role == "Referee & Coach") selected @endif value="Referee & Coach">
                                                 Referee & Coach</option>
+                                                <option  @if($member->role == "Coach") selected @endif value="Coach">
+                                                Coach</option>
                                             <option  @if($member->role == "Referee") selected @endif value="Referee">Referee
                                             </option>
                                         </select>
@@ -150,7 +172,7 @@
                                         <label class="col-form-label">Life
                                             Member <span
                                                 class="text-danger">*</span></label>
-                                        <select name="life_member" class="select">
+                                        <select name="life_member" class="select" required>
                                             <option  @if($member->life_member == "Yes") selected @endif value="Yes">Yes</option>
                                             <option @if($member->life_member == "No") selected @endif value="No">No</option>
                                         </select>
@@ -253,8 +275,8 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="bsb_number">BSB number
                                         </label>
-                                        <input type="number"
-                                            class="form-control" id="bsb_number"
+                                        <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                            class="form-control bsb_number" maxlength="6" id="bsb_number"
                                             name="bsb_number" value="{{ $member->bsb_number }}">
                                     </div>
                                     <div class="col-md-6 mb-3">

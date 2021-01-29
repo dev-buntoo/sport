@@ -16,7 +16,7 @@
                         <div class="col-md-6">
                             <h3 class="page-title">Memeber Payroll</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                                 <li class="breadcrumb-item active">Pay Run</li>
                             </ul>
 
@@ -33,10 +33,10 @@
                                 <label class="focus-label">Choose Year</label>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <button type="submit" class="btn add-btn">Generate</button>
+                         <div class="col-md-3 d-flex">
+                            <button type="submit" class="btn add-btn mb-3">Generate</button>
                         </div>
-
+                        
                     </div>
 
             </div>
@@ -64,9 +64,9 @@
                                 <tr>
                                     <td>{{ $pay->date }}</td>
                                     <td>{{ $pay->member->fname.' '.$pay->member->lname }}</td>
-                                    <td>{{ $pay->gross_amount }} $</td>
-                                    <td>{{ $pay->deduction }} $</td>
-                                    <td>{{ $pay->net_amount }} $</td>
+                                    <td>$ {{ $pay->gross_amount }}</td>
+                                    <td>$ {{ $pay->deduction }}</td>
+                                    <td>$ {{ $pay->net_amount }}</td>
                                     <td><span class="badge bg-inverse-danger">Unpaid</span></td>
                                     <td>
                                         <a href="{{ route('payslip.show',$pay->id) }}" type="button"
@@ -79,9 +79,9 @@
                             <tfooter>
                                 <tr class="table-info">
                                     <th colspan="2">Totals</th>
-                                    <th>{{ $payrolls->sum('gross_amount') }} $</th>
-                                    <th>{{ $payrolls->sum('deduction') }} $</th>
-                                    <th colspan="3">{{ $payrolls->sum('net_amount') }} $</th>
+                                    <th>$ {{ $payrolls->sum('gross_amount') }}</th>
+                                    <th>$ {{ $payrolls->sum('deduction') }}</th>
+                                    <th colspan="3">$ {{ $payrolls->sum('net_amount') }}</th>
                                 </tr>
                             </tfooter>
                         </table>
@@ -90,32 +90,6 @@
             </div>
         </div>
         <!-- /Page Content -->
-
-        <!-- Delete Leave Modal -->
-        <div class="modal custom-modal fade" id="delete_approve" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="form-header">
-                            <h3>Delete Leave</h3>
-                            <p>Are you sure want to Cancel this leave?</p>
-                        </div>
-                        <div class="modal-btn delete-action">
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
-                                </div>
-                                <div class="col-6">
-                                    <a href="javascript:void(0);" data-dismiss="modal"
-                                        class="btn btn-primary cancel-btn">Cancel</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /Delete Leave Modal -->
 
     </div>
     <!-- /Page Wrapper -->

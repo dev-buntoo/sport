@@ -11,33 +11,32 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div class="row align-items-center">
-                        <div class="col">
+                        <div class="col-md-6">
                             <h3 class="page-title">Appointment Games</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                                 <li class="breadcrumb-item active">Appointments</li>
                             </ul>
                         </div>
-
+                        
+                        
+                            <div class="col-md-3 float-right ml-auto">
                         <form action="{{ route('appointment.import') }}" method="POST" name="importform" enctype="multipart/form-data">
                             @csrf
-                            <input type="file" name="import_file"  class="form-control">
-                            <br>
-                            <div class="col float-right ml-auto">
-
-                            <button  type="file" class="btn add-btn"><i class="fa fa-plus"></i>  Import File</button>
+                                 <input type="file" name="import_file"  class="form-control">
+                            </div>
+                            
+                            <div class="col-md-3 d-flex">
+                                <button  type="file" class="btn add-btn "><i class="fa fa-plus"></i>  Import File</button>
                             </div>
                         </form>
-
-                        {{--  <div class="col float-right ml-auto">
-                            <a href="#" class="btn add-btn"><i class="fa fa-plus"></i> Import</a>
-                        </div>  --}}
                     </div>
+                    
                     <!-- Search Filter -->
                     <div class="row filter-row mt-3">
                         <div class="col-sm-6 col-md-4">
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating datetimepicker" name="year">
+                                <input type="text" class="form-control floating" name="year">
                                 <label class="focus-label">Year</label>
                             </div>
                         </div>

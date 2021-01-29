@@ -10,7 +10,7 @@
                         <div class="col">
                             <h3 class="page-title">Edit Expense</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                                 <li class="breadcrumb-item active">Edit Expense</li>
                             </ul>
                         </div>

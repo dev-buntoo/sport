@@ -14,14 +14,9 @@
                         <div class="col">
                             <h3 class="page-title">Memeber Payroll</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                                 <li class="breadcrumb-item active">Pay Slip</li>
                             </ul>
-                        </div>
-                        <div class="col float-right ml-auto">
-
-                            <a href="#" class="btn add-btn">Email All Pay slips</a>
-                            <a href="#" class="btn add-btn mr-2"><span>&#8734;</span></a>
                         </div>
                     </div>
                 </div>
@@ -37,7 +32,6 @@
                                         <th>Payroll Year</th>
                                         <th>Member Name</th>
                                         <th>Amount</th>
-                                        <th>Status</th>
                                         <th>Viewed</th>
                                         <th>Action</th>
                                     </tr>
@@ -48,10 +42,10 @@
                                         <td>{{ $pay->date }}</td>
                                         <td>{{ $pay->member->fname.' '.$pay->member->lname }}</td>
                                         <td>{{ $pay->gross_amount+$pay->deduction }}</td>
-                                        <td><span class="badge bg-inverse-danger">Unpaid</span></td>
                                         <td><span class="badge ">@if($pay->is_view) Yes {{ date('d-m-Y',strtotime($pay->created_at)) }} @else No @endif</span></td>
+                                        
                                         <td>
-                                            <button type="button" class="btn btn-secondary">Email Payslip</button>
+                                            
                                             <a href="{{ route('payslip.show',$pay->id) }}" class="btn btn-warning">View Payslip</a>
                                         </td>
                                     </tr>

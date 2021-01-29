@@ -30,7 +30,7 @@
                         <ul style="display: none;">
                             <li><a href="{{ route('appointment.show') }}"> Appointment List </a></li>
                             <li><a href="{{ route('appointment.game') }}"> Appointment Game </a></li>
-                            <li><a href="{{ route('appointment.update-rate') }}"> Update Rate </a></li>
+                            <li><a href="{{ route('appointment.update-rate') }}"> Update Rates </a></li>
                         </ul>
                     </li>
 
@@ -38,7 +38,7 @@
                         <a href="#" class=""><i class="la la-user"></i> <span> System Admins</span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="{{ route('system.admin') }}">System User</a></li>
+                            <li><a href="{{ route('system.admin') }}">System Users</a></li>
                             <li><a href="{{ route('system.role') }}">Roles</a></li>
                             <li><a href="{{ route('system.auditlog') }}">Audit Logs</a></li>
                         </ul>

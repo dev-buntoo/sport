@@ -34,6 +34,7 @@ class ShowController extends Controller
         // }
         // return Appointment::find(144)->audits;
         // return 'ok';
+        // dd($audits);
         return view('main.dashboard.view',compact('audits'));
     }
 

@@ -110,6 +110,7 @@ Route::post('member/income/save','SaveController@saveIncome')->name('member.inco
 Route::get('member/income/delete/{id}','SaveController@deleteIncome')->name('member.income.delete');
 Route::post('member/expense/save','SaveController@saveExpense')->name('member.expense.save');
 Route::get('member/expense/delete/{id}','SaveController@deleteExpense')->name('member.expense.delete');
+Route::post('member/import','SaveController@ImportMemberData')->name('member.import');
 Route::get('member/expense/edit/{id}','ShowController@editExpense')->name('member.expense.edit');
 Route::get('member/income/edit/{id}','ShowController@editIncome')->name('member.income.edit');
 

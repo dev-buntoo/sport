@@ -9,19 +9,35 @@
                 <!-- Page Header -->
                 <div class="page-header">
                     <div class="row align-items-center">
-                        <div class="col">
+                        <div class="col-md-6">
                             <h3 class="page-title">Manage Members</h3>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                                 <li class="breadcrumb-item active">Members</li>
                             </ul>
                         </div>
-                        <div class="col float-right ml-auto">
-                            <a href="{{ route('member.create') }}" class="btn add-btn"><i class="fa fa-plus"></i> Create</a>
-                        </div>
+
+
+                            <div class="col-md-3 float-right ml-auto">
+                        <form action="{{ route('member.import') }}" method="POST" name="importform" enctype="multipart/form-data">
+                            @csrf
+                            <span class="text-danger">Email should be unique</span>
+                                 <input type="file" name="import_file"  class="form-control">
+                            </div>
+
+                            <div class="col-md-3 d-flex">
+                                <button  type="file" class="btn add-btn mr-3"><i class="fa fa-plus"></i>  Import File</button>
+                                <a href="{{ route('member.create') }}" class="btn add-btn"><i class="fa fa-plus"></i> Create</a>
+                            </div>
+
+                        </form>
+
                     </div>
+
                 </div>
                 <!-- /Page Header -->
+
+
 
                 <div class="row">
                     <div class="col-md-12">
@@ -41,7 +57,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+
                                 @foreach($members as $member)
                                     <tr>
                                         <td class="default-color"><span class="border-default p-2">{{ $member->member_number }}</span> </td>
@@ -67,7 +83,7 @@
             </div>
             <!-- /Page Content -->
 
-      
+
         </div>
         <!-- /Page Wrapper -->
 

@@ -14,6 +14,7 @@ use App\Model\Appointment;
 use App\Model\UpdateRate;
 use App\Model\ImportData;
 use App\Imports\ImportAppoint;
+use App\Imports\ImportMember;
 use Maatwebsite\Excel\Facades\Excel;
 use Auth;
 use Illuminate\Support\Facades\Hash;
@@ -59,6 +60,20 @@ class SaveController extends Controller
 
     // =================
     //      MEMBER
+
+    public function ImportMemberData(Request $request)
+    {
+        $request->validate([
+            'import_file' => 'required'
+        ]);
+
+        try{Excel::import(new ImportMember(), request()->file('import_file'));}
+        catch (\Exception $e) {
+            return back()->with('error', 'UnExpected error found');
+        }
+        return back()->with('success', 'Members imported successfully.');
+    }
+
     public function saveMember(Request $request)
     {
         if(!Auth::user()->roles->create_member){

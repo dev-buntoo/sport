@@ -18,20 +18,20 @@
                                 <li class="breadcrumb-item active">Appointments</li>
                             </ul>
                         </div>
-                        
-                        
+
+
                             <div class="col-md-3 float-right ml-auto">
                         <form action="{{ route('appointment.import') }}" method="POST" name="importform" enctype="multipart/form-data">
                             @csrf
                                  <input type="file" name="import_file"  class="form-control">
                             </div>
-                            
+
                             <div class="col-md-3 d-flex">
                                 <button  type="file" class="btn add-btn "><i class="fa fa-plus"></i>  Import File</button>
                             </div>
                         </form>
                     </div>
-                    
+
                     <!-- Search Filter -->
                     <div class="row filter-row mt-3">
                         <div class="col-sm-6 col-md-4">
@@ -79,7 +79,7 @@
                                         <td>1</td>
                                         <td>{{ $app->home_team }}</td>
                                         <td>{{ $app->away_team }}</td>
-                                        <td>{{ $app->grade }}</td>
+                                        <td style= "@if(!$app->rates) border: 1px solid red; @endif">{{ $app->grade }}</td>
                                         <td>{{ $app->referee }}</td>
                                         <td>{{ $app->touch_judge_one }}</td>
                                         <td>{{ $app->touch_judge_two }}</td>

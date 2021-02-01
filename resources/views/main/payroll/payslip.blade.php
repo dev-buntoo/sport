@@ -52,7 +52,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm">
-                                        <form class="needs-validation" method="POST" action="{{ route('payroll.update') }}">
+                                        <form class="needs-validation" id="formsubmit" name="formsubmit" method="POST" action="{{ route('payroll.update') }}">
                                            @csrf
                                            <input type="hidden" value="{{ $payslip->id }}" name="id">
                                             <div class="form-row">
@@ -74,11 +74,11 @@
 
                                                 <div class="col-md-12 mb-3">
                                                     <label class="col-form-label">Payment Type</label>
-                                                    <select class="select select2-hidden-accessible" data-select2-id="1"
+                                                    <select class="select" data-select2-id="1"
                                                         tabindex="-1" aria-hidden="true" name="bank_pay">
-                                                        <option value="Bannk Payment" data-select2-id="3">Bank Payment
+                                                        <option @if($payslip->bank_pay == "Bank Payment") selected @endif value="Bank Payment" data-select2-id="3">Bank Payment
                                                         </option>
-                                                        <option value="Cheque”">Cheque”</option>
+                                                        <option @if($payslip->bank_pay == "Cheque”") selected @endif value="Cheque”">Cheque”</option>
                                                     </select>
                                                 </div>
 
@@ -86,25 +86,26 @@
                                                     <label for="bank_reference" class="col-form-label">Bank
                                                         Reference</label>
                                                     <input type="text" class="form-control" id="bank_reference"
-                                                        name="bank_ref">
+                                                        name="bank_ref" value="{{ $payslip->bank_ref }}">
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label for="payment_date">Payment Date</label>
                                                     <input type="text" class="form-control datetimepicker"
-                                                        id="payment_date" name="payment_date" value="" required>
+                                                        id="payment_date" name="payment_date" value="{{ $payslip->payment_date }}" required>
                                                 </div>
 @if(!Auth::user()->is_member)
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label>Note</label>
                                                         <textarea class="form-control" rows="4" name="description"
-                                                            id="name"></textarea>
+                                                            id="name">{{ $payslip->description }}</textarea>
                                                     </div>
                                                 </div>
 @endif
                                                 <div class="submit-section">
-                                                    <button class="btn btn-primary submit-btn">Save</button>
-                                                    <button class="btn btn-info submit-btn"> Generate Payslip</button>
+                                                    <button type="button" id="submit" data-toggle="modal" data-target="#payment-save" class="btn btn-primary submit-btn">Save</button>
+                                                    <a href="{{ route('generate.slip',$payslip->id) }}" target="_blank" class="btn btn-info submit-btn"> Generate Payslip</a>
+                                                    <button type="submit" style="display: none;" id="hiddensubmit">
                                                 </div>
                                             </div>
                                         </form>
@@ -162,7 +163,7 @@
 
         </div>
         <!-- /Page Wrapper -->
-        
+
          <!-- Payment Confirmation Modal -->
 			<div class="modal custom-modal fade" id="payment-save" role="dialog">
 				<div class="modal-dialog modal-dialog-centered">
@@ -170,12 +171,12 @@
 						<div class="modal-body">
 							<div class="form-header">
 								<h3>Payment Confirmation</h3>
-								<p>Are you sure want to update?</p>
+								<p>Are you sure you want to update?</p>
 							</div>
 							<div class="modal-btn delete-action">
 								<div class="row">
 									<div class="col-6">
-										<a href="javascript:void(0);" class="btn btn-primary continue-btn">Update</a>
+										<a href="#" id="savealert" class="btn btn-primary continue-btn">Update</a>
 									</div>
 									<div class="col-6">
 										<a href="javascript:void(0);" data-dismiss="modal"
@@ -190,4 +191,16 @@
 			<!-- /Payment Confirmation Modal -->
 
 
+
 @endsection
+@push('script')
+<script>
+$('#submit').click(function() {
+
+});
+
+$('#savealert').click(function(){
+    $('#hiddensubmit').click();
+});
+</script>
+@endpush

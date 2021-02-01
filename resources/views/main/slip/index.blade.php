@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
     <style type="text/css">
         body,
         table,
@@ -83,6 +83,7 @@
     </style>
 
 <body style="margin: 0 !important; padding: 0 !important; background-color: #eeeeee;" bgcolor="#eeeeee">
+   <div id="content">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td align="center" style="background-color: #eeeeee;" bgcolor="#eeeeee">
@@ -123,8 +124,8 @@
                                                 </td>
                                                 <td width="50%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
                                                     <h1 style="margin-top: -140px;margin-bottom: 10px;">PAY SLIP</h1>
-                                                    <span style="display: block;">Date : 10/07/2020</span>
-                                                    <span style="display: block;">Member # : 10/07/2020</span>
+                                                    <span style="display: block;">Date : {{ date('d/m/Y',strtotime($payslip->created_at))}}</span>
+                                                    <span style="display: block;">Member # : {{ $payslip->member->member_number }}</span>
                                                 </td>
                                             </tr>
 
@@ -142,9 +143,9 @@
                                             </tr>
                                             @foreach($slip as $slp)
                                             <tr>
-                                                <td width="70%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;color:#fff;background:#dcddde">{{ $slp->name }} </td>
-                                                <td width="15%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;color:#fff;background:#dcddde">{{ $slp->debit.' '.$slp->credit }} </td>
-                                                <td width="15%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;color:#fff;background:#dcddde"> ${{ $slp->debit.' '.$slp->credit }}</td>
+                                                <td width="70%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;color:black;background:#dcddde">{{ $slp->name }} </td>
+                                                <td width="15%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;color:black;background:#dcddde">{{ $slp->debit.' '.$slp->credit }} </td>
+                                                <td width="15%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;color:black;background:#dcddde"> ${{ $slp->debit.' '.$slp->credit }}</td>
                                             </tr>
                                             @endforeach
 
@@ -174,7 +175,7 @@
                                                 <td width="50%" align="left"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px;">PAYMENT DETAILS </td><br>
                                             </tr>
                                             <tr>
-                                                <td width="25%" align="left"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px;  line-height: 20px;"><p>Payment Date: 28/10/2020 Account: (923-100) ****1180Commonwealth Ban </p></td>
+                                                <td width="25%" align="left"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px;  line-height: 20px;"><p>Payment Date: {{ $payslip->payment_date }} <br> Payment Type: {{ $payslip->bank_pay }} <br> Bank Reference:  {{ $payslip->bank_ref }}</p></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -209,6 +210,28 @@
             </td>
         </tr>
     </table>
+   </div>
+   <div id="editor"></div>
+   {{--  <button id="cmd">generate PDF</button>  --}}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+      var doc = new jsPDF();
+var specialElementHandlers = {
+   '#editor': function (element, renderer) {
+       return true;
+   }
+};
+
+$('#cmd').click(function () {
+   doc.fromHTML($('#content').html(), 15, 15, {
+       'width': 170,
+           'elementHandlers': specialElementHandlers
+   });
+   doc.save('sample-file.pdf');
+});
+
+  </script>
 </body>
 
 </html>

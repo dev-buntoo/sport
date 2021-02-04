@@ -118,6 +118,7 @@ Route::post('member/income/update','SaveController@updateIncome')->name('member.
 Route::post('member/expense/update','SaveController@updateExpense')->name('member.expense.update');
 
 Route::post('payroll/generate','SaveController@createPayslip')->name('payroll.generate');
+Route::get('payroll/sendEmail/{id}','ShowController@sendPayroll')->name('payroll.sendEmail');
 Route::post('appointment/update','SaveController@updateAppointment')->name('appointment.update');
 Route::post('appointment/excel-import','SaveController@appoint')->name('appointment.import');
 Route::get('appointment/deletefile/{id}','SaveController@deleteFile')->name('appointment.game.delete');

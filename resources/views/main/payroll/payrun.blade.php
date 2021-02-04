@@ -36,7 +36,7 @@
                          <div class="col-md-3 d-flex">
                             <button type="submit" class="btn add-btn mb-3">Generate</button>
                         </div>
-                        
+
                     </div>
 
             </div>
@@ -55,7 +55,6 @@
                                     <th>Gross Amount</th>
                                     <th>Deductions</th>
                                     <th>Net Amount</th>
-                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -67,7 +66,6 @@
                                     <td>$ {{ $pay->gross_amount }}</td>
                                     <td>$ {{ $pay->deduction }}</td>
                                     <td>$ {{ $pay->net_amount }}</td>
-                                    <td><span class="badge bg-inverse-danger">Unpaid</span></td>
                                     <td>
                                         <a href="{{ route('payslip.show',$pay->id) }}" type="button"
                                             class="btn btn-secondary">View</a>

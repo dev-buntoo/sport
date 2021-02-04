@@ -179,21 +179,36 @@ class SaveController extends Controller
             $payout->date = $request->date;
             $payout->member_id = $user->id;
             $payout->save();
+            $income = $expense = 0;
 
             foreach($user->income as $inc){
+
+                // echo date('Y',strtotime(str_replace('/', '-', $inc->date))).'<br>';
+                if(date('Y',strtotime(str_replace('/', '-', $inc->date))) == $request->date ){
                 $payslip = new Payslip();
                 $payslip->payout_id = $payout->id;
                 $payslip->credit = $inc->amount;
                 $payslip->name = $inc->description;
+                $income = $income + $inc->amount;
                 $payslip->save();
+                }
             }
             foreach($user->expense as $exp){
+                // echo date('Y',strtotime(str_replace('/', '-', $exp->date))).'<br>';
+                if(date('Y',strtotime(str_replace('/', '-', $exp->date))) == $request->date ){
+
                 $payslip = new Payslip();
                 $payslip->payout_id = $payout->id;
                 $payslip->debit = $exp->amount;
                 $payslip->name = $exp->description;
+                $expense = $expense +  $exp->amount;
                 $payslip->save();
+                }
             }
+            $payout->deduction = $expense;
+            $payout->gross_amount = $income;
+            $payout->net_amount = $payout->gross_amount - $payout->deduction;
+            $payout->save();
 
         }
         return redirect()->back();

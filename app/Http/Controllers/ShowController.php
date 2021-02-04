@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Email;
 use App\Model\Income;
 use App\Model\Expense;
 use App\Model\Payout;
@@ -144,6 +145,39 @@ class ShowController extends Controller
     //      END
     // ==================
     //     PAYROLL
+    public function sendPayroll($id = 'all')
+    {
+        if($id == 'all'){
+        foreach(Payout::all() as $payslip ){
+
+            $data = array(
+                'payslip' => $payslip,
+                'slip' => $payslip->record,
+            );
+
+            Email::sendslip($payslip->member->email, $data);
+
+        }
+        }
+        else{
+
+            $payslip = Payout::find($id);
+            $data = array(
+                'payslip' => $payslip,
+                'slip' => $payslip->record,
+            );
+            // return $payslip->member->email;
+            Email::sendslip($payslip->member->email, $data);
+
+        }
+
+        // $payslip = Payout::find($id);
+        // //    dd($payslip->record);
+        //     $slip = $payslip->record;
+        //     return view('main.slip.index',compact('payslip','slip'));
+        return redirect()->back()->with('success','Email send to members e-mail');
+
+    }
     public function showPayroll()
     {
 
@@ -221,7 +255,17 @@ class ShowController extends Controller
     }
     public function showAuditlog()
     {
-        return view('main.systemAdmin.auditlog');
+        $audits = \OwenIt\Auditing\Models\Audit::all();
+        // foreach($audits as $audit){
+        //     print_r($audit->auditable);
+        // //  echo '<pre>';print_r($audit);
+        //  echo "<br><br><br>";
+        // }
+        // return Appointment::find(144)->audits;
+        // return 'ok';
+        // dd($audits);
+        return view('main.systemAdmin.auditlog',compact('audits'));
+        // return view('main.systemAdmin.auditlog');
 
     }
     //       END

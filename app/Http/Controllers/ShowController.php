@@ -27,7 +27,7 @@ class ShowController extends Controller
     //      DASHBOARD
     public function showDashboard()
     {
-        $audits = \OwenIt\Auditing\Models\Audit::all();
+        $audits = \OwenIt\Auditing\Models\Audit::orderBy('created_at', 'desc')->get();
         // foreach($audits as $audit){
         //     print_r($audit->auditable);
         // //  echo '<pre>';print_r($audit);
@@ -202,6 +202,7 @@ class ShowController extends Controller
         $payslip = Payout::find($id);
     //    dd($payslip->record);
          if($payslip->member_id == Auth::user()->id){
+            //  $payslip->is_view = date('d-m-Y', time());
             $payslip->is_view = Carbon::now()->toDateTimeString();
             $payslip->save();
          }
@@ -255,7 +256,7 @@ class ShowController extends Controller
     }
     public function showAuditlog()
     {
-        $audits = \OwenIt\Auditing\Models\Audit::all();
+        $audits = \OwenIt\Auditing\Models\Audit::orderBy('created_at', 'desc')->get();
         // foreach($audits as $audit){
         //     print_r($audit->auditable);
         // //  echo '<pre>';print_r($audit);

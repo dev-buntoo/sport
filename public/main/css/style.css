@@ -8954,6 +8954,15 @@ ul.comment-list li ul.children {
 	color: white;
 }
 
+.cross{
+    background-color: red;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    height: 34px;
+    margin-top: 5px;
+}
+
 .admin-log {
 	color: #002060;
 }

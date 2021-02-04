@@ -10,7 +10,7 @@
         <title>Login </title>
 		
 		<!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="{{asset('main')}}/img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('main')}}/img/logo.png">
 		
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{asset('main')}}/css/bootstrap.min.css">
@@ -37,7 +37,7 @@
 				
 					<!-- Account Logo -->
 					<div class="account-logo">
-						<a href="index.html"><img src="{{asset('main')}}/img/logo2.png" alt="Dreamguy's Technologies"></a>
+						<a href="index.html"><img src="{{asset('main')}}/img/logo.png" alt="Dreamguy's Technologies"></a>
 					</div>
 					<!-- /Account Logo -->
 					

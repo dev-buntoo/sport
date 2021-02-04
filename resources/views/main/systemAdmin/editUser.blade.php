@@ -84,7 +84,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="col-form-label">Profile Pic </label>
-                                                <input class="form-control" name="photo" type="file" >
+                                                <input class="form-control" name="photo" type="file" required>
                                             </div>
                                         </div>
                                     </div>

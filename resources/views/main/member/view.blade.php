@@ -47,7 +47,8 @@
                                 <thead>
                                     <tr>
                                         <th>Member Number</th>
-                                        <th>Name</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
                                         <th>Email #1</th>
                                         <th>Phone #1</th>
                                         <th>Status</th>
@@ -61,7 +62,8 @@
                                 @foreach($members as $member)
                                     <tr>
                                         <td class="default-color"><span class="border-default p-2">{{ $member->member_number }}</span> </td>
-                                        <td>{{ $member->name }}</td>
+                                        <td>{{ $member->fname }}</td>
+                                        <td>{{ $member->lname }}</td>
                                         <td>{{ $member->email }}</td>
                                         <td>{{ $member->phone_1 }}</td>
                                         <td>{{ $member->status }}</td>

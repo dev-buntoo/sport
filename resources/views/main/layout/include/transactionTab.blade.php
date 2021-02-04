@@ -28,7 +28,7 @@
                     <tr>
                         <td>{{$exp->member->fname}}</td>
                         <td>{{$exp->expense}}</td>
-                        <td>{{$exp->amount}}</td>
+                        <td>$ {{$exp->amount}}</td>
                         <td>{{$exp->description}}</td>
                         <td>{{$exp->date}}</td>
                         <td>
@@ -86,7 +86,7 @@
                     <tr>
                         <td>{{$inc->member->fname}}</td>
                         <td>{{$inc->income}}</td>
-                        <td>{{$inc->amount}}</td>
+                        <td>$ {{$inc->amount}}</td>
                         <td>{{$inc->description}}</td>
                         <td>{{$inc->date}}</td>
                         <td>

@@ -9,10 +9,10 @@
 		content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
 	<meta name="author" content="Dreamguys - Bootstrap Admin Template">
 	<meta name="robots" content="noindex, nofollow">
-	<title>Login - HRMS admin template</title>
+	<title>PDRLRA SYSTEM</title>
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="{{asset('main')}}/img/favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="{{asset('main')}}/img/logo.png">
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="{{asset('main')}}/css/bootstrap.min.css">

@@ -308,10 +308,12 @@
                                                               <div class="form-group">
                                                                   <label for="payment_frequency">Payment
                                                                       Frequency</label>
-                                                                  <input type="text"
-                                                                      class="form-control datetimepicker"
-                                                                      id="payment_frequency"
-                                                                      name="payment_frequency" value="{{ $member->payment_frequency }}">
+                                                                      <select name="payment_frequency" class="select" required>
+                                                                  <option @if($member->payment_frequency == "Fortnightly") selected @endif value="Fortnightly">Fortnightly</option>
+                                                                  <option @if($member->payment_frequency == "Monthly") selected @endif value="Monthly">Monthly</option>
+                                                                <option @if($member->payment_frequency == "End of Season") selected @endif value="End of Season">End of Season</option>
+                                                              </select>
+                                                                  
                                                               </div>
                                                           </div>
                                                       </div>
@@ -340,7 +342,7 @@
                                                                   <input type="file"
                                                                       class="custom-file-input"
                                                                       accept="image/x-png,image/jpeg"
-                                                                      id="photo" name="photo">
+                                                                      id="photo" name="photo" required>
                                                                   <label class="custom-file-label"
                                                                       for="photo">Choose
                                                                       file...</label>

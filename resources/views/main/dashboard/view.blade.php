@@ -66,6 +66,7 @@
 
 						</div>
 					</div>
+					{{--
 					<div class="col-md-6 d-flex">
 						<div class="card card-table flex-fill card-height-90">
 							<div class="card-header">
@@ -111,6 +112,7 @@
 
 						</div>
 					</div>
+					--}}
 				</div>
 
 			</div>

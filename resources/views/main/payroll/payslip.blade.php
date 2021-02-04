@@ -78,7 +78,7 @@
                                                         tabindex="-1" aria-hidden="true" name="bank_pay">
                                                         <option @if($payslip->bank_pay == "Bank Payment") selected @endif value="Bank Payment" data-select2-id="3">Bank Payment
                                                         </option>
-                                                        <option @if($payslip->bank_pay == "Cheque”") selected @endif value="Cheque”">Cheque”</option>
+                                                        <option @if($payslip->bank_pay == "Cheque") selected @endif value="Cheque">Cheque</option>
                                                     </select>
                                                 </div>
 

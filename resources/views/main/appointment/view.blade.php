@@ -66,7 +66,7 @@
                                         <th>Home Team</th>
                                         <th>Away Team</th>
                                         <th>Grade</th>
-                                        <th>Refree</th>
+                                        <th>Referee</th>
                                         <th>Touch Judge #1</th>
                                         <th>Touch Judge #2</th>
                                         <th>Coach</th>

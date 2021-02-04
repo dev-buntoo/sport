@@ -24,54 +24,59 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="profile-view">
-                                <div class="profile-img-wrap">
-                                    <div class="profile-img">
-                                        <a href="#"><img alt="" src="{{ asset('main') }}/img/profile/{{ Auth::user()->photo }}"></a>
+                            <form method="POST" action="{{ route('profile.save') }}" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $user->id }}">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">First Name <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control" name="fname" type="text" value="{{ $user->fname }}" required>
                                     </div>
                                 </div>
-                                <div class="profile-basic">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="profile-info-left">
-                                                <h3 class="user-name m-t-0 mb-0">{{ $user->fname.' '.$user->lname }}</h3>
-
-                                                <div class="staff-id">Employee ID :{{$user->member_number}}</div>
-                                                <div class="small doj text-muted">Date of Join : {{ $user->date_of_joining }}</div>
-                                                <div class="staff-msg"><a class="btn btn-custom" href="chat.html"
-                                                        style="visibility: hidden;">Send Message</a></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <ul class="personal-info">
-                                                <li>
-                                                    <div class="title">Phone:</div>
-                                                    <div class="text"><a href="tel:{{ $user->phone_1 }}">{{ $user->phone_1 }}</a></div>
-                                                </li>
-                                                <li>
-                                                    <div class="title">Email:</div>
-                                                    <div class="text"><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></div>
-                                                </li>
-                                                <li>
-                                                    <div class="title">Birthday:</div>
-                                                    <div class="text">{{ $user->date_of_birth }}</div>
-                                                </li>
-                                                <li>
-                                                    <div class="title">Address:</div>
-                                                    <div class="text">{{ $user->address }}</div>
-                                                </li>
-                                                <li>
-                                                    <div class="title">Gender:</div>
-                                                    <div class="text">{{ $user->gender }}</div>
-                                                </li>
-
-                                            </ul>
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Last Name <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control" name="lname" type="text" value="{{ $user->lname }}" required>
                                     </div>
                                 </div>
-                                <div class="pro-edit"><a data-target="#profile_info" data-toggle="modal"
-                                        class="edit-icon" href="#"><i class="fa fa-pencil"></i></a></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Email <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control" name="email" type="email" value="{{ $user->email }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Profile Pic </label>
+                                        <input class="form-control" name="photo" type="file" required>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Password <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control" name="password" type="password" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Confirm Password <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control" name="password_confirmation" type="password" required>
+                                    </div>
+                                </div>
+                                </div>
+                            <div class="submit-section">
+                                <button class="btn btn-primary submit-btn">Update</button>
+                                
                             </div>
+                            
+                        </form>
                         </div>
                     </div>
                 </div>

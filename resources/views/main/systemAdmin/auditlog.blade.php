@@ -66,7 +66,7 @@
 
 						</div>
 					</div>
-					<div class="col-md-6 d-flex">
+					{{--<div class="col-md-6 d-flex">
 						<div class="card card-table flex-fill card-height-90">
 							<div class="card-header">
 								<h3 class="card-title mb-0 mt-2 default-color float-left"> <span><i
@@ -110,7 +110,7 @@
 							</div>
 
 						</div>
-					</div>
+					</div>--}}
 				</div>
 
 			</div>

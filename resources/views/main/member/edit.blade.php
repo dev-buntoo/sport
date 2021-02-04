@@ -10,7 +10,7 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Memeber Profile </h3>
+                        <h3 class="page-title">Memeber Profile {{$member->fname}} {{$member->lname}} </h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                             <li class="breadcrumb-item active">Members</li>
@@ -33,8 +33,7 @@
                                         data-toggle="tab">Transactions</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#tab3" data-toggle="tab">Payroll</a>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="#tab4" data-toggle="tab">Note</a>
-                                </li>
+                                
                             </ul>
 
                             <div class="tab-content">
@@ -47,9 +46,7 @@
                                 <div class="tab-pane" id="tab3">
                                     @include('main.layout.include.payrollTab')
                                 </div>
-                                <div class="tab-pane" id="tab4">
-                                    @include('main.layout.include.noteTab')
-                                </div>
+                               
                             </div>
                         </div>
                     </div>

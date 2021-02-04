@@ -267,6 +267,13 @@ class SaveController extends Controller
        return redirect()->back()->with('success','Rates updated successfully');
 
     }
+    public function deleteupdateRate($id){
+        $app = UpdateRate::find($id);
+        $app->delete();
+        return redirect()->back()->with('success','Line removed successfully');
+    }
+    
+    
     //      END
     // =============
     //      ADMIN

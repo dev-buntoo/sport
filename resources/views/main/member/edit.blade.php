@@ -10,7 +10,7 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Memeber Profile {{$member->fname}} {{$member->lname}} </h3>
+                        <h3 class="page-title">Member Profile {{$member->fname}} {{$member->lname}} </h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                             <li class="breadcrumb-item active">Members</li>

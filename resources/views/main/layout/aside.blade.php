@@ -4,8 +4,8 @@
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
                     <li>
-						<a href="index.html" class="logo d-flex justify-content-center">
-							<img src="{{asset('main')}}/img/logo.png" width="100" height="auto" alt="">
+						<a href="/" class="logo d-flex justify-content-center">
+							<img src="{{asset('main')}}/img/logo.png" width="100" height="auto" alt="PDRLRA SYSTEM">
 						</a>
 					</li>
                     <li >

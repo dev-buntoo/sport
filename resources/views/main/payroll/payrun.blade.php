@@ -14,7 +14,7 @@
                     <div class="row align-items-center">
 
                         <div class="col-md-6">
-                            <h3 class="page-title">Memeber Payroll</h3>
+                            <h3 class="page-title">Member Payroll</h3>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                                 <li class="breadcrumb-item active">Pay Run</li>
@@ -36,11 +36,11 @@
                          <div class="col-md-3 d-flex">
                             <button type="submit" class="btn add-btn mb-3">Generate</button>
                         </div>
-                        
-                    </div>
 
-            </div>
-            </form>
+                    </div>
+                </form>
+                </div>
+
             <!-- /Page Header -->
 
             <div class="row">

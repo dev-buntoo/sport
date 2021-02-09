@@ -23,11 +23,12 @@
                             <div class="col-md-3 float-right ml-auto">
                         <form action="{{ route('appointment.import') }}" method="POST" name="importform" enctype="multipart/form-data">
                             @csrf
-                                 <input type="file" name="import_file"  class="form-control">
+                                 {{--<input type="file" name="import_file"  class="form-control">--}}
                             </div>
 
                             <div class="col-md-3 d-flex">
-                                <button  type="file" class="btn add-btn "><i class="fa fa-plus"></i>  Import File</button>
+                               {{-- <button  type="file" class="btn add-btn "><i class="fa fa-plus"></i>  Import File</button> --}}
+                                <button  type="button" class="btn add-btn " data-toggle="modal" data-target="#excel_file"> Select Excel File</button>
                             </div>
                         </form>
                     </div>
@@ -79,7 +80,7 @@
                                         <td>1</td>
                                         <td>{{ $app->home_team }}</td>
                                         <td>{{ $app->away_team }}</td>
-                                        <td style= "@if(!$app->rates) border: 1px solid red; @endif">{{ $app->grade }}</td>
+                                        <td @if(!$app->rates) style= " border: 1px solid red;" data-toggle="tooltip" data-placement="top" title="Can't find grade" @endif>{{ $app->grade }}</td>
                                         <td>{{ $app->referee }}</td>
                                         <td>{{ $app->touch_judge_one }}</td>
                                         <td>{{ $app->touch_judge_two }}</td>
@@ -98,31 +99,50 @@
             </div>
             <!-- /Page Content -->
 
-            <!-- Delete Leave Modal -->
-            <div class="modal custom-modal fade" id="delete_approve" role="dialog">
-                <div class="modal-dialog modal-dialog-centered">
+            <!-- Edit Expenses Modal -->
+            <div id="excel_file" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Appointment Games</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                         <div class="modal-body">
-                            <div class="form-header">
-                                <h3>Delete Leave</h3>
-                                <p>Are you sure want to Cancel this leave?</p>
-                            </div>
-                            <div class="modal-btn delete-action">
+                            <form action="{{ route('appointment.import') }}" method="POST" name="importform" enctype="multipart/form-data">
+                            @csrf
                                 <div class="row">
-                                    <div class="col-6">
-                                        <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Year</label>
+                                            <input class="form-control" name="year" type="text">
+                                        </div>
                                     </div>
-                                    <div class="col-6">
-                                        <a href="javascript:void(0);" data-dismiss="modal"
-                                            class="btn btn-primary cancel-btn">Cancel</a>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Round</label>
+                                            <input class="form-control" name="round" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Excle File</label>
+                                            <input class="form-control" name="import_file" type="file">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-primary submit-btn">Import</button>
+                                    <button class="btn btn-secondary submit-btn" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- /Delete Leave Modal -->
+            <!-- /Edit Expenses Modal -->
 
         </div>
         <!-- /Page Wrapper -->

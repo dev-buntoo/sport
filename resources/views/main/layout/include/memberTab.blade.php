@@ -210,7 +210,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="WWCC_number">WWCC number
+                                        <label for="WWCC_number">WWCC Number
                                         </label>
                                         <input type="number"
                                             class="form-control"
@@ -219,7 +219,7 @@
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
                                             <label for="WWCC_expiry">WWCC
-                                                expiry</label>
+                                                Expiry</label>
                                             <input type="text"
                                                 class="form-control datetimepicker"
                                                 id="WWCC_expiry"
@@ -273,14 +273,14 @@
                                             value="{{ $member->bank_name }}" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="bsb_number">BSB number
+                                        <label for="bsb_number">BSB Number
                                         </label>
                                         <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                             class="form-control bsb_number" maxlength="6" id="bsb_number"
                                             name="bsb_number" value="{{ $member->bsb_number }}">
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="tfn_number">TFN number
+                                        <label for="tfn_number">TFN Number
                                         </label>
                                         <input type="number"
                                             class="form-control" id="tfn_number"

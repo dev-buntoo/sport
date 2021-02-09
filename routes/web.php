@@ -12,7 +12,7 @@
 */
 
 Route::get('/clear-cache', function() {
-    $exitCode = Artisan::call('view:clear');
+    $exitCode = Artisan::call('config:cache');
     // return what you want
 });
 
@@ -87,6 +87,7 @@ Route::get('appointment/edit/{id}','ShowController@editAppointment')->name('appo
 Route::get('appointment/Games','ShowController@showAppointmentGame')->name('appointment.game');
 Route::get('appointment/update-rate','ShowController@showUpdaterate')->name('appointment.update-rate');
 Route::post('appointment/saveRate','SaveController@updateRate')->name('appointment.saveRate');
+Route::get('appointment/removeline/{id}','SaveController@deleteupdateRate')->name('appointment.removeline');
 Route::get('payroll','ShowController@showPayroll')->name('payroll.show');
 Route::get('payrun','ShowController@showPayrun')->name('payrun.show');
 Route::get('payslip/{id}','ShowController@showPayslip')->name('payslip.show');

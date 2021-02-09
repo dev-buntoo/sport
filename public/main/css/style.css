@@ -9030,6 +9030,10 @@ ul.comment-list li ul.children {
 
 }
 
+.log-height{
+    height:600px;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -9243,6 +9247,7 @@ input[type=number] {
 		border-width: 2px 0 0 0;
 	}
 
+
 }
 
 @media only screen and (max-width: 1199.98px) {
@@ -9288,6 +9293,11 @@ input[type=number] {
 	#search-box {
 		float: none;
 	}
+	
+	.log-height{
+        height:380px;
+		    
+		}
 
 	.search-button {
 		position: absolute;
@@ -9940,7 +9950,7 @@ input[type=number] {
 	}
 
 	.add-btn {
-		font-size: 14px;
+		font-size: 14px;x`
 		min-width: inherit;
 	}
 

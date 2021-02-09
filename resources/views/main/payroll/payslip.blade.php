@@ -12,7 +12,7 @@
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="page-title">Memeber Payroll</h3>
+                            <h3 class="page-title">Member Payroll</h3>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('payrun.show')}}">Pay Run</a></li>
                                 <li class="breadcrumb-item active">View Pay Run</li>
@@ -28,7 +28,7 @@
                             <table class="table table-bordered mb-0">
                                 <tbody>
                                     <tr>
-                                        <th>Memeber Name</th>
+                                        <th>Member Name</th>
                                         <td>{{ $payslip->member->fname.' '.$payslip->member->lname }}</td>
                                     </tr>
                                     <tr>

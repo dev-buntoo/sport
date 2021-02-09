@@ -38,7 +38,7 @@
 								</div>
 							</div>
 
-							<div class="card-body ">
+							<div class="card-body log-height">
 								<div class="table-responsive overflow-auto card-height-90" id="overflow-style">
 									<table class="table table-nowrap custom-table mb-0" id="myTable">
 

@@ -220,13 +220,15 @@ class SaveController extends Controller
     {
 
         $request->validate([
-            'import_file' => 'required'
+            'import_file' => 'required',
+            'year' => 'required',
+            'round' => 'required'
         ]);
         $importdata = ImportData::create([
             'filename'   => $request->file('import_file')->getClientOriginalName(),
             'uploadedBy' => Auth::user()->id,
         ]);
-        Excel::import(new ImportAppoint($importdata->id), request()->file('import_file'));
+        Excel::import(new ImportAppoint($importdata->id,$request->year,$request->round), request()->file('import_file'));
         return back()->with('success', 'Appointment imported successfully.');
     }
     public function deleteFile($id)
@@ -272,8 +274,8 @@ class SaveController extends Controller
         $app->delete();
         return redirect()->back()->with('success','Line removed successfully');
     }
-    
-    
+
+
     //      END
     // =============
     //      ADMIN

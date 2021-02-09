@@ -12,10 +12,12 @@ class ImportAppoint implements ToModel
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
-    public $id;
-    public function __construct($id)
+    public $id,$year,$round;
+    public function __construct($id,$year,$round)
     {
         $this->id = $id;
+        $this->year = $year;
+        $this->round = $round;
         //
     }
 
@@ -32,6 +34,9 @@ class ImportAppoint implements ToModel
 
 
             'file_id'      => $this->id,
+            'year'         => $this->year,
+            'round'        => $this->round
+
 
         ]);
     }

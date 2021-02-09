@@ -34,24 +34,31 @@
                     </div>
 
                     <!-- Search Filter -->
+                    <form method="get" action="">
                     <div class="row filter-row mt-3">
                         <div class="col-sm-6 col-md-4">
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="year">
+                                <input type="text" class="form-control floating" name="year" value="{{ app('request')->input('year') }}">
                                 <label class="focus-label">Year</label>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name round>
+{{--                                <input type="text" class="form-control floating" name="round" value="{{ app('request')->input('round') }}">--}}
+                                <select  class="form-control " name="round">
+                                    @foreach(\App\Model\Appointment::select('round')->groupBy('round')->get() as $round  )
+                                    <option @if( app('request')->input('round') == $round->round ) selected @endif>{{$round->round}}</option>
+                                    @endforeach
+                                </select>
                                 <label class="focus-label">Round</label>
                             </div>
                         </div>
 
                         <div class="col-sm-6 col-md-4">
-                            <a href="#" class="btn btn-success btn-block"> Search </a>
+                            <button type="submit" class="btn btn-success btn-block"> Search </button>
                         </div>
                     </div>
+                    </form>
                     <!-- Search Filter -->
                 </div>
                 <!-- /Page Header -->
@@ -77,7 +84,7 @@
                                 <tbody>
                                 @foreach($appoints as $app)
                                     <tr>
-                                        <td>1</td>
+                                        <td>{{ $app->round }}</td>
                                         <td>{{ $app->home_team }}</td>
                                         <td>{{ $app->away_team }}</td>
                                         <td @if(!$app->rates) style= " border: 1px solid red;" data-toggle="tooltip" data-placement="top" title="Can't find grade" @endif>{{ $app->grade }}</td>
@@ -116,19 +123,19 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="col-form-label">Year</label>
-                                            <input class="form-control" name="year" type="text">
+                                            <input class="form-control" name="year" required type="text">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="col-form-label">Round</label>
-                                            <input class="form-control" name="round" type="text">
+                                            <input class="form-control" name="round" required type="text">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="col-form-label">Excle File</label>
-                                            <input class="form-control" name="import_file" type="file">
+                                            <input class="form-control" name="import_file" required type="file">
                                         </div>
                                     </div>
                                 </div>

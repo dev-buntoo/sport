@@ -103,12 +103,15 @@ class ShowController extends Controller
     // ===================
     //     APPOINTMENT
 
-    public function showAppointment()
+    public function showAppointment(Request $request)
     {
-
         if(!Auth::user()->roles->view_appointments){
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
+        if(isset($request->year) || isset($request->round)){
+            $appoints = Appointment::where('year',$request->year)->where('round',$request->round)->get();
+            return view('main.appointment.view',compact('appoints'));
+        }
         $appoints = Appointment::all();
         return view('main.appointment.view',compact('appoints'));
     }

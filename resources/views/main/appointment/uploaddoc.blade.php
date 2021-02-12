@@ -46,6 +46,7 @@
                                         <td>
                                             <a href="{{ route('appointment.game.delete',$file->id) }}"
                                               onclick="if(!confirm('Are you sure?')){return false;}"   class=" trash-icon"><i class="fa fa-trash fa-lg"></i></a>
+                                            <a href="{{ asset('main/upload_files/').'/'.$file->linkname }}" class="" download><i class="fa fa-download fa-lg"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

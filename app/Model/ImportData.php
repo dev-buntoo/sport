@@ -8,7 +8,7 @@ class ImportData extends Model
 {
     //
     protected $fillable = [
-            'uploadedBy','filename'
+            'uploadedBy','filename','linkname'
     ];
 
     public function user(){

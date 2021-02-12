@@ -224,11 +224,18 @@ class SaveController extends Controller
             'year' => 'required',
             'round' => 'required'
         ]);
+        $files = time().'.'.$request->file('import_file')->extension();
         $importdata = ImportData::create([
             'filename'   => $request->file('import_file')->getClientOriginalName(),
             'uploadedBy' => Auth::user()->id,
+            'linkname'   => $files
         ]);
+
         Excel::import(new ImportAppoint($importdata->id,$request->year,$request->round), request()->file('import_file'));
+
+
+        $request->file('import_file')->move(public_path('main/upload_files/'), $files);
+
         return back()->with('success', 'Appointment imported successfully.');
     }
     public function deleteFile($id)

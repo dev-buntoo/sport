@@ -17,9 +17,14 @@ class CheckRole
     public function handle($request, Closure $next)
     {
 
-        $user = auth()->user();
+        $uhost = $request->server('REMOTE_ADDR');
 
-        if(auth()->check() && $user->two_factor_code && $user->is_member == 0)
+        $uagent = $request->server('HTTP_USER_AGENT');
+        $user = auth()->user();
+//        dd(count($user->audits->where('user_agent','=',$uagent)->where('ip_address',$uhost)));
+//        substr($audit->url, strrpos($audit->url, '/') + 1) == 'login'
+//        && count($user->audits->where('user_agent','=',$uagent)->where('ip_address',$uhost)) == 0
+        if(auth()->check() && $user->two_factor_code && $user->is_member == 0 )
         {
             if($user->two_factor_expires_at->lt(now()))
             {

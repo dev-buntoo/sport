@@ -39,11 +39,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function authenticated(Request $request, $user)
-    {
-        $user->generateTwoFactorCode();
-        if($user->is_member == 0){
-        $user->notify(new TwoFactorCode());
-        }
-    }
+//    protected function authenticated(Request $request, $user)
+//    {
+//        $user->generateTwoFactorCode();
+//        if($user->is_member == 0){
+//        $user->notify(new TwoFactorCode());
+//        }
+//    }
 }

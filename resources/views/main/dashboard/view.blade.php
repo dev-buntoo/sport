@@ -30,11 +30,11 @@
 									<a href="javascript:void(0);"  class="responsive-search">
 										<i class="fa fa-search"></i>
 									</a>
-								
+
 									<input class="form-control" id="myInput" onkeyup="myFunction()" type="text" placeholder="Search">
 									<button class="btn search-button" type="submit"><i
 											class="fa fa-search"></i></button>
-								
+
 								</div>
 							</div>
 
@@ -44,7 +44,7 @@
 
 										<tbody>
                                             @foreach($audits as $audit)
-
+                                                @if(isset($audit->user))
                                             @if($audit->user->is_member != 1)
 											<tr>
 												<td class="overflow-auto">
@@ -56,6 +56,7 @@
 												</td>
                                             </tr>
                                             @endif
+                                                @endif
                                             @endforeach
 
 
@@ -138,7 +139,7 @@ function myFunction() {
       } else {
         tr[i].style.display = "none";
       }
-    }       
+    }
   }
 }
 </script>
@@ -161,7 +162,7 @@ function myFunction2() {
       } else {
         tr[i].style.display = "none";
       }
-    }       
+    }
   }
 }
 </script>

@@ -44,10 +44,10 @@
                                         <td>{{ $file->user->fname.' '.$file->user->lname }}</td>
                                         <td>{{ date('d-m-Y', strtotime($file->created_at)) }}</td>
                                         <td>
+                                            <a href="{{ asset('main/upload_files/').'/'.$file->linkname }}" class="download-icon" download><i class="fa fa-download fa-lg"></i></a>
                                             <a href="{{ route('appointment.game.delete',$file->id) }}"
                                               onclick="if(!confirm('Are you sure?')){return false;}"   class="trash-icon"><i class="fa fa-trash fa-lg"></i></a>
-                                            <a href="{{ asset('main/upload_files/').'/'.$file->linkname }}" class="download-icon" download><i class="fa fa-download fa-lg"></i></a>
-                                        </td>
+                                                                                    </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

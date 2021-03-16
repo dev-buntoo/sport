@@ -54,12 +54,12 @@
                                                 <div class="col-md-6 mb-3">
                                                     <label for="referee">Referee</label>
                                                     <input type="text" class="form-control" id="referee" name="referee"
-                                                        value="{{ $app->rates->refree_rate }}" required>
+                                                        value="{{ $app->referee }}" required>
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="referee_rate">Referee Rate</label>
                                                     <input type="number" class="form-control" id="referee_rate"
-                                                        name="referee_rate" value="{{ $app->rates->touch_judge_rate }}">
+                                                        name="referee_rate" value="{{ $app->rates->refree_rate }}">
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="touch_judge_one">Touch Judge #1</label>
@@ -75,7 +75,7 @@
                                                     <label for="touch_judge_rate" class="">Touch Judge
                                                         Rate</label>
                                                     <input type="number" class="form-control" id="touch_judge_rate"
-                                                        name="touch_judge_rate" value="{{ $app->touch_judge_rate }}" required>
+                                                        name="touch_judge_rate" value="{{ $app->rates->touch_judge_rate }}" required>
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="coach">Coach</label>

@@ -28,9 +28,10 @@ class ImportAppoint implements ToModel
             'home_team'        => @$row[0],
             'away_team'        => @$row[1],
             'grade'            => @$row[2],
-            'touch_judge_one'  => @$row[3],
-            'touch_judge_two'  => @$row[4],
-            'coach'            => @$row[5],
+            'referee'          => @$row[3],
+            'touch_judge_one'  => @$row[4],
+            'touch_judge_two'  => @$row[5],
+            'coach'            => @$row[6],
 
 
             'file_id'      => $this->id,

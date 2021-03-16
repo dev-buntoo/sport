@@ -45,18 +45,18 @@
                                                 </div>
                                                 <div class="col-md-3 mb-3">
                                                     <label for="refree_rate">Referee Rate</label>
-                                                    <input type="number" class="form-control" id="refree_rate"
+                                                    <input type="text" class="form-control" id="refree_rate"
                                                         name="refree_rate[]" value="{{ $rate->refree_rate }}">
                                                 </div>
                                                 <div class="col-md-3 mb-3">
                                                     <label for="touch_judge_rate">Touch Judge Rate</label>
-                                                    <input type="number" class="form-control" id="touch_judge_rate"
+                                                    <input type="text" class="form-control" id="touch_judge_rate"
                                                         name="touch_judge_rate[]" value="{{ $rate->touch_judge_rate }}">
                                                 </div>
                                                 <div class="col-md-3 mb-3">
                                                     <label for="coach_rate">Coach Rate</label>
                                                     <div class="d-flex">
-                                                        <input type="number" w-75 class="form-control" id="coach_rate"
+                                                        <input type="text" w-75 class="form-control" id="coach_rate"
                                                         name="coach_rate[]" value="{{ $rate->coach_rate }}">
                                                         <a href="{{route('appointment.removeline',$rate->id)}}"  class="cross ml-2">&#10006;</a>
                                                     </div>

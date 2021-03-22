@@ -52,22 +52,20 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="col-form-label">Profile Pic </label>
-                                        <input class="form-control" name="photo" type="file" required>
+                                        <input class="form-control" name="photo" type="file" >
                                     </div>
                                 </div>
                             
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="col-form-label">Password <span
-                                                class="text-danger">*</span></label>
-                                        <input class="form-control" name="password" type="password" required>
+                                        <label class="col-form-label">Password </label>
+                                        <input class="form-control" name="password" type="password" >
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="col-form-label">Confirm Password <span
-                                                class="text-danger">*</span></label>
-                                        <input class="form-control" name="password_confirmation" type="password" required>
+                                        <label class="col-form-label">Confirm Password </label>
+                                        <input class="form-control" name="password_confirmation" type="password" >
                                     </div>
                                 </div>
                                 </div>

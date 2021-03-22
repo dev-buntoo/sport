@@ -50,8 +50,27 @@
 												<td class="overflow-auto">
 													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
 																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">{{ $audit->user->fname.' '}} @if($audit->event == "created") {{$audit->event}} new {{ substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) }}  @elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'login') signed in at {{ date('g:i a',strtotime($audit->created_at)).' IP '.$audit->ip_address   }} @elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'verify')has received Verification Code @else {{$audit->event}} {{ substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) }} @endif
-															({{ date('d-m-Y',strtotime($audit->created_at)) }})</h2>
+														<h2 class="mt-2 admin-log">{{ $audit->user->fname.' '}} @if($audit->event == "created") {{$audit->event}} new {{ substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) }}  
+												
+						
+						@elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'login') signed in at {{ date('g:i a',strtotime($audit->created_at)).' IP '.$audit->ip_address   }} 
+						@elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'verify')has received Verification Code 
+						@else {{$audit->event}} {{ substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) }}
+						
+						
+
+						
+						
+						@endif
+						
+								
+						@if(substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) == 'Member')
+						@php
+					$member =	\App\Member::find($audit->auditable_id);
+						@endphp
+						{{$member->fname.' '.$member->lname}}
+						@endif
+															({{ date('d-m-Y h:i',strtotime($audit->created_at)) }})</h2>
 													</a>
 												</td>
                                             </tr>

@@ -28,8 +28,8 @@ class SaveController extends Controller
         $this->validate($request, [
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           
+           
         ]);
         $user = Auth::user();
         if($user->email != $request->email){
@@ -37,17 +37,33 @@ class SaveController extends Controller
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             ]);
         }
+        if($request->password != null){
+            $this->validate($request, [
+                 'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+    $password = $user->password;
+}
+else{
+    $password = Hash::make($request['password']);
+}
+        if($request->hasFile('photo')){
+             $this->validate($request, [
+                 'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
         $imageName = time().'.'.$request->photo->extension();
+
         $request->photo->move(public_path('main/img/profile'), $imageName);
+        }
+        else{
+        $imageName = $user->photo;    
+        }
 
         $user->update([
             'fname' => $request['fname'],
             'lname' => $request['lname'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'photo' =>   $imageName ,
-
-
+            'password' => $password,
+            'photo' =>   $imageName
         ]);
         return redirect()->back()->with('success','Profile Updated');
 
@@ -119,9 +135,22 @@ class SaveController extends Controller
 
          $request->photo->move(public_path('main/img/profile'), $imageName);
 
+            if($request->password != null){
          $request->merge(['password' => Hash::make($request->password),'photo' =>   $imageName ]);
+            }else{
+             $request->merge(['password' => $user->password]);
+                
+            }
+            
         }else{
+            if($request->password != null){
              $request->merge(['password' => Hash::make($request->password)]);
+                
+            }
+            else{
+             $request->merge(['password' => $user->password]);
+                
+            }
         }
 
         $user->update($request->all());
@@ -328,8 +357,8 @@ class SaveController extends Controller
         $this->validate($request, [
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           
+           
         ]);
         $user = User::find($request->id);
         if($user->email != $request->email){
@@ -337,16 +366,33 @@ class SaveController extends Controller
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             ]);
         }
+        if($request->password != null){
+            $this->validate($request, [
+                 'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+    $password = $user->password;
+}
+else{
+    $password = Hash::make($request['password']);
+}
+        if($request->hasFile('photo')){
+             $this->validate($request, [
+                 'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
         $imageName = time().'.'.$request->photo->extension();
 
         $request->photo->move(public_path('main/img/profile'), $imageName);
+        }
+        else{
+        $imageName = $user->photo;    
+        }
 
         $user->update([
             'fname' => $request['fname'],
             'lname' => $request['lname'],
             'email' => $request['email'],
             'role_id' => $request['role_id'],
-            'password' => Hash::make($request['password']),
+            'password' => $password,
             'photo' =>   $imageName
         ]);
         return redirect()->route('system.admin');

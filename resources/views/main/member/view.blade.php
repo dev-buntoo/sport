@@ -21,12 +21,11 @@
                             <div class="col-md-3 float-right ml-auto">
                         <form action="{{ route('member.import') }}" method="POST" name="importform" enctype="multipart/form-data">
                             @csrf
-                            <span class="text-danger">Email should be unique</span>
-                                 <input type="file" name="import_file"  class="form-control">
+                            
                             </div>
 
-                            <div class="col-md-3 d-flex">
-                                <button  type="file" class="btn add-btn mr-3"><i class="fa fa-plus"></i>  Import File</button>
+                            <div class="col-md-3 d-flex float-right">
+                                
                                 <a href="{{ route('member.create') }}" class="btn add-btn"><i class="fa fa-plus"></i> Create</a>
                             </div>
 

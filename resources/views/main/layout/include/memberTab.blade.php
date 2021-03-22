@@ -83,12 +83,11 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="password"
                                             class="col-form-label">Password
-                                            <span
-                                                class="text-danger">*</span></label>
+                                         </label>
                                                 
                                                 <div class="input-group">
 													
-													<input type="text" class="form-control" id="password" name="password"  required>
+													<input type="text" class="form-control" id="password" name="password"  >
 													<div class="input-group-prepend">
 														<button type="button" data-toggle="tooltip" data-placement="top" data-original-title="Generate Password" class="input-group-text" onClick="generate()" tabindex="2" value=""><i class="fa fa-refresh"></i> </button>
 													</div>

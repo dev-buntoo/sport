@@ -41,10 +41,10 @@ class SaveController extends Controller
             $this->validate($request, [
                  'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
-    $password = $user->password;
-}
-else{
+            
     $password = Hash::make($request['password']);
+}
+else{          $password = $user->password;
 }
         if($request->hasFile('photo')){
              $this->validate($request, [
@@ -399,6 +399,9 @@ else{
     }
     public function deleteUser($id)
     {
+        if(!Auth::user()->roles->view_admin){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $user = User::find($id);
         $user->delete();
         return redirect()->back();

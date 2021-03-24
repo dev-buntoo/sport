@@ -222,16 +222,25 @@ class ShowController extends Controller
     //      ADMIN
     public function showAdmin()
     {
+        if(!Auth::user()->roles->view_admin){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
        $users = User::where('is_member','!=',1)->get();
        return view('main.systemAdmin.user',compact('users'));
     }
     public function createUser()
     {
+        if(!Auth::user()->roles->view_admin){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $role = Role::where('id','!=',1)->get();
         return view('main.systemAdmin.createUser',compact('role'));
     }
     public function editUser($id)
     {
+        if(!Auth::user()->roles->view_admin){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
       $user = User::find($id);
       $role = Role::where('id','!=',1)->get();
       return view('main.systemAdmin.editUser',compact('user','role'));

@@ -70,7 +70,7 @@
 						@endphp
 						{{$member->fname.' '.$member->lname}}
 						@endif
-															({{ date('d-m-Y h:i',strtotime($audit->created_at)) }})</h2>
+															({{ date('d-m-Y H:i',strtotime($audit->created_at)) }})</h2>
 													</a>
 												</td>
                                             </tr>

@@ -186,9 +186,11 @@ class ShowController extends Controller
         if(!Auth::user()->roles->view_payroll){
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
+        $app = Appointment::all();
+        $total = $app->sum('coach_rate') + $app->sum('touch_judge_rate') + $app->sum('referee_rate');
 
         $payrolls = Payout::all();
-        return view('main.payroll.payroll',compact('payrolls'));
+        return view('main.payroll.payroll',compact('payrolls','total'));
     }
     public function showPayrun()
     {

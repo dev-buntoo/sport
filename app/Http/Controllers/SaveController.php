@@ -28,8 +28,8 @@ class SaveController extends Controller
         $this->validate($request, [
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
-           
-           
+
+
         ]);
         $user = Auth::user();
         if($user->email != $request->email){
@@ -41,7 +41,7 @@ class SaveController extends Controller
             $this->validate($request, [
                  'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
-            
+
     $password = Hash::make($request['password']);
 }
 else{          $password = $user->password;
@@ -55,7 +55,7 @@ else{          $password = $user->password;
         $request->photo->move(public_path('main/img/profile'), $imageName);
         }
         else{
-        $imageName = $user->photo;    
+        $imageName = $user->photo;
         }
 
         $user->update([
@@ -101,7 +101,7 @@ else{          $password = $user->password;
          ]);
          if ($request->hasFile('photo')) {
             //
-            
+
          $imageName = time().'.'.$request->photo->extension();
 
          $request->photo->move(public_path('main/img/profile'), $imageName);
@@ -130,7 +130,7 @@ else{          $password = $user->password;
 
         if ($request->hasFile('photo')) {
             //
-            
+
          $imageName = time().'.'.$request->photo->extension();
 
          $request->photo->move(public_path('main/img/profile'), $imageName);
@@ -139,17 +139,17 @@ else{          $password = $user->password;
          $request->merge(['password' => Hash::make($request->password),'photo' =>   $imageName ]);
             }else{
              $request->merge(['password' => $user->password]);
-                
+
             }
-            
+
         }else{
             if($request->password != null){
              $request->merge(['password' => Hash::make($request->password)]);
-                
+
             }
             else{
              $request->merge(['password' => $user->password]);
-                
+
             }
         }
 
@@ -209,7 +209,9 @@ else{          $password = $user->password;
     }
     public function createPayslip(Request $request)
     {
-        foreach(User::where('is_member',1)->where('status','Active')->get() as $user){
+        dd($request);
+
+        foreach(User::where('is_member',1)->where('status','Active')->where('payment_frequency',$request->schedual)->get() as $user){
             $payout = new Payout();
             $payout->deduction = $user->expense->sum('amount');
             $payout->gross_amount = $user->income->sum('amount');
@@ -357,8 +359,8 @@ else{          $password = $user->password;
         $this->validate($request, [
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
-           
-           
+
+
         ]);
         $user = User::find($request->id);
         if($user->email != $request->email){
@@ -384,7 +386,7 @@ else{
         $request->photo->move(public_path('main/img/profile'), $imageName);
         }
         else{
-        $imageName = $user->photo;    
+        $imageName = $user->photo;
         }
 
         $user->update([

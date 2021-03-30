@@ -123,6 +123,7 @@ Route::get('payroll/sendEmail/{id}','ShowController@sendPayroll')->name('payroll
 Route::post('appointment/update','SaveController@updateAppointment')->name('appointment.update');
 Route::post('appointment/excel-import','SaveController@appoint')->name('appointment.import');
 Route::get('appointment/deletefile/{id}','SaveController@deleteFile')->name('appointment.game.delete');
+Route::post('appointment/excel-export', 'ExportExcelController@exportAppointments')->name('appointment.export');
 
 Route::post('system/role/create','SaveController@createRole')->name('role.create');
 Route::post('system/role/update','SaveController@updateRole')->name('role.update');

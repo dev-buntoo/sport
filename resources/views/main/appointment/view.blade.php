@@ -29,6 +29,7 @@
                             <div class="col-md-3 d-flex">
                                {{-- <button  type="file" class="btn add-btn "><i class="fa fa-plus"></i>  Import File</button> --}}
                                 <button  type="button" class="btn add-btn " data-toggle="modal" data-target="#excel_file"> Select Excel File</button>
+                                <button  type="button" class="btn add-btn " id="export_excel_file">Export</button>
                             </div>
                         </form>
                     </div>
@@ -38,14 +39,14 @@
                     <div class="row filter-row mt-3">
                         <div class="col-sm-6 col-md-4">
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="year" value="{{ app('request')->input('year') }}">
+                                <input type="text" class="form-control floating year" name="year" value="{{ app('request')->input('year') }}">
                                 <label class="focus-label">Year</label>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-group form-focus">
 {{--                                <input type="text" class="form-control floating" name="round" value="{{ app('request')->input('round') }}">--}}
-                                <select  class="select " name="round">
+                                <select  class="select round" name="round">
                                     @foreach(\App\Model\Appointment::select('round')->groupBy('round')->get() as $round  )
                                     <option @if( app('request')->input('round') == $round->round ) selected @endif>{{$round->round}}</option>
                                     @endforeach
@@ -152,6 +153,39 @@
 
         </div>
         <!-- /Page Wrapper -->
-
-
+<form method="POST" action="{{route('appointment.export')}}" id="export_form">
+    @csrf
+    <input type="hidden" id="export_year" name="export_year">
+    <input type="hidden" name = "export_round" id = "export_round">
+</form>
 @endsection
+
+@push('script')
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '#export_excel_file', function(){
+            // alert('hit')
+            $('#export_year').val($('.year').val());
+            $('#export_round').val($('.round').val());
+            $('#export_form').submit();
+            // var route = "{{route('appointment.export')}}";
+            // $.ajax({
+            //     url: route,
+            //     method: 'POST',
+            //     data:{
+            //         "_token": "{{ csrf_token() }}",
+            //         "year": year,
+            //         'round': round,
+            //         },
+            //     dataType: 'json',
+            //     success: function (data) {
+            //         if (data.success == true) {
+
+            //         }
+            //     }
+            // })
+        });
+    });
+</script>
+
+@endpush

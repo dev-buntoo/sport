@@ -209,7 +209,8 @@ else{          $password = $user->password;
     }
     public function createPayslip(Request $request)
     {
-        dd($request);
+        dd
+//        dd($request);
 
         foreach(User::where('is_member',1)->where('status','Active')->where('payment_frequency',$request->schedual)->get() as $user){
             $payout = new Payout();

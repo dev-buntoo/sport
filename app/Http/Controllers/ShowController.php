@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Payrun;
 use Illuminate\Http\Request;
 use App\User;
 use App\Email;
@@ -131,7 +132,6 @@ class ShowController extends Controller
     }
     public function showAppointmentGame()
     {
-
         if(!Auth::user()->roles->manage_documents){
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
@@ -190,7 +190,8 @@ class ShowController extends Controller
         $total = $app->sum('coach_rate') + $app->sum('touch_judge_rate') + $app->sum('referee_rate');
 
         $payrolls = Payout::all();
-        return view('main.payroll.payroll',compact('payrolls','total'));
+        $payruns = Payrun::all();
+        return view('main.payroll.payroll',compact('payrolls','total','payruns'));
     }
     public function showPayrun()
     {
@@ -219,6 +220,14 @@ class ShowController extends Controller
             $slip = $payslip->record;
             return view('main.slip.index',compact('payslip','slip'));
     }
+
+    public function processPayrun(){
+        return view('main.payroll.payrunStep1');
+    }
+    public function processPayrunComplete(){
+        return view('main.payroll.payrunStep2');
+    }
+
     //      END
     // ==================
     //      ADMIN

@@ -25,13 +25,14 @@ class ImportAppoint implements ToModel
     {
 
         return new Appointment([
-            'home_team'        => @$row[0],
-            'away_team'        => @$row[1],
-            'grade'            => @$row[2],
-            'referee'          => @$row[3],
-            'touch_judge_one'  => @$row[4],
-            'touch_judge_two'  => @$row[5],
-            'coach'            => @$row[6],
+            'ground'           => @$row[0],
+            'home_team'        => @$row[1],
+            'away_team'        => @$row[2],
+            'grade'            => @$row[3],
+            'referee'          => @$row[4],
+            'touch_judge_one'  => @$row[5],
+            'touch_judge_two'  => @$row[6],
+            'coach'            => @$row[7],
 
 
             'file_id'      => $this->id,

@@ -133,7 +133,7 @@
                                             <label class="col-form-label">Member Name</label>
                                             <select class="js-example-basic-single" name="member_id" required  style="width: 100%;">
                                                 @foreach($members as $mem)
-                                                <option value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
+                                                <option  value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
                                                 @endforeach
                                                 </select>
                                         </div>
@@ -201,7 +201,7 @@
                                             <label class="col-form-label">Member Name</label>
                                             <select class="js-example-basic-single" name="member_id" required style="width: 100%;">
                                             @foreach($members as $mem)
-                                                <option value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
+                                                <option  value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
                                             @endforeach
                                             </select>
                                         </div>

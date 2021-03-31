@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Payrun;
 use Illuminate\Http\Request;
 use App\User;
 use App\Member;
@@ -209,10 +210,30 @@ else{          $password = $user->password;
     }
     public function createPayslip(Request $request)
     {
-        dd
+//$req = array();
+
+        foreach(User::where('is_member',1)->where('status','Active')->where('payment_frequency',$request->schedule)->get() as $user) {
+
+            $payout = new Payout();
+            $payout->deduction = $user->expense->sum('amount');
+            $payout->gross_amount = $user->income->sum('amount');
+            $payout->net_amount = $payout->gross_amount - $payout->deduction;
+            $payout->date = $request->date;
+            $payout->member_id = $user->id;
+            if($payout->net_amount > -1) {
+                $req[] = $payout;
+            }
+
+        }
+//                return $req->sum('deduction');
+        return view('main.payroll.payrunStep1',compact('req','request'));
+
+
+
+            $payrun =  Payrun::create($request->all());
 //        dd($request);
 
-        foreach(User::where('is_member',1)->where('status','Active')->where('payment_frequency',$request->schedual)->get() as $user){
+        foreach(User::where('is_member',1)->where('status','Active')->where('payment_frequency',$request->schedule)->get() as $user){
             $payout = new Payout();
             $payout->deduction = $user->expense->sum('amount');
             $payout->gross_amount = $user->income->sum('amount');
@@ -225,9 +246,10 @@ else{          $password = $user->password;
             foreach($user->income as $inc){
 
                 // echo date('Y',strtotime(str_replace('/', '-', $inc->date))).'<br>';
-                if(date('Y',strtotime(str_replace('/', '-', $inc->date))) == $request->date ){
+                if(date('Y-m-d',strtotime(str_replace('/', '-', $inc->date))) <=  date('Y-m-d',strtotime(str_replace('/', '-', $request->endDate))) && date('Y-m-d',strtotime(str_replace('/', '-', $inc->date))) >=  date('Y-m-d',strtotime(str_replace('/', '-', $request->startDate)))){
                 $payslip = new Payslip();
                 $payslip->payout_id = $payout->id;
+                $payslip->payrun_id = $payrun->id;
                 $payslip->credit = $inc->amount;
                 $payslip->name = $inc->description;
                 $income = $income + $inc->amount;
@@ -235,11 +257,15 @@ else{          $password = $user->password;
                 }
             }
             foreach($user->expense as $exp){
+
                 // echo date('Y',strtotime(str_replace('/', '-', $exp->date))).'<br>';
-                if(date('Y',strtotime(str_replace('/', '-', $exp->date))) == $request->date ){
+//                return date('Y-m-d',strtotime(str_replace('/', '-', $exp->date)));
+                if(date('Y-m-d',strtotime(str_replace('/', '-', $exp->date))) <=  date('Y-m-d',strtotime(str_replace('/', '-', $request->endDate))) && date('Y-m-d',strtotime(str_replace('/', '-', $exp->date))) >=  date('Y-m-d',strtotime(str_replace('/', '-', $request->startDate)))){
+//                if(date('Y',strtotime(str_replace('/', '-', $exp->date))) == $request->date ){
 
                 $payslip = new Payslip();
                 $payslip->payout_id = $payout->id;
+                $payslip->payrun_id = $payrun->id;
                 $payslip->debit = $exp->amount;
                 $payslip->name = $exp->description;
                 $expense = $expense +  $exp->amount;

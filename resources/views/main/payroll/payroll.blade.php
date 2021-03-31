@@ -79,14 +79,16 @@
                                     </thead>
                                     <tbody>
 
+                    @foreach($payrolls as $pay)
+
 
                                     <tr>
-                                        <td> <a href="#">Syed Afeef</a></td>
-                                        <td>Developer</td>
-                                        <td>Monthly</td>
+                                        <td> <a href="{{route('member.edit',$pay->member->id)}}">{{$pay->member->fname.' '.$pay->member->lname}}</a></td>
+                                        <td>{{$pay->member->role}}</td>
+                                        <td>{{$pay->member->payment_frequency}}</td>
                                         <td>01/01/2021 </td>
                                     </tr>
-
+                    @endforeach
 
                                     </tbody>
                                 </table>
@@ -117,18 +119,24 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+
+                                    @forelse($payruns as $payrun)
+
                                     <tr>
-                                        <td><strong>Feburary 2021</strong></td>
+                                        <td><strong>{{date('F Y',strtotime($payrun->startDate))}}</strong></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="#">01/01/2021 to 01/02/2021  </a></td>
-                                        <td>01/01/2021</td>
-                                        <td>Fornighly</td>
+                                        <td><a href="#">{{$payrun->startDate}} to {{$payrun->endDate}}  </a></td>
+                                        <td>{{$payrun->payrunDate}}</td>
+                                        <td>{{$payrun->schedule}}</td>
                                         <td>2</td>
-                                        <td> $500.00</td>
-                                        <td>$500.00</td>
+                                        <td> ${{$payrun->payslip->sum('credit')}}</td>
+                                        <td>${{$payrun->payslip->sum('debit')}}</td>
                                         <td>$450.00</td>
                                     </tr>
+                                    @empty
+                                        <tr>Not user</tr>
+                                    @endforelse
                                     <tr>
                                         <td><strong>March 2021</strong></td>
                                     </tr>
@@ -170,9 +178,10 @@
                     <div class="modal-body">
                         <form method="post" action="{{route('payroll.generate')}}">
                             @csrf
+                            <input type="hidden" name="startDate" value="1/03/2021">
                             <div class="form-group">
                                 <label>Pay schedule <span class="text-danger">*</span></label>
-                                <select class="select select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                <select class="select select2-hidden-accessible" data-select2-id="1" tabindex="-1" name="schedule" aria-hidden="true">
 
                                     <option value="Fortnightly" data-select2-id="45">Fortnightly</option>
                                     <option value="Monthly" data-select2-id="46">Monthly</option>
@@ -188,13 +197,13 @@
                             <div class="form-group">
                                 <label>Pay period ending <span class="text-danger">*</span></label>
                                 <div class="cal-icon">
-                                    <input class="form-control datetimepicker" type="text">
+                                    <input class="form-control datetimepicker" name="endDate" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Date pay run will be paid<span class="text-danger">*</span></label>
                                 <div class="cal-icon">
-                                    <input class="form-control datetimepicker" name="date_pay_run" type="text">
+                                    <input class="form-control datetimepicker" name="payrunDate" type="text">
                                 </div>
                             </div>
                             <div class="submit-section">

@@ -5,31 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55dcc509-9b4f-4b84-9369-67cecb90b57d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sport.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Payrun.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_29_230215_create_payruns_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_30_172022_adding_payrun_id_in_payslip.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_31_175309_add_ground_in_appointment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1617175617.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep1.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep2.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_01_232918_add_member_paytun.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_01_234919_add_finalize_payrun.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_005745_add_payrun_field.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaveController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Imports/ImportAppoint.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ImportAppoint.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Appointment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_26_095359_create_audits_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/appointment/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/appointment/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Payrun.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Payrun.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/main/layout/include/transactionTab.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/layout/include/transactionTab.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/main/payroll/payroll.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/payroll/payroll.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep1.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep2.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +225,7 @@
       <workItem from="1617020829816" duration="3692000" />
       <workItem from="1617081605859" duration="19887000" />
       <workItem from="1617171373556" duration="14787000" />
+      <workItem from="1617258896598" duration="22226000" />
     </task>
     <task id="LOCAL-00001" summary="friday update">
       <created>1616835775327</created>

@@ -8,9 +8,9 @@ class Payrun extends Model
 {
     protected $fillable =['schedule','startDate','endDate','payrunDate'];
 
-    public function record()
+    public function payout()
     {
-        return $this->hasMany('App\Model\Payslip','payout_id','id');
+        return $this->hasMany('App\Model\Payout','payrun_id','id');
     }
 
     public function payslip()

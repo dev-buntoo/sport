@@ -224,8 +224,9 @@ class ShowController extends Controller
     public function processPayrun(){
         return view('main.payroll.payrunStep1');
     }
-    public function processPayrunComplete(){
-        return view('main.payroll.payrunStep2');
+    public function processPayrunComplete($id){
+        $request = Payrun::find($id);
+        return view('main.payroll.payrunStep2',compact('request'));
     }
 
     //      END

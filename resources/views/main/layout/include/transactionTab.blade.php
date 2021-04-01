@@ -135,13 +135,13 @@
                                                 @foreach($members as $mem)
                                                 <option  value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
                                                 @endforeach
-                                                </select>
+                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="col-form-label">Amount</label>
-                                            <input class="form-control" required name="amount" type="number">
+                                            <input class="form-control" required name="amount" type="number" step="0.01">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -193,7 +193,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="POST" action="{{route('member.income.save')}}">
+                            <form method="POST" action="{{route('member.income.save')}}" >
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
@@ -209,7 +209,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="col-form-label">Amount</label>
-                                            <input class="form-control" name="amount" required type="number">
+                                            <input class="form-control" name="amount" required type="number" step="0.01">
                                         </div>
                                     </div>
                                     <div class="col-md-6">

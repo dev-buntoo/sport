@@ -9,8 +9,9 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col">
-                        <h3 class="page-title">Fortnighly</h3>
-                        <p>Pay period 08/01/2021 to 22/02/2021  <span>Pay period 08/01/2021 </span>	</p>
+                        <h3 class="page-title">{{$request->schedule}}</h3>
+                        <p>Pay period {{$request->startDate}} to {{$request->endDate}}  <span>Pay period {{ date('d/m/Y',strtotime($request->created_at)) }} </span> </p>
+
 
                         <div class="leave-action">
                             <button class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#add_custom_policy"><i class="fa fa-plus"></i> View pay slip</button>
@@ -36,26 +37,24 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($request->payout as $payout)
                                     <tr>
-                                        <td><a href="#"><i class="fa fa-chevron-right"></i> Tiger Nixon</a></td>
-                                        <td>$500.00</td>
-                                        <td>$100.00</td>
-                                        <td>$400.00</td>
+                                        <td><i class="fa fa-chevron-right"></i> {{$payout->member->fname.' '.$payout->member->lname}}</td>
+                                        <td>${{$payout->gross_amount}}</td>
+                                        <td>${{$payout->deduction}}</td>
+                                        <td>${{$payout->net_amount}}</td>
                                     </tr>
-                                    <tr>
-                                        <td><a href="#"><i class="fa fa-chevron-right"></i> Nixon</a></td>
-                                        <td>$100.00</td>
-                                        <td>$50.00</td>
-                                        <td>$50.00</td>
-                                    </tr>
+                                    @endforeach
+
 
                                     </tbody>
                                     <thead>
                                     <tr style="background: #f7f4f4;">
-                                        <th>Totals <span>member</span></th>
-                                        <th>$207</th>
-                                        <th>$207</th>
-                                        <th>$207</th>
+                                        <th>Total {{count($request->payout)}}<span> member</span></th>
+                                        <th>${{$request->payout->sum('gross_amount')}}</th>
+                                        <th>${{$request->payout->sum('deduction')}}</th>
+                                        <th>${{$request->payout->sum('net_amount')}}</th>
+
                                     </tr>
                                     </thead>
                                 </table>

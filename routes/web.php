@@ -91,8 +91,8 @@ Route::get('appointment/removeline/{id}','SaveController@deleteupdateRate')->nam
 Route::get('payroll','ShowController@showPayroll')->name('payroll.show');
 Route::get('payrun','ShowController@showPayrun')->name('payrun.show');
 
-Route::post('process-payrun','ShowController@processPayrun')->name('payrun.process');
-Route::get('payrun-completed','ShowController@processPayrunComplete')->name('payrun.complete');
+Route::post('process-payrun','SaveController@stepPayrun')->name('payrun.process');
+Route::get('payrun-completed/{id}','ShowController@processPayrunComplete')->name('payrun.complete');
 
 Route::get('payslip/{id}','ShowController@showPayslip')->name('payslip.show');
 Route::post('payslip/update','SaveController@updatePayslip')->name('payroll.update');

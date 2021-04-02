@@ -135,3 +135,7 @@ Route::post('system/role/update','SaveController@updateRole')->name('role.update
 Route::post('system/admin/save','SaveController@createUser')->name('user.save');
 Route::post('system/admin/update','SaveController@editUser')->name('user.update');
 
+// Reports Routes
+Route::get('reports', 'ShowController@showReports')->name('reports.show');
+Route::post('reports', 'SaveController@saveReport')->name('reports.store');
+

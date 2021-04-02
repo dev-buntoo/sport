@@ -6,6 +6,7 @@ use App\Model\Payrun;
 use Illuminate\Http\Request;
 use App\User;
 use App\Email;
+use App\Member;
 use App\Model\Income;
 use App\Model\Expense;
 use App\Model\Payout;
@@ -13,6 +14,7 @@ use App\Model\UpdateRate;
 use App\Model\Appointment;
 use App\Model\ImportData;
 use App\Model\Role;
+use App\Report;
 use Schema;
 use Auth;
 use Carbon\Carbon;
@@ -291,6 +293,12 @@ class ShowController extends Controller
         return view('main.systemAdmin.auditlog',compact('audits'));
         // return view('main.systemAdmin.auditlog');
 
+    }
+    public function showReports()
+    {
+        $members = Member::where('is_member', '1')->get();
+        $reports = Report::get();
+        return view('main.systemAdmin.reports',['members'=>$members, 'reports'=>$reports]);
     }
     //       END
     // ==================

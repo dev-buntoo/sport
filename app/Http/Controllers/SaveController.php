@@ -18,7 +18,9 @@ use App\Imports\ImportAppoint;
 use App\Imports\ImportMember;
 use Maatwebsite\Excel\Facades\Excel;
 use Auth;
+use Exception;
 use Illuminate\Support\Facades\Hash;
+use App\Report;
 
 class SaveController extends Controller
 {
@@ -498,6 +500,116 @@ else{
         // dd($request);
         $role->update($request->all());
         return redirect()->route('system.role');
+    }
+    public function saveReport(Request $request)
+    {
+        // return $request;
+        $this->validate($request,[
+            'format' => 'required|in:1,2',
+            'member' => 'required|exists:users,id',
+            'date' => 'required|date|date_format:Y-m-d',
+            'home_team' => 'required',
+            'away_team' => 'required',
+            'home_penalties' => 'required|numeric',
+            'away_penalties' => 'required|numeric',
+            'home_score' => 'required|numeric',
+            'away_score' => 'required|numeric',
+            'grade_division' => 'required|in:N,S,A,E',
+            'overall_grade' => 'required|in:N,S,A,E',
+            'signals_note' => 'required',
+            'wistla_tone_grade' => 'required|in:N,S,A,E',
+            'c_c_signal_grade' => 'required|in:N,S,A,E',
+            'presentation_grade' => 'required|in:N,S,A,E',
+            'pre_match_duties_grade' => 'required|in:N,S,A,E',
+            'game_law_note' => 'required',
+            'application_grade' => 'required|in:N,S,A,E',
+            'scrum_grade' => 'required|in:N,S,A,E',
+            'process_grade' => 'required|in:N,S,A,E',
+            'advantage_grade' => 'required|in:N,S,A,E',
+            'understandig_note' => 'required',
+            'penalty_grade' => 'required|in:N,S,A,E',
+            'ruck_comm_grade' => 'required|in:N,S,A,E',
+            'effective_caution_grade' => 'required|in:N,S,A,E',
+            'movement_patterns_grade' => 'required|in:N,S,A,E',
+            'marker_ruck_note' => 'required',
+            'ten_m_grade' => 'required|in:N,S,A,E',
+            'ten_m_complaince_grade' => 'required|in:N,S,A,E',
+            'marker_complaince_grade' => 'required|in:N,S,A,E',
+            'ruck_speed_grade' => 'required|in:N,S,A,E',
+            'communication_note' => 'required',
+            'ruck_vocab_grade' => 'required|in:N,S,A,E',
+            'tackle_grade' => 'required|in:N,S,A,E',
+            'player_rapport_grade' => 'required|in:N,S,A,E',
+            'comm_timming_grade' => 'required|in:N,S,A,E',
+            'positioning_note' => 'required',
+            'ten_m_position_grade' => 'required|in:N,S,A,E',
+            'in_goal_grade' => 'required|in:N,S,A,E',
+            'start_restart_grade' => 'required|in:N,S,A,E',
+            'kicks_breaks_grade' => 'required|in:N,S,A,E',
+            'coach_comments' => 'required',
+            'overall_assesment' => 'required',
+            'final_comments' => 'required',
+            'file' => 'required'
+        ]);
+        try{
+                $fileName = time().'.'.$request->file->extension();
+
+                $request->file->move(public_path('report_additional'), $fileName);
+
+            // return $fileName;
+            $report = new Report;
+            $report->member_id = $request->member;
+            $report->format = $request->format;
+            $report->coach = Auth::user()->fname;
+            $report->date = $request->date;
+            $report->home_team = $request->home_team;
+            $report->away_team = $request->away_team;
+            $report->home_penalties = $request->home_penalties;
+            $report->away_penalties = $request->away_penalties;
+            $report->home_score = $request->home_score;
+            $report->away_score = $request->away_score;
+            $report->grade_division = $request->grade_division;
+            $report->overall_grade = $request->overall_grade;
+            $report->signals_note = $request->signals_note;
+            $report->wistla_tone_grade = $request->wistla_tone_grade;
+            $report->c_c_signal_grade = $request->c_c_signal_grade;
+            $report->presentation_grade = $request->presentation_grade;
+            $report->pre_match_duties_grade = $request->pre_match_duties_grade;
+            $report->game_law_note = $request->game_law_note;
+            $report->application_grade = $request->application_grade;
+            $report->scrum_grade = $request->scrum_grade;
+            $report->process_grade = $request->process_grade;
+            $report->advantage_grade = $request->advantage_grade;
+            $report->understandig_note = $request->understandig_note;
+            $report->ruck_communication_grade = $request->ruck_comm_grade;
+            $report->penalty_grade = $request->penalty_grade;
+            $report->effective_caution_grade = $request->effective_caution_grade;
+            $report->movement_patterns_grade = $request->movement_patterns_grade;
+            $report->marker_ruck_note = $request->marker_ruck_note;
+            $report->ten_m_grade = $request->ten_m_grade;
+            $report->ten_m_complaince_grade = $request->ten_m_complaince_grade;
+            $report->marker_complaince_grade = $request->marker_complaince_grade;
+            $report->ruck_speed_grade = $request->ruck_speed_grade;
+            $report->communication_note = $request->communication_note;
+            $report->ruck_vocab_grade = $request->ruck_vocab_grade;
+            $report->tackle_grade = $request->tackle_grade;
+            $report->player_rapport_grade = $request->player_rapport_grade;
+            $report->communication_timming_grade = $request->comm_timming_grade;
+            $report->positioning_note = $request->positioning_note;
+            $report->ten_m_position_grade = $request->ten_m_position_grade;
+            $report->in_goal_grade = $request->in_goal_grade;
+            $report->start_restart_grade = $request->start_restart_grade;
+            $report->kicks_breaks_grade = $request->kicks_breaks_grade;
+            $report->coach_comments = $request->coach_comments;
+            $report->overall_assesment = $request->overall_assesment;
+            $report->final_comments = $request->final_comments;
+            $report->file_name = $fileName;
+            if($report->save()){
+                return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
+            }
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
     }
 
 }

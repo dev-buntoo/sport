@@ -22,4 +22,7 @@ class Payout extends Model
     {
         return $this->hasMany('App\Model\Payslip','payout_id','id');
     }
+    public function payrun(){
+        return $this->belongsTo('App\Model\Payrun','payrun_id','id');
+    }
 }

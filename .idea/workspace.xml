@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55dcc509-9b4f-4b84-9369-67cecb90b57d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_01_232918_add_member_paytun.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_01_234919_add_finalize_payrun.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_005745_add_payrun_field.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaveController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Payrun.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Payrun.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/layout/include/transactionTab.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/layout/include/transactionTab.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/payroll/payroll.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/payroll/payroll.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/layout/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/layout/footer.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +215,8 @@
       <workItem from="1617020829816" duration="3692000" />
       <workItem from="1617081605859" duration="19887000" />
       <workItem from="1617171373556" duration="14787000" />
-      <workItem from="1617258896598" duration="22226000" />
+      <workItem from="1617258896598" duration="22585000" />
+      <workItem from="1617340696444" duration="1825000" />
     </task>
     <task id="LOCAL-00001" summary="friday update">
       <created>1616835775327</created>
@@ -234,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616835775327</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="thursday update">
+      <created>1617286789090</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1617286789090</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +265,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="friday update" />
-    <option name="LAST_COMMIT_MESSAGE" value="friday update" />
+    <MESSAGE value="thursday update" />
+    <option name="LAST_COMMIT_MESSAGE" value="thursday update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

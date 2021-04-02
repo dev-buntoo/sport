@@ -151,7 +151,7 @@ class ShowController extends Controller
     {
         if($id == 'all'){
         foreach(Payout::all() as $payslip ){
-
+//            return    $payslip->member->email;
             $data = array(
                 'payslip' => $payslip,
                 'slip' => $payslip->record,
@@ -172,6 +172,28 @@ class ShowController extends Controller
             Email::sendslip($payslip->member->email, $data);
 
         }
+
+        // $payslip = Payout::find($id);
+        // //    dd($payslip->record);
+        //     $slip = $payslip->record;
+        //     return view('main.slip.index',compact('payslip','slip'));
+        return redirect()->back()->with('success','Email send to members e-mail');
+
+    }
+
+    public function payrungenrateSlip($id )
+    {
+        $payout = Payrun::find($id);
+            foreach($payout->payout as $payslip ){
+//            return    $payslip->member->email;
+                $data = array(
+                    'payslip' => $payslip,
+                    'slip' => $payslip->record,
+                );
+
+                Email::sendslip($payslip->member->email, $data);
+
+            }
 
         // $payslip = Payout::find($id);
         // //    dd($payslip->record);
@@ -215,10 +237,11 @@ class ShowController extends Controller
     }
 
     public function genrateSlip($id){
-            $payslip = Payout::find($id);
-        //    dd($payslip->record);
+             $payslip = Payout::find($id);
+
+//            dd($payslip->payrun);
             $slip = $payslip->record;
-            return view('main.slip.index',compact('payslip','slip'));
+            return view('main.slip.payslip',compact('payslip','slip'));
     }
 
     public function processPayrun(){

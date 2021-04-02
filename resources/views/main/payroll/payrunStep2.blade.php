@@ -14,8 +14,8 @@
 
 
                         <div class="leave-action">
-                            <button class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#add_custom_policy"><i class="fa fa-plus"></i> View pay slip</button>
-                            <button class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#add_custom_policy"><i class="fa fa-plus"></i> Send pay slip</button>
+                            <button id="open" class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#add_custom_policy"><i class="fa fa-plus"></i> View pay slip</button>
+                            <button class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#add_policy"><i class="fa fa-plus"></i> Send pay slip</button>
                         </div>
                     </div>
                 </div>
@@ -67,5 +67,54 @@
         </div>
     </div>
     <!-- /Page Wrapper -->
-
+    <!-- Add Policy Modal -->
+    <div id="add_policy" class="modal custom-modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Send Email</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div class="form-header">
+                            <p>Are you sure you want to email {{count($request->payout)}} members pay slips?</p>
+                        </div>
+                        <div class="modal-btn delete-action">
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href="{{route('generate.payrun.slip',$request->id)}}" class="btn btn-primary continue-btn">Yes</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">No</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Add Policy Modal -->
 @endsection
+@push('script')
+    <script>
+    $(document).ready(function() {
+
+    var linksArray =[
+        @foreach($request->payout as $payout)
+            '{{route('generate.slip',$payout->id)}}',
+        @endforeach
+
+    ],i;
+
+    $('#open').click(function() {for( i=0; linksArray.length > i; i++){
+
+    window.open(linksArray[i]);
+    }
+    });
+    });
+    </script>
+@endpush

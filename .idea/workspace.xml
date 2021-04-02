@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55dcc509-9b4f-4b84-9369-67cecb90b57d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/main/slip/payslip.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/app/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Payout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Payout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/layout/include/payrollTab.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/layout/include/payrollTab.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep2.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +222,6 @@
       <workItem from="1617081605859" duration="19887000" />
       <workItem from="1617171373556" duration="14787000" />
       <workItem from="1617258896598" duration="22585000" />
-
     </task>
     <task id="LOCAL-00001" summary="friday update">
       <created>1616835775327</created>

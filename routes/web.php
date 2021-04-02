@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('slip-test',function (){
+   return view('main.slip.payslip');
+});
 Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('config:cache');
     // return what you want
@@ -98,6 +100,7 @@ Route::get('payslip/{id}','ShowController@showPayslip')->name('payslip.show');
 Route::post('payslip/update','SaveController@updatePayslip')->name('payroll.update');
 
 Route::get('generate/slip/{id}','ShowController@genrateSlip')->name('generate.slip');
+Route::get('generate/payrun/{id}','ShowController@payrungenrateSlip')->name('generate.payrun.slip');
 
 Route::get('system/admin','ShowController@showAdmin')->name('system.admin');
 Route::get('system/admin/edit/{id}','ShowController@editUser')->name('user.edit');

@@ -20,7 +20,7 @@
                         <ul style="display: none;">
                             <li><a href="{{ route('payroll.show') }}"> Payroll </a></li>
                             <!-- <li><a href="salary-view.html"> Payslip </a></li> -->
-                            <li><a href="{{ route('payrun.show') }}"> Pay Run </a></li>
+{{--                            <li><a href="{{ route('payrun.show') }}"> Pay Run </a></li>--}}
                         </ul>
                     </li>
 

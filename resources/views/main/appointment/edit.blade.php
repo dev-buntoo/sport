@@ -87,6 +87,11 @@
                                                     <input type="number" class="form-control" id="coach_rate"
                                                         name="coach_rate" value="{{ $app->rates->coach_rate }}" required>
                                                 </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="coach_rate">Ground</label>
+                                                    <input type="text" class="form-control" id="ground"
+                                                        name="ground" value="{{ $app->ground }}" required>
+                                                </div>
                                             </div>
                                             <div class="submit-section">
                                                 <button class="btn btn-primary submit-btn" type="submit">Update</button>

@@ -38,6 +38,7 @@ return array(
     'App\\Model\\ImportData' => $baseDir . '/app/Model/ImportData.php',
     'App\\Model\\Income' => $baseDir . '/app/Model/Income.php',
     'App\\Model\\Payout' => $baseDir . '/app/Model/Payout.php',
+    'App\\Model\\Payrun' => $baseDir . '/app/Model/Payrun.php',
     'App\\Model\\Payslip' => $baseDir . '/app/Model/Payslip.php',
     'App\\Model\\Role' => $baseDir . '/app/Model/Role.php',
     'App\\Model\\UpdateRate' => $baseDir . '/app/Model/UpdateRate.php',

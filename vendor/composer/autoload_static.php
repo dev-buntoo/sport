@@ -582,6 +582,7 @@ class ComposerStaticInit2da1453fc3978f08840b9a48ab4febb2
         'App\\Model\\ImportData' => __DIR__ . '/../..' . '/app/Model/ImportData.php',
         'App\\Model\\Income' => __DIR__ . '/../..' . '/app/Model/Income.php',
         'App\\Model\\Payout' => __DIR__ . '/../..' . '/app/Model/Payout.php',
+        'App\\Model\\Payrun' => __DIR__ . '/../..' . '/app/Model/Payrun.php',
         'App\\Model\\Payslip' => __DIR__ . '/../..' . '/app/Model/Payslip.php',
         'App\\Model\\Role' => __DIR__ . '/../..' . '/app/Model/Role.php',
         'App\\Model\\UpdateRate' => __DIR__ . '/../..' . '/app/Model/UpdateRate.php',

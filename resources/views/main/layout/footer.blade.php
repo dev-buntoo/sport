@@ -31,7 +31,7 @@
     <script src="{{asset('main')}}/plugins/summernote/dist/summernote-bs4.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
-    
+
     <!--Google Location-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0qe-Nm-I-wRVSHg__FQmbIIE9WNpbqms&amp;libraries=places"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/geocomplete/1.7.0/jquery.geocomplete.min.js"></script>
@@ -42,7 +42,7 @@
        <script>
            $('.js-example-basic-single').select2();
        </script>
-       
+
 <!--Script For Location-->
 <script>
     (function($) {
@@ -367,6 +367,16 @@ function generate() {
   @endforeach
     @endif
 
+  $(function (){
+      sel =$("a").filter(function(index) {
+          return $(this).attr('href') === window.location.href;
+      });
+      sel.parents('ul').show();
+      // sel.parents('.submenu').addClass('active').click();
+      // sel.parents('li').first('a').addClass('subdrop');
+      // sel.addClass('active');
+      sel.parents('li').addClass('active');
+  });
 
 </script>
 

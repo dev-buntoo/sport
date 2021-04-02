@@ -366,6 +366,7 @@ function generate() {
     toastr.error("{{ $error }}");
   @endforeach
     @endif
+
 </script>
 
     @stack('script')

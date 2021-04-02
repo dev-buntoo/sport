@@ -367,17 +367,6 @@ function generate() {
   @endforeach
     @endif
 
-  $(function (){
-      sel =$("a").filter(function(index) {
-          return $(this).attr('href') === window.location.href;
-      });
-      sel.parents('ul').show();
-      // sel.parents('.submenu').addClass('active').click();
-      // sel.parents('li').first('a').addClass('subdrop');
-      // sel.addClass('active');
-      sel.parents('li').addClass('active');
-  });
-
 </script>
 
     @stack('script')

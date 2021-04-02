@@ -44,6 +44,9 @@
                         </ul>
                     </li>
 
+                    <li>
+                        <a href="{{ route('reports.show') }}"><i class="la la-pie-chart"></i> <span>Reports</span></a>
+                    </li>
 
                 </ul>
             </div>

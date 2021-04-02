@@ -25,7 +25,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            
+
                             <ul class="nav nav-tabs nav-tabs-bottom">
                                 <li class="nav-item"><a class="nav-link @if(!Session::has('tab')) active @endif" href="#tab1"
                                         data-toggle="tab">Member Details</a></li>
@@ -33,7 +33,9 @@
                                         data-toggle="tab">Transactions</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#tab3" data-toggle="tab">Payroll</a>
                                 </li>
-                                
+                                <li class="nav-item"><a class="nav-link" href="#tab4" data-toggle="tab">Match Reports</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content">
@@ -46,7 +48,10 @@
                                 <div class="tab-pane" id="tab3">
                                     @include('main.layout.include.payrollTab')
                                 </div>
-                               
+                                <div class="tab-pane" id="tab4">
+                                    @include('main.layout.include.matchReport')
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -57,7 +62,7 @@
 
 
         @stack('model')
-         
+
     </div>
     <!-- /Page Wrapper -->
 

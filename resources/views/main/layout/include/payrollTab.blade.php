@@ -16,13 +16,13 @@
                     @foreach($payrolls as $pay)
                      <tr>
                         <td>
-                            {{ $pay->date }}
+                            {{ $pay->startDate }}
                         </td>
                         <td>{{ $pay->member->fname.' '.$pay->member->lname }}</td>
                         <td>Fortnightly</td>
                         <td>{{ $pay->gross_amount+$pay->deduction }}</td>
                         <td>
-                            <a href="{{ route('payslip.show',$pay->id) }}" data-toggle="tooltip"
+                            <a href="{{ route('generate.slip',$pay->id) }}" target="_blank" data-toggle="tooltip"
                                 data-placement="top" title="View Member"
                                 class="bell-icon mr-2">
                                 <i class="fa fa-eye fa-lg" aria-hidden="true"></i>

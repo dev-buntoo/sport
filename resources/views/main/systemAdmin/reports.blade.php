@@ -642,14 +642,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        {{-- <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label> Additional File </label>
                                                     <input type="file" name="file">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

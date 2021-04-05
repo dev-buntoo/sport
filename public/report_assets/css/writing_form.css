@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+body{
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+	width: 100%;
+    max-width: 1111px;
+    font-family: 'Open Sans', sans-serif;
+}
+.main-heading{
+	display: flex;
+    margin: 40px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-heading h1{
+	font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+    max-width: 665px;
+}
+.two-sec{
+	display: flex;
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+}
+.two-sec .iner{
+	display: flex;
+	flex-wrap: wrap;
+	width: 74%;
+}
+.two-sec .right-table{
+	width: calc(28% - 50px);
+	float: right;
+}
+.two-sec .right-table table{
+	margin-top: 0;
+}
+.two-sec span{
+	border-bottom: 2px solid;
+    padding: 2px 15px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+.two-sec p{
+	font-size: 20px;
+	line-height: 40px;
+	font-weight: bold;
+	margin: 0 0 15px;
+}
+.two-sec table{
+	border-collapse: collapse;
+	margin-top: 30px;
+}
+.two-sec .right-table td{
+	padding: 5px;
+}
+.two-sec  th, td{
+	border: 2px solid #000;
+	padding: 3px 10px;
+	font-size: 18px;
+	line-height: 22px;
+	height: 40px;
+}
+table.table-form{
+	border-collapse: collapse;
+	margin-top: 30px;
+	width: 100%;
+}
+.table-form td{
+	font-weight: 600;
+}
+.table-form th, td{
+	border: 2px solid #000;
+	padding: 5px 10px;
+	text-align: center;
+	font-size: 18px;
+    line-height: 24px;
+    vertical-align: top;
+}
+.table-form span{
+	border-bottom: 2px solid;
+	padding: 0 15px;
+	line-height: 30px;
+}
+tr.table-head th:first-child{
+	height: 40px;
+}
+tr.table-head th:nth-child(2){
+	border: none;  
+	text-align: left;
+	font-weight: normal;
+	font-size: 16px;
+    vertical-align: middle;
+}
+.comment-section p{
+	margin: 20px 0;
+}
+.comment-section label{
+	border-bottom: 2px solid;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 4px 0;
+    font-weight: bold;
+}
+.comment-section span{
+	border-bottom: 2px solid;
+    font-size: 16px;
+    line-height: 50px;
+    padding: 5px 10px;
+    width: 100%;
+}
+.assesment-section h2{
+	text-align: center;
+	margin: 40px 0 10px;
+}
+.assesment-section table{
+	margin: 0;
+}
+.assesment-section th{
+	text-align: left;
+	vertical-align: middle;
+	padding: 0 10px;
+}
+.assesment-section input{
+	width: 30px;
+    height: 30px;
+    margin: 0 25px;
+    vertical-align: middle;
+}
+.comment-section.signature-section p{
+	margin-bottom: 40px;
+}
+.comment-section.signature-section label{
+	border-bottom: none;
+	font-weight: 600;
+}
+.comment-section.signature-section span{
+	padding: 2px 15px;
+}
+.signature-section p{
+	width: 40%;
+	float: left;
+	margin-right: 50px;
+}
+span.no-line{
+	border-bottom: none;
+	padding: 0;
+	text-align: center;
+	font-weight: 400;
+}

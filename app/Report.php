@@ -15,4 +15,10 @@ class Report extends Model
     public function member(){
         return $this->hasOne('App\Member', 'id', 'member_id');
     }
+    public function homeTeam(){
+        return $this->hasOne('App\Team', 'team_id', 'home_team');
+    }
+    public function awayTeam(){
+        return $this->hasOne('App\Team', 'team_id', 'away_team');
+    }
 }

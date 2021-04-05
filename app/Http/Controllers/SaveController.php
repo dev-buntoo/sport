@@ -21,6 +21,11 @@ use Auth;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use App\Report;
+use App\Team;
+use Barryvdh\DomPDF\PDF;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Illuminate\Support\Facades\Storage;
 
 class SaveController extends Controller
 {
@@ -505,57 +510,60 @@ else{
     {
         // return $request;
         $this->validate($request,[
-            'format' => 'required|in:1,2',
+            'format' => 'required|in:1,2,3',
             'member' => 'required|exists:users,id',
             'date' => 'required|date|date_format:Y-m-d',
-            'home_team' => 'required',
-            'away_team' => 'required',
+            'home_team' => 'required|exists:teams,team_id',
+            'away_team' => 'required|exists:teams,team_id|different:home_team',
             'home_penalties' => 'required|numeric',
             'away_penalties' => 'required|numeric',
             'home_score' => 'required|numeric',
             'away_score' => 'required|numeric',
             'grade_division' => 'required|in:N,S,A,E',
             'overall_grade' => 'required|in:N,S,A,E',
-            'signals_note' => 'required',
+            'signals_note' => 'nullable',
             'wistla_tone_grade' => 'required|in:N,S,A,E',
             'c_c_signal_grade' => 'required|in:N,S,A,E',
             'presentation_grade' => 'required|in:N,S,A,E',
             'pre_match_duties_grade' => 'required|in:N,S,A,E',
-            'game_law_note' => 'required',
+            'game_law_note' => 'nullable',
             'application_grade' => 'required|in:N,S,A,E',
             'scrum_grade' => 'required|in:N,S,A,E',
             'process_grade' => 'required|in:N,S,A,E',
             'advantage_grade' => 'required|in:N,S,A,E',
-            'understandig_note' => 'required',
+            'understandig_note' => 'nullable',
             'penalty_grade' => 'required|in:N,S,A,E',
             'ruck_comm_grade' => 'required|in:N,S,A,E',
             'effective_caution_grade' => 'required|in:N,S,A,E',
             'movement_patterns_grade' => 'required|in:N,S,A,E',
-            'marker_ruck_note' => 'required',
+            'marker_ruck_note' => 'nullable',
             'ten_m_grade' => 'required|in:N,S,A,E',
             'ten_m_complaince_grade' => 'required|in:N,S,A,E',
             'marker_complaince_grade' => 'required|in:N,S,A,E',
             'ruck_speed_grade' => 'required|in:N,S,A,E',
-            'communication_note' => 'required',
+            'communication_note' => 'nullable',
             'ruck_vocab_grade' => 'required|in:N,S,A,E',
             'tackle_grade' => 'required|in:N,S,A,E',
             'player_rapport_grade' => 'required|in:N,S,A,E',
             'comm_timming_grade' => 'required|in:N,S,A,E',
-            'positioning_note' => 'required',
+            'positioning_note' => 'nullable',
             'ten_m_position_grade' => 'required|in:N,S,A,E',
             'in_goal_grade' => 'required|in:N,S,A,E',
             'start_restart_grade' => 'required|in:N,S,A,E',
             'kicks_breaks_grade' => 'required|in:N,S,A,E',
-            'coach_comments' => 'required',
-            'overall_assesment' => 'required',
-            'final_comments' => 'required',
-            'file' => 'required'
+            'coach_comments' => 'nullable',
+            'overall_assesment' => 'nullable',
+            'final_comments' => 'nullable',
+            'file' => 'nullable'
         ]);
         try{
-                $fileName = time().'.'.$request->file->extension();
+            $fileName = null;
+                if($request->file){
+                    $fileName = time().'.'.$request->file->extension();
 
-                $request->file->move(public_path('report_additional'), $fileName);
-
+                    // $request->file->move(storeAs('reports/additional'), $fileName);
+                    $request->file('file')->storeAs('public/reports/additional_files', $fileName);
+                }
             // return $fileName;
             $report = new Report;
             $report->member_id = $request->member;
@@ -605,10 +613,61 @@ else{
             $report->final_comments = $request->final_comments;
             $report->file_name = $fileName;
             if($report->save()){
-                return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
+                $updateReport = Report::find($report->report_id);
+                $reportName = $this->generatePDF($updateReport);
+                $updateReport->pdf_name = $reportName;
+                if($updateReport->save()){
+                    return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
+                }
             }
         }catch(Exception $e){
+            // return redirect()->back()->with('error', 'Something went wrong. Please try agiain');
             return $e->getMessage();
+        }
+    }
+    //This function generate pdf for report, store it and return file name
+    protected function generatePDF($report)
+    {
+        $options = new Options();
+        $options->set('defaultFont', 'DejaVu Sans');
+        $dompdf = new Dompdf($options);
+        // instantiate and use the dompdf class
+        $html = view('main.systemAdmin.reportPdf', compact(['report']));
+        $dompdf->setPaper( array( 0 , 0 , 226.77 , 226.77 ) );
+        $dompdf->loadHtml($html,'UTF-8');
+        $dompdf->render();
+        $output = $dompdf->output();
+        $reportName = time().'.pdf';
+        Storage::put('public/reports/'.$reportName, $output);
+        return $reportName;
+    }
+    public function storeTeam(Request $request)
+    {
+        // return($request);
+        $this->validate($request,[
+            'name' => 'required|max:100'
+        ]);
+        $team = new Team;
+        $team->team_name = $request->name;
+        if($team->save()){
+            return redirect()->route('teams.show')->with('success', 'Team Added Successfuly');
+        }
+        else{
+            return redirect()->back()->with('error', 'Something went wrong. Please try agiain');
+        }
+    }
+    public function updateTeam(Request $request, $team_id)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:100'
+        ]);
+        $team = Team::findorFail($team_id);
+        $team->team_name = $request->name;
+        if($team->save()){
+            return redirect()->route('teams.show')->with('success', 'Team Updated Successfuly');
+        }
+        else{
+            return redirect()->back()->with('error', 'Something went wrong. Please try agiain');
         }
     }
 

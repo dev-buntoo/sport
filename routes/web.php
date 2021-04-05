@@ -141,4 +141,9 @@ Route::post('system/admin/update','SaveController@editUser')->name('user.update'
 // Reports Routes
 Route::get('reports', 'ShowController@showReports')->name('reports.show');
 Route::post('reports', 'SaveController@saveReport')->name('reports.store');
-
+Route::get('reports/{id}', 'ShowController@showSpecficReport');
+//teams Routes
+Route::get('teams', 'ShowController@showTeams')->name('teams.show');
+Route::post('teams', 'SaveController@storeTeam')->name('teams.store');
+Route::get('teams/{team_id}', 'ShowController@editTeam')->name('teams.edit');
+Route::put('teams/{team_id}', 'SaveController@updateTeam')->name('teams.update');

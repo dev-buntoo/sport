@@ -66,13 +66,13 @@
                             <tr>
                                 <td>{{$report->date}}</td>
                                 <td>{{$report->member->fname}} {{$report->member->lname}}</td>
-                                <td>{{$report->home_team}}</td>
-                                <td>{{$report->away_team}}</td>
+                                <td>{{$report->homeTeam->team_name}}</td>
+                                <td>{{$report->awayTeam->team_name}}</td>
                                 <td>{{$report->grade_division}}</td>
                                 <td>{{$report->overall_grade}}</td>
                                 <td>--</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-primary">View PDF</a>
+                                    <a target="_blank" href="{{asset('storage/reports/'.$report->pdf_name)}}" class="btn btn-sm btn-primary">View PDF</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -107,10 +107,13 @@
                                 <div class="card-header">
                                     <div class="welcome-det">
                                         <h3>Parramatta District Rugby League Referees Association</h3>
-                                        <p>Match Day Coaching Sheet
+                                        <p>Match Day Coaching Sheet  <span class="text-danger">*</span>
 
-                                            <select name="format" id="" class="form-control select form-control-sm">
-                                                <option value="1">Under 15's A Grade</option>
+                                            <select name="format" id="" class="form-control select form-control-sm" required>
+                                                <option value="" selected>Please Select Format</option>
+                                                <option value="1">Under 15's – A Grade</option>
+                                                <option value="2">Under 7’s – Under 14’s</option>
+                                                <option value="3">Touch Judge</option>
                                             </select>
                                         </p>
                                     </div>
@@ -121,14 +124,15 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label>Date </label>
-                                                        <input class="form-control" type="date" name="date">
+                                                        <label>Date <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="date" name="date" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label>Members Name</label>
+                                                        <label>Members Name  <span class="text-danger">*</span></label>
                                                         <select class="js-example-basic-single" name="member" style="width: 100%;" required>
+                                                            <option value="" selected>Please Select Member</option>
                                                             @foreach ($members as $member)
                                                             <option value="{{$member->id}}">{{$member->fname}} {{$member->lname}}</option>
                                                             @endforeach
@@ -139,21 +143,23 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label>Home Team</label>
+                                                        <label>Home Team  <span class="text-danger">*</span></label>
                                                         <select class="form-control select" name="home_team" required>
-                                                            <option value="A">Home Team A</option>
-                                                            <option value="B">Home Team B</option>
-                                                            <option value="C">Home Team C</option>
+                                                            <option value="" selected> Please Select Home Team</option>
+                                                            @foreach ($teams as $team)
+                                                            <option value="{{$team->team_id}}">{{ $team->team_name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label>Away Team</label>
+                                                        <label>Away Team  <span class="text-danger">*</span></label>
                                                         <select class="form-control select" name="away_team" required>
-                                                            <option value="A">Away Team A</option>
-                                                            <option value="B">Away Team B</option>
-                                                            <option value="C">Away Team C</option>
+                                                            <option value="" selected> Please Select Away Team</option>
+                                                            @foreach ($teams as $team)
+                                                            <option value="{{$team->team_id}}">{{ $team->team_name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -192,7 +198,7 @@
                                                         <label>Grade & Division <span
                                                                 class="text-danger">*</span></label>
                                                                 <select class="form-group select" name="grade_division" required>
-                                                                    <option value="0" selected>Grade</option>
+                                                                    <option value="" selected>Grade</option>
                                                                     <option value="N">N</option>
                                                                     <option value="S">S</option>
                                                                     <option value="A">A</option>
@@ -204,7 +210,7 @@
                                                     <div class="form-group">
                                                         <label>Overall Grade <span class="text-danger">*</span></label>
                                                         <select class="form-group select" name="overall_grade" required>
-                                                            <option value="0" selected>Grade</option>
+                                                            <option value="" selected>Grade</option>
                                                             <option value="N">N</option>
                                                             <option value="S">S</option>
                                                             <option value="A">A</option>
@@ -238,9 +244,9 @@
                                         <div class="row">
                                             <div class="col-sm-3 pt-3">
                                                 <div>
-                                                    <label>Wistla Tone</label>
+                                                    <label>Wistla Tone </label>
                                                     <select class="form-group select" name="wistla_tone_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -252,7 +258,7 @@
                                                 <div>
                                                     <label>Clear & Concise Signals </label>
                                                     <select class="form-group select" name="c_c_signal_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -264,7 +270,7 @@
                                                 <div>
                                                     <label>Prasentation</label>
                                                     <select class="form-group select" name="presentation_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -276,7 +282,7 @@
                                                 <div>
                                                     <label>Pre-Match Duties</label>
                                                     <select class="form-group select" name="pre_match_duties_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -292,7 +298,7 @@
                                                 <div class="form-group">
                                                     <label>Law of the Game </label>
                                                     <input class="form-control" type="text" placeholder="Note"
-                                                        name="game_law_note" required>
+                                                        name="game_law_note">
                                                 </div>
                                             </div>
                                         </div>
@@ -300,8 +306,8 @@
                                             <div class="col-sm-5 pt-3">
                                                 <div>
                                                     <label>Application and ID of Law</label>
-                                                    <select class="form-group select" name="application_grade">
-                                                        <option value="0" selected>Grade</option>
+                                                    <select class="form-group select" name="application_grade" required>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -313,7 +319,7 @@
                                                 <div>
                                                     <label>Scrum</label>
                                                     <select class="form-group select" name="scrum_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -325,7 +331,7 @@
                                                 <div>
                                                     <label>Process</label>
                                                     <select class="form-group select" name="process_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -337,7 +343,7 @@
                                                 <div>
                                                     <label>Advantage</label>
                                                     <select class="form-group select" name="advantage_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -362,7 +368,7 @@
                                                 <div>
                                                     <label>Penalty Selection</label>
                                                     <select class="form-group select" name="penalty_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -374,7 +380,7 @@
                                                 <div>
                                                     <label>Effective Ruck Communication</label>
                                                     <select class="form-group select" name="ruck_comm_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -386,7 +392,7 @@
                                                 <div>
                                                     <label>Effective Caution</label>
                                                     <select class="form-group select" name="effective_caution_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -398,7 +404,7 @@
                                                 <div>
                                                     <label>Movement Patterns</label>
                                                     <select class="form-group select" name="movement_patterns_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -423,7 +429,7 @@
                                                 <div>
                                                     <label>10m Distance</label>
                                                     <select class="form-group select" name="ten_m_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -435,7 +441,7 @@
                                                 <div>
                                                     <label>10m Complaince</label>
                                                     <select class="form-group select" name="ten_m_complaince_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -447,7 +453,7 @@
                                                 <div>
                                                     <label class="label-small-text">Marker Complaince</label>
                                                     <select class="form-group select" name="marker_complaince_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -459,7 +465,7 @@
                                                 <div>
                                                     <label>Ruck/PTB Speed</label>
                                                     <select class="form-group select" name="ruck_speed_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -484,7 +490,7 @@
                                                 <div>
                                                     <label>Ruck Vocab</label>
                                                     <select class="form-group select" name="ruck_vocab_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -496,7 +502,7 @@
                                                 <div>
                                                     <label class="label-small-text">Tackle Identification</label>
                                                     <select class="form-group select" name="tackle_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -508,7 +514,7 @@
                                                 <div>
                                                     <label>Player Rapport</label>
                                                     <select class="form-group select" name="player_rapport_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -520,7 +526,7 @@
                                                 <div>
                                                     <label>Com. Timing</label>
                                                     <select class="form-group select" name="comm_timming_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -545,7 +551,7 @@
                                                 <div>
                                                     <label>On 10m</label>
                                                     <select class="form-group select" name="ten_m_position_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -557,7 +563,7 @@
                                                 <div>
                                                     <label>In-Goal</label>
                                                     <select class="form-group select" name="in_goal_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -569,7 +575,7 @@
                                                 <div>
                                                     <label>Start & Restart</label>
                                                     <select class="form-group select" name="start_restart_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -581,7 +587,7 @@
                                                 <div>
                                                     <label class="label-small-text">Kicks, Breaks & Attacting</label>
                                                     <select class="form-group select" name="kicks_breaks_grade" required>
-                                                        <option value="0" selected>Grade</option>
+                                                        <option value="" selected>Grade</option>
                                                         <option value="N">N</option>
                                                         <option value="S">S</option>
                                                         <option value="A">A</option>
@@ -598,18 +604,18 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Coaching Comments / Summary </label>
-                                                    <textarea class="form-control" rows="4" name="coach_comments" required></textarea>
+                                                    <textarea class="form-control" rows="4" name="coach_comments"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <label> Overall Assesment </label>
+                                                <label> Overall Assesment <span class="text-danger">*</span></label>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="radio">
                                                     <label class="label-small-text">
-                                                        <input type="radio" name="overall_assesment" value="Needing Improvements"> Needing Improvements
+                                                        <input type="radio" name="overall_assesment" value="Needing Improvements" required> Needing Improvements
                                                     </label>
                                                 </div>
                                             </div>
@@ -623,7 +629,7 @@
                                             <div class="col-sm-4">
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" name="overall_assesment" value="Exeeding Expactations"> Exeeding Expactations
+                                                        <input type="radio" name="overall_assesment" value="Exeeding Expactations" required> Exeeding Expactations
                                                     </label>
                                                 </div>
                                             </div>
@@ -632,7 +638,7 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label> Comments </label>
-                                                    <textarea class="form-control" rows="4" name="final_comments" required></textarea>
+                                                    <textarea class="form-control" rows="4" name="final_comments"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -640,7 +646,7 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label> Additional File </label>
-                                                    <input type="file" name="file" required>
+                                                    <input type="file" name="file">
                                                 </div>
                                             </div>
                                         </div>

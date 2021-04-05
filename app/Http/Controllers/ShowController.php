@@ -15,6 +15,7 @@ use App\Model\Appointment;
 use App\Model\ImportData;
 use App\Model\Role;
 use App\Report;
+use App\Team;
 use Schema;
 use Auth;
 use Carbon\Carbon;
@@ -319,9 +320,26 @@ class ShowController extends Controller
     }
     public function showReports()
     {
-        $members = Member::where('is_member', '1')->get();
+        $members = Member::where('role', 'Referee')->get();
         $reports = Report::get();
-        return view('main.systemAdmin.reports',['members'=>$members, 'reports'=>$reports]);
+        $teams = Team::all();
+        return view('main.systemAdmin.reports',['members'=>$members, 'reports'=>$reports, 'teams'=>$teams]);
+    }
+    public function showTeams()
+    {
+        $teams = Team::orderBy('team_id', 'DESC')->get();
+        return view('main.systemAdmin.teams', ['teams'=>$teams]);
+    }
+    public function editTeam($team_id)
+    {
+        $team = Team::findorFail($team_id);
+        return view('main.systemAdmin.edit_team', ['team'=>$team]);
+    }
+    public function showSpecficReport($id)
+    {
+        $report = Report::findorFail($id);
+        return view('main.systemAdmin.reportPdf', ['report' => $report]);
+        # code...
     }
     //       END
     // ==================

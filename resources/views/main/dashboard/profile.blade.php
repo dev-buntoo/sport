@@ -55,7 +55,7 @@
                                         <input class="form-control" name="photo" type="file" >
                                     </div>
                                 </div>
-                            
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="col-form-label">Password </label>
@@ -71,9 +71,9 @@
                                 </div>
                             <div class="submit-section">
                                 <button class="btn btn-primary submit-btn">Update</button>
-                                
+
                             </div>
-                            
+
                         </form>
                         </div>
                     </div>

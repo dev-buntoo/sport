@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\log;
 use App\Model\Payrun;
 use Illuminate\Http\Request;
 use App\User;
@@ -67,6 +68,13 @@ else{          $password = $user->password;
             'email' => $request['email'],
             'password' => $password,
             'photo' =>   $imageName
+        ]);
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'updated',
+            'function'=>'profile ',
+            'passive_id'=>''
+
         ]);
         return redirect()->back()->with('success','Profile Updated');
 
@@ -268,7 +276,13 @@ else{          $password = $user->password;
 
     }
     public function createPayslip(Request $request){
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'processed',
+            'function'=>'Pay Run',
+            'passive_id'=>''
 
+        ]);
 //        dd($request);
             $payrun =  Payrun::create($request->all());
             $payrun->countmember =  count(User::where('is_member',1)->where('status','Active')->where('payment_frequency',$request->schedule)->get());
@@ -342,15 +356,44 @@ if( $payout->net_amount > -1) {
         $importdata = ImportData::create([
             'filename'   => $request->file('import_file')->getClientOriginalName(),
             'uploadedBy' => Auth::user()->id,
-            'linkname'   => $files
+            'linkname'   => $files,
+            'year'   => $request->year,
+            'round'   => $request->round,
         ]);
-
-        Excel::import(new ImportAppoint($importdata->id,$request->year,$request->round), request()->file('import_file'));
-
-
         $request->file('import_file')->move(public_path('main/upload_files/'), $files);
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'imported',
+            'function'=>'Appointment file',
+            'passive_id'=>''
 
+        ]);
+        if(Auth::user()->role_id == 3) {
+            Excel::import(new ImportAppoint($importdata->id, $request->year, $request->round), request()->file('import_file'));
+            $importdata->is_added =1;
+            $importdata->save();
+            return back()->with('success', 'Appointment imported successfully.');
+        }
+
+
+
+        return back()->with('success', 'Appointment will be imported after approval.');
+    }
+    public function appointConfirmation($id){
+        if(Auth::user()->role_id != 3){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+        }
+        $request = ImportData::findOrfail($id);
+        Excel::import(new ImportAppoint($id, $request->year, $request->round), public_path('main/upload_files/').$request->linkname);
+        $request->is_added = 1;
+        $request->save();
         return back()->with('success', 'Appointment imported successfully.');
+
+    }
+    public function deleteAppList($id){
+        $request = Appointment::findOrfail($id);
+        $request->delete();
+        return redirect()->back()->with('success','Appointment deleted from list');
     }
     public function deleteFile($id)
     {
@@ -386,6 +429,13 @@ if( $payout->net_amount > -1) {
           ]);
         //   $update->save();
        }
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'updated ',
+            'function'=>'Appointment Rates',
+            'passive_id'=>''
+
+        ]);
 
        return redirect()->back()->with('success','Rates updated successfully');
 
@@ -471,6 +521,13 @@ else{
             'password' => $password,
             'photo' =>   $imageName
         ]);
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'updated',
+            'function'=>'User '.$user->fname,
+            'passive_id'=>''
+
+        ]);
         return redirect()->route('system.admin');
     }
     public function deleteUser($id)
@@ -499,6 +556,13 @@ else{
         $role->update($lang);
         // dd($request);
         $role->update($request->all());
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'updated',
+            'function'=>'Role '.$role->name,
+            'passive_id'=>''
+
+        ]);
         return redirect()->route('system.role');
     }
     public function saveReport(Request $request)
@@ -605,6 +669,13 @@ else{
             $report->final_comments = $request->final_comments;
             $report->file_name = $fileName;
             if($report->save()){
+                log::create([
+                    'user_id'=>auth()->user()->id,
+                    'action'=>'created',
+                    'function'=>'Report '.$role->name,
+                    'passive_id'=>''
+
+                ]);
                 return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
             }
         }catch(Exception $e){

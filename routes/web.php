@@ -11,7 +11,10 @@
 |
 */
 Route::get('slip-test',function (){
-   return view('main.slip.payslip');
+//    $a = \App\Model\log::all();
+//  dd($a);
+
+//   return view('main.slip.payslip');
 });
 Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('config:cache');
@@ -129,7 +132,9 @@ Route::post('payroll/generate','SaveController@createPayslip')->name('payroll.ge
 Route::get('payroll/sendEmail/{id}','ShowController@sendPayroll')->name('payroll.sendEmail');
 Route::post('appointment/update','SaveController@updateAppointment')->name('appointment.update');
 Route::post('appointment/excel-import','SaveController@appoint')->name('appointment.import');
+Route::get('appointment/confirm/{id}','SaveController@appointConfirmation')->name('appointment.confirm');
 Route::get('appointment/deletefile/{id}','SaveController@deleteFile')->name('appointment.game.delete');
+Route::get('appointment/deleteappointment/{id}','SaveController@deleteAppList')->name('appointment.list.delete');
 Route::post('appointment/excel-export', 'ExportExcelController@exportAppointments')->name('appointment.export');
 
 Route::post('system/role/create','SaveController@createRole')->name('role.create');

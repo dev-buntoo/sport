@@ -5,14 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55dcc509-9b4f-4b84-9369-67cecb90b57d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/main/slip/payslip.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_05_181724_add_field_importdate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1617622299.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaveController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Payout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Payout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/layout/include/payrollTab.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/layout/include/payrollTab.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/payroll/payrunStep2.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckRole.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/ImportData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/ImportData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/log.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/log.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/appointment/uploaddoc.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/appointment/uploaddoc.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/appointment/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/appointment/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/dashboard/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/dashboard/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/dashboard/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/dashboard/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/platform_check.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,6 +237,7 @@
       <workItem from="1617081605859" duration="19887000" />
       <workItem from="1617171373556" duration="14787000" />
       <workItem from="1617258896598" duration="22585000" />
+      <workItem from="1617686377860" duration="15083000" />
     </task>
     <task id="LOCAL-00001" summary="friday update">
       <created>1616835775327</created>

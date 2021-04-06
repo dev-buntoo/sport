@@ -44,6 +44,9 @@
                                         <td>{{ $file->user->fname.' '.$file->user->lname }}</td>
                                         <td>{{ date('d-m-Y', strtotime($file->created_at)) }}</td>
                                         <td>
+                                            @if($file->is_added == 0)
+                                            <a href="{{ route('appointment.confirm',$file->id) }}" title="Confirm" class="download-icon" ><i class="fa fa-check fa-lg"></i></a>
+                                            @endif
                                             <a href="{{ asset('main/upload_files/').'/'.$file->linkname }}" class="download-icon" download><i class="fa fa-download fa-lg"></i></a>
                                             <a href="{{ route('appointment.game.delete',$file->id) }}"
                                               onclick="if(!confirm('Are you sure?')){return false;}"   class="trash-icon"><i class="fa fa-trash fa-lg"></i></a>

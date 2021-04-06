@@ -94,6 +94,9 @@
                                         <td>{{ $app->coach }}</td>
                                         <td>
                                             <a href="{{ route('appointment.edit',$app->id) }}" type="button" class="btn btn-success">Edit</a>
+                                            <a href="{{ route('appointment.list.delete',$app->id) }}"
+                                               onclick="if(!confirm('Are you sure?')){return false;}"   class="trash-icon"><i class="fa fa-trash fa-lg"></i></a>
+
                                         </td>
                                     </tr>
                                 @endforeach

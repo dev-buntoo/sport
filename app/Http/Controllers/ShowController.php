@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\log;
 use App\Model\Payrun;
 use Illuminate\Http\Request;
 use App\User;
@@ -39,7 +40,15 @@ class ShowController extends Controller
         // return Appointment::find(144)->audits;
         // return 'ok';
         // dd($audits);
-        return view('main.dashboard.view',compact('audits'));
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'dashboard',
+            'passive_id'=>''
+
+        ]);
+        $logs= log::orderBy('created_at', 'desc')->get();
+        return view('main.dashboard.view',compact('audits','logs'));
     }
 
     public function editProfile()
@@ -55,6 +64,13 @@ class ShowController extends Controller
         if(!Auth::user()->roles->view_member){
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'members',
+            'passive_id'=>''
+
+        ]);
         $members = User::where('is_member',1)->get();
         return view('main.member.view',compact('members'));
 
@@ -82,6 +98,13 @@ class ShowController extends Controller
         $income = $member->income;
         $expense = $member->expense;
         $payrolls = $member->payrols;
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'member '.$member->fname,
+            'passive_id'=>''
+
+        ]);
         return view('main.member.edit',compact('member','members','income','expense','payrolls'));
     }
 
@@ -137,6 +160,13 @@ class ShowController extends Controller
         if(!Auth::user()->roles->manage_documents){
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'Appointment games',
+            'passive_id'=>''
+
+            ]);
         $files= ImportData::all();
         return view('main.appointment.uploaddoc',compact('files'));
     }
@@ -321,6 +351,13 @@ class ShowController extends Controller
     {
         $members = Member::where('is_member', '1')->get();
         $reports = Report::get();
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'reports',
+            'passive_id'=>''
+
+        ]);
         return view('main.systemAdmin.reports',['members'=>$members, 'reports'=>$reports]);
     }
     //       END

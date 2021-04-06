@@ -59,7 +59,7 @@
 								<div class="form-group">
 									<div class="row">
 										<div class="col">
-											<label>Password</label>
+											<label>Password </label>
 										</div>
 										{{-- <div class="col-auto">
 											<a class="text-muted" href="forgot-password.html">
@@ -113,6 +113,10 @@
 
 		<!-- Custom JS -->
 		<script src="{{asset('main')}}/js/app.js"></script>
-
+<script>
+    @if(Session::has('loginEX'))
+        alert('{{Session::get('loginEX')}}');
+    @endif
+</script>
     </body>
 </html>

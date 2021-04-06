@@ -187,7 +187,7 @@ function myFunction2() {
 </script>
 @endsection
 
-@push('script')
+{{-- @push('script')
 <script>
 $(document).ready(function () {
     userStatus()
@@ -212,4 +212,4 @@ function userStatus() {
     });
 }
 </script>
-@endpush
+@endpush --}}

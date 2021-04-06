@@ -637,7 +637,7 @@ else{
                 if($updateReport->save()){
                     $authEmail = Auth::user()->email;
                     Mail::to("$userEmail")
-                    // ->cc("$authEmail")
+                    ->cc("$authEmail")
                     ->send(new ReportEmail($reportName, $fileName));
                     // dd('All done');
                     return redirect()->route('reports.show')->with('success','Report Generated Successfuly');

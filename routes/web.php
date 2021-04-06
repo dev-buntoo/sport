@@ -147,3 +147,5 @@ Route::get('teams', 'ShowController@showTeams')->name('teams.show');
 Route::post('teams', 'SaveController@storeTeam')->name('teams.store');
 Route::get('teams/{team_id}', 'ShowController@editTeam')->name('teams.edit');
 Route::put('teams/{team_id}', 'SaveController@updateTeam')->name('teams.update');
+//user status
+Route::get('user_status', 'ShowController@userStatus')->name('users.status');

@@ -28,7 +28,11 @@ class User extends Authenticatable implements Auditable
     {
         return $this->belongsTo('App\Model\Role','role_id','id');
     }
-    
+    public function report()
+    {
+        return $this->hasMany('App\Report','member_id','id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

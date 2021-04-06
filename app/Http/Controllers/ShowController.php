@@ -15,6 +15,7 @@ use App\Model\Appointment;
 use App\Model\ImportData;
 use App\Model\Role;
 use App\Report;
+use App\Services\IsActive;
 use App\Team;
 use Schema;
 use Auth;
@@ -25,7 +26,13 @@ class ShowController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth','admin']);
+        $this->middleware(['auth', 'admin']);
+        $this->middleware(function ($request, $next) {
+            $this->id = Auth::user()->id;
+            $updateStatus = new IsActive($this->id);
+            $updateStatus->updateStatus();
+            return $next($request);
+        });
     }
     // ===================
     //      DASHBOARD
@@ -83,7 +90,9 @@ class ShowController extends Controller
         $income = $member->income;
         $expense = $member->expense;
         $payrolls = $member->payrols;
-        return view('main.member.edit',compact('member','members','income','expense','payrolls'));
+        $reports = $member->report;
+        // dd($reports);
+        return view('main.member.edit',compact('member','members','income','expense','payrolls', 'reports'));
     }
 
     public function editIncome($id)
@@ -340,6 +349,17 @@ class ShowController extends Controller
         $report = Report::findorFail($id);
         return view('main.systemAdmin.reportPdf', ['report' => $report]);
         # code...
+    }
+    public function userStatus()
+    {
+        $usersStatus = new IsActive(Auth::id());
+        $activeUsers = $usersStatus->activeUsers();
+        $offlineUsers = $usersStatus->offlineUsers();
+        $html_response = view('main.layout.include.userStatus',['onlineUsers'=>$activeUsers, 'offlineUsers'=>$offlineUsers])->render();
+        return response()->json([
+            'success' => true,
+            'html_response' => $html_response
+        ]);
     }
     //       END
     // ==================

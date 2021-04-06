@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<!-- /Page Header -->
-
+                <div id="usersStatus"></div>
 				<div class="row">
 					<div class="col-md-6 d-flex">
 						<div class="card card-table flex-fill card-height-90">
@@ -50,20 +50,20 @@
 												<td class="overflow-auto">
 													<a href="#"> <span class="float-left mr-2 mt-0 bell-icon"><i
 																class="fa fa-bell-o fa-lg"></i></span>
-														<h2 class="mt-2 admin-log">{{ $audit->user->fname.' '}} @if($audit->event == "created") {{$audit->event}} new {{ substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) }}  
-												
-						
-						@elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'login') signed in at {{ date('g:i a',strtotime($audit->created_at)).' IP '.$audit->ip_address   }} 
-						@elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'verify')has received Verification Code 
-						@else {{$audit->event}} {{ substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) }}
-						
-						
+														<h2 class="mt-2 admin-log">{{ $audit->user->fname.' '}} @if($audit->event == "created") {{$audit->event}} new {{ substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) }}
 
-						
-						
+
+						@elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'login') signed in at {{ date('g:i a',strtotime($audit->created_at)).' IP '.$audit->ip_address   }}
+						@elseif(substr($audit->url, strrpos($audit->url, '/') + 1) == 'verify')has received Verification Code
+						@else {{$audit->event}} {{ substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) }}
+
+
+
+
+
 						@endif
-						
-								
+
+
 						@if(substr($audit->auditable_type, strrpos($audit->auditable_type, '\\') + 1) == 'Member')
 						@php
 					$member =	\App\Member::find($audit->auditable_id);
@@ -186,3 +186,30 @@ function myFunction2() {
 }
 </script>
 @endsection
+
+@push('script')
+<script>
+$(document).ready(function () {
+    userStatus()
+    setInterval(function () {
+        userStatus()
+    }, 100000);
+})
+
+function userStatus() {
+    var route = "{{ route('users.status') }}";
+    $.ajax({
+        url: route,
+        method: "GET",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            if (data.success == true) {
+                $('#usersStatus').html(data.html_response);
+            }
+        }
+    });
+}
+</script>
+@endpush

@@ -47,10 +47,6 @@
                                         data-placement="top" title="" class="bell-icon" data-original-title="Edit">
                                         <i class="fa fa-pencil fa-lg"></i>
                                     </a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="" class="trash-icon"
-                                        data-original-title="Delete">
-                                        <i class="fa fa-trash-o fa-lg"></i>
-                                    </a>
                                 </td>
                             </tr>
                             @endforeach

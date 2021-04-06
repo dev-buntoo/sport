@@ -16,19 +16,36 @@ use App\Model\UpdateRate;
 use App\Model\ImportData;
 use App\Imports\ImportAppoint;
 use App\Imports\ImportMember;
+use App\Mail\ReportEmail;
 use Maatwebsite\Excel\Facades\Excel;
 use Auth;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use App\Report;
+use App\Services\IsActive;
 use App\Team;
 use Barryvdh\DomPDF\PDF;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class SaveController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->id = Auth::user()->id;
+            $updateStatus = new IsActive($this->id);
+            $updateStatus->updateStatus();
+            return $next($request);
+        });
+    }
     public function saveProfile(Request $request)
     {
 
@@ -616,13 +633,19 @@ else{
                 $updateReport = Report::find($report->report_id);
                 $reportName = $this->generatePDF($updateReport);
                 $updateReport->pdf_name = $reportName;
+                $userEmail = $updateReport->member->email;
                 if($updateReport->save()){
+                    $authEmail = Auth::user()->email;
+                    Mail::to("$userEmail")
+                    ->cc("$authEmail")
+                    ->send(new ReportEmail($reportName, $fileName));
+                    // dd('All done');
                     return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
                 }
             }
         }catch(Exception $e){
-            // return redirect()->back()->with('error', 'Something went wrong. Please try agiain');
-            return $e->getMessage();
+            return redirect()->back()->with('error', 'Something went wrong. Please try agiain')->withInput();
+            // return $e->getMessage();
         }
     }
     //This function generate pdf for report, store it and return file name
@@ -633,7 +656,7 @@ else{
         $dompdf = new Dompdf($options);
         // instantiate and use the dompdf class
         $html = view('main.systemAdmin.reportPdf', compact(['report']));
-        $dompdf->setPaper( array( 0 , 0 , 226.77 , 226.77 ) );
+        $dompdf->setPaper("A4", 'portrait');
         $dompdf->loadHtml($html,'UTF-8');
         $dompdf->render();
         $output = $dompdf->output();

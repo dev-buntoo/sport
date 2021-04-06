@@ -32,6 +32,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Imports\\ImportAppoint' => $baseDir . '/app/Imports/ImportAppoint.php',
     'App\\Imports\\ImportMember' => $baseDir . '/app/Imports/ImportMember.php',
+    'App\\Mail\\ReportEmail' => $baseDir . '/app/Mail/ReportEmail.php',
     'App\\Member' => $baseDir . '/app/Member.php',
     'App\\Model\\Appointment' => $baseDir . '/app/Model/Appointment.php',
     'App\\Model\\Expense' => $baseDir . '/app/Model/Expense.php',

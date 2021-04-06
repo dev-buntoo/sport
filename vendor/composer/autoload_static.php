@@ -603,6 +603,7 @@ class ComposerStaticInite5004cea22697ebb71636a488c64cf57
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Imports\\ImportAppoint' => __DIR__ . '/../..' . '/app/Imports/ImportAppoint.php',
         'App\\Imports\\ImportMember' => __DIR__ . '/../..' . '/app/Imports/ImportMember.php',
+        'App\\Mail\\ReportEmail' => __DIR__ . '/../..' . '/app/Mail/ReportEmail.php',
         'App\\Member' => __DIR__ . '/../..' . '/app/Member.php',
         'App\\Model\\Appointment' => __DIR__ . '/../..' . '/app/Model/Appointment.php',
         'App\\Model\\Expense' => __DIR__ . '/../..' . '/app/Model/Expense.php',

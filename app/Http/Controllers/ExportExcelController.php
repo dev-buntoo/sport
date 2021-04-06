@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\AppointmentExport;
+use App\Services\IsActive;
 use Exception;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -17,6 +18,12 @@ class ExportExcelController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $this->id = Auth::user()->id;
+            $updateStatus = new IsActive($this->id);
+            $updateStatus->updateStatus();
+            return $next($request);
+        });
     }
 
     public function exportAppointments(Request $request)

@@ -67,8 +67,9 @@
                             <tr>
                                 <td>{{$report->date}}</td>
                                 <td>{{$report->member->fname}} {{$report->member->lname}}</td>
-                                <td>{{$report->homeTeam->team_name}}</td>
-                                <td>{{$report->awayTeam->team_name}}</td>
+                                <td>@if(isset($report->homeTeam)){{$report->homeTeam->team_name}}@endif</td>
+                                <td>@if(isset($report->awayTeam)){{$report->awayTeam->team_name}}@endif</td>
+
                                 <td>{{$report->grade_division}}</td>
                                 <td>{{$report->overall_grade}}</td>
                                 <td>--</td>

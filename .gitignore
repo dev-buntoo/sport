@@ -4,6 +4,7 @@
 /storage/*.key
 /vendorp
 .env
+.idea
 .env.backup
 .phpunit.result.cache
 Homestead.json

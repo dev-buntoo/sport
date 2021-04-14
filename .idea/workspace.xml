@@ -5,29 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55dcc509-9b4f-4b84-9369-67cecb90b57d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_05_181724_add_field_importdate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1617622299.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaveController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckRole.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/ImportData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/ImportData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/log.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/log.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/appointment/uploaddoc.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/appointment/uploaddoc.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/appointment/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/appointment/view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/dashboard/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/dashboard/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/dashboard/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/dashboard/view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/platform_check.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +166,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -238,6 +217,10 @@
       <workItem from="1617171373556" duration="14787000" />
       <workItem from="1617258896598" duration="22585000" />
       <workItem from="1617686377860" duration="15083000" />
+      <workItem from="1618393746060" duration="52000" />
+      <workItem from="1618393836064" duration="218000" />
+      <workItem from="1618394133434" duration="709000" />
+      <workItem from="1618394875847" duration="5167000" />
     </task>
     <task id="LOCAL-00001" summary="friday update">
       <created>1616835775327</created>
@@ -253,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617286789090</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix meta tags">
+      <created>1617774745484</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617774745484</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +277,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="friday update" />
     <MESSAGE value="thursday update" />
-    <option name="LAST_COMMIT_MESSAGE" value="thursday update" />
+    <MESSAGE value="fix meta tags" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix meta tags" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

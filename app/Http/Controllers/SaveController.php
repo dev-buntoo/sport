@@ -644,8 +644,8 @@ else{
                 }
             }
         }catch(Exception $e){
-            return redirect()->back()->with('error', 'Something went wrong. Please try agiain')->withInput();
-            // return $e->getMessage();
+            // return redirect()->back()->with('error', 'Something went wrong. Please try agiain')->withInput();
+            return $e->getMessage();
         }
     }
     //This function generate pdf for report, store it and return file name

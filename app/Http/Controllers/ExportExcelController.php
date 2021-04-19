@@ -7,6 +7,7 @@ use App\Services\IsActive;
 use Exception;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Auth;
 
 class ExportExcelController extends Controller
 {

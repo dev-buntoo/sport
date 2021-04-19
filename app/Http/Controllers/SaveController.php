@@ -369,7 +369,7 @@ if( $payout->net_amount > -1) {
 
         ]);
         if(Auth::user()->role_id == 3) {
-            Excel::import(new ImportAppoint($importdata->id, $request->year, $request->round), request()->file('import_file'));
+            Excel::import(new ImportAppoint($importdata->id, $request->year, $request->round), public_path('main/upload_files/').$files);
             $importdata->is_added =1;
             $importdata->save();
             return back()->with('success', 'Appointment imported successfully.');

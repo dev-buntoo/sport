@@ -75,6 +75,9 @@
                                         @if($role->edit_roles == 1)
                                             <span class="badge bg-inverse-danger">Edit Roles</span>
                                         @endif
+                                         @if($role->view_report == 1)
+                                            <span class="badge bg-inverse-danger">view Report</span>
+                                        @endif
 
                                         </td>
                                         <td>
@@ -225,6 +228,14 @@
                                                         <td class="text-center">
                                                             {{--  <input type="checkbox" name="" value="1">  --}}
                                                         </td>
+
+                                                    </tr>
+                                                     <tr>
+                                                        <td>Report</td>
+                                                        <td class="text-center">
+                                                            <input type="checkbox" name="view_report" value="1">
+                                                        </td>
+                                                        
 
                                                     </tr>
 

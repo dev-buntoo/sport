@@ -111,6 +111,13 @@
                                             </td>
 
                                         </tr>
+                                        
+                                        <tr>
+                                            <td>Report</td>
+                                            <td class="text-center">
+                                                <input type="checkbox" @if($role->view_report) checked="" @endif name="view_report" value="1">
+                                            </td>
+                                        </tr>
 
                                     </tbody>
                                 </table>

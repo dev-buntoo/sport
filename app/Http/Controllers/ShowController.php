@@ -349,6 +349,9 @@ class ShowController extends Controller
     }
     public function showReports()
     {
+        if(!Auth::user()->roles->view_report){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
         $members = Member::where('is_member', '1')->get();
         $reports = Report::get();
         log::create([

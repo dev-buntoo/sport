@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="55dcc509-9b4f-4b84-9369-67cecb90b57d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +219,7 @@
       <workItem from="1618393746060" duration="52000" />
       <workItem from="1618393836064" duration="218000" />
       <workItem from="1618394133434" duration="709000" />
-      <workItem from="1618394875847" duration="5167000" />
+      <workItem from="1618394875847" duration="7327000" />
     </task>
     <task id="LOCAL-00001" summary="friday update">
       <created>1616835775327</created>
@@ -243,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617774745484</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add feature in login session">
+      <created>1618400599045</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1618400599045</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +284,8 @@
     <MESSAGE value="friday update" />
     <MESSAGE value="thursday update" />
     <MESSAGE value="fix meta tags" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix meta tags" />
+    <MESSAGE value="add feature in login session" />
+    <option name="LAST_COMMIT_MESSAGE" value="add feature in login session" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

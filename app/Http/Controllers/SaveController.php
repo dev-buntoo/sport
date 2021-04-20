@@ -672,7 +672,7 @@ else{
                 log::create([
                     'user_id'=>auth()->user()->id,
                     'action'=>'created',
-                    'function'=>'Report '.$role->name,
+                    'function'=>'Report ',
                     'passive_id'=>''
 
                 ]);

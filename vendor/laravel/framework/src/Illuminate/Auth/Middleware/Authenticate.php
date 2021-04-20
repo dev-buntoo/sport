@@ -38,7 +38,6 @@ class Authenticate
      */
     public function handle($request, Closure $next, ...$guards)
     {
-        \Session::flash('loginEX', 'You have been inactive for 5 mins you have now been logged out');
         $this->authenticate($request, $guards);
 
         return $next($request);

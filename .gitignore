@@ -3,7 +3,7 @@
 /public
 /public/storage
 /storage/*.key
-/vendor
+/vendor/
 /storage
 .env
 .htaccess

@@ -2,7 +2,7 @@
 @section('content')
 @push('style')
 <style>
-    .card-body {
+    .card-body {Presentation
         padding: 1rem;
     }
     .label-small-text{
@@ -290,7 +290,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label>Law of the Game </label>
+                                                    <label>Laws of the Game </label>
                                                     <input class="form-control" type="text" placeholder="Note"
                                                         name="game_law_note" required>
                                                 </div>
@@ -311,7 +311,7 @@
                                             </div>
                                             <div class="col-sm-2 pt-3">
                                                 <div>
-                                                    <label>Scrum</label>
+                                                    <label>Scrums</label>
                                                     <select class="form-group select" name="scrum_grade" required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -323,7 +323,7 @@
                                             </div>
                                             <div class="col-sm-2 pt-3">
                                                 <div>
-                                                    <label>Process</label>
+                                                    <label>Processes</label>
                                                     <select class="form-group select" name="process_grade" required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -412,7 +412,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label>10m, Marker & Ruck</label>
+                                                    <label>10m, Markers & Ruck</label>
                                                     <input class="form-control" type="text" placeholder="Note"
                                                         name="marker_ruck_note">
                                                 </div>
@@ -433,7 +433,7 @@
                                             </div>
                                             <div class="col-sm-3 pt-3">
                                                 <div>
-                                                    <label>10m Complaince</label>
+                                                    <label>10m Compliance</label>
                                                     <select class="form-group select" name="ten_m_complaince_grade" required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -445,7 +445,7 @@
                                             </div>
                                             <div class="col-sm-3 pt-3">
                                                 <div>
-                                                    <label class="label-small-text">Marker Complaince</label>
+                                                    <label class="label-small-text">Marker Compliance</label>
                                                     <select class="form-group select" name="marker_complaince_grade" required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -567,7 +567,7 @@
                                             </div>
                                             <div class="col-sm-3 pt-3">
                                                 <div>
-                                                    <label>Start & Restart</label>
+                                                    <label>Starts & Restarts</label>
                                                     <select class="form-group select" name="start_restart_grade" required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -579,7 +579,7 @@
                                             </div>
                                             <div class="col-sm-4 pt-3">
                                                 <div>
-                                                    <label class="label-small-text">Kicks, Breaks & Attacting</label>
+                                                    <label class="label-small-text">Kicks, Breaks & Attacking</label>
                                                     <select class="form-group select" name="kicks_breaks_grade" required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -604,7 +604,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <label> Overall Assesment </label>
+                                                <label> Overall Assessment </label>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="radio">
@@ -616,14 +616,14 @@
                                             <div class="col-sm-4">
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" name="overall_assesment" value="Meeting Expactations" required> Meeting Expactations
+                                                        <input type="radio" name="overall_assesment" value="Meeting Expactations" required> Meeting Expectations
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" name="overall_assesment" value="Exeeding Expactations"> Exeeding Expactations
+                                                        <input type="radio" name="overall_assesment" value="Exeeding Expactations"> Exceeding Expectations
                                                     </label>
                                                 </div>
                                             </div>

@@ -245,11 +245,25 @@ class ShowController extends Controller
 
         $payrolls = Payout::all();
         $payruns = Payrun::all();
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'Payroll',
+            'passive_id'=>''
+
+        ]);
         return view('main.payroll.payroll',compact('payrolls','total','payruns'));
     }
     public function showPayrun()
     {
         $payrolls = Payout::all();
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'Payrun',
+            'passive_id'=>''
+
+        ]);
         return view('main.payroll.payrun',compact('payrolls'));
     }
     public function showPayslip($id)
@@ -293,6 +307,13 @@ class ShowController extends Controller
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
        $users = User::where('is_member','!=',1)->get();
+       log::create([
+        'user_id'=>auth()->user()->id,
+        'action'=>'viewed',
+        'function'=>'System User',
+        'passive_id'=>''
+
+    ]);
        return view('main.systemAdmin.user',compact('users'));
     }
     public function createUser()
@@ -320,6 +341,13 @@ class ShowController extends Controller
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
         $roles = Role::where('id','!=',1)->get();
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'Role',
+            'passive_id'=>''
+
+        ]);
         return view('main.systemAdmin.roles',compact('roles'));
     }
     public function editRole($id)
@@ -330,6 +358,13 @@ class ShowController extends Controller
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
         $role = Role::find($id);
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'updated',
+            'function'=>'role '.$role->name,
+            'passive_id'=>''
+
+        ]);
         return view('main.systemAdmin.editRoles',compact('role'));
     }
     public function showAuditlog()
@@ -343,6 +378,13 @@ class ShowController extends Controller
         // return Appointment::find(144)->audits;
         // return 'ok';
         // dd($audits);
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'Auditlog',
+            'passive_id'=>''
+
+        ]);
         return view('main.systemAdmin.auditlog',compact('audits'));
         // return view('main.systemAdmin.auditlog');
 

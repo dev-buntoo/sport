@@ -31,6 +31,9 @@ class ShowController extends Controller
     //      DASHBOARD
     public function showDashboard()
     {
+        if(Auth::user()->roles->id == 5){
+            return redirect()->route('reports.show');
+        }
         $audits = \OwenIt\Auditing\Models\Audit::orderBy('created_at', 'desc')->get();
         // foreach($audits as $audit){
         //     print_r($audit->auditable);

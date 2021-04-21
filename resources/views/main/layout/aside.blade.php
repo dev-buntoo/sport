@@ -3,6 +3,7 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
+                    @if(Auth::user()->roles->id != 5)
                     <li>
 						<a href="/" class="logo d-flex justify-content-center">
 							<img src="{{asset('main')}}/img/logo.png" width="100" height="auto" alt="PDRLRA SYSTEM">
@@ -43,10 +44,14 @@
                             <li><a href="{{ route('system.auditlog') }}">Audit Logs</a></li>
                         </ul>
                     </li>
-
                     <li>
                         <a href="{{ route('reports.show') }}"><i class="la la-pie-chart"></i> <span>Reports</span></a>
                     </li>
+                    @else
+                    <li>
+                        <a href="{{ route('reports.show') }}"><i class="la la-pie-chart"></i> <span>Reports</span></a>
+                    </li>
+                    @endif
 
                 </ul>
             </div>

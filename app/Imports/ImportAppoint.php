@@ -24,6 +24,7 @@ class ImportAppoint implements ToModel
     public function model(array $row)
     {
 
+        if(@$row[3] != NULL){
         return new Appointment([
             'ground'           => @$row[0],
             'home_team'        => @$row[1],
@@ -41,5 +42,6 @@ class ImportAppoint implements ToModel
 
 
         ]);
+    }
     }
 }

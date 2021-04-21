@@ -64,7 +64,7 @@
                                                 <div class="col-md-6 mb-3">
                                                     <label for="touch_judge_one">Touch Judge #1</label>
                                                     <input type="text" class="form-control" id="touch_judge_one"
-                                                        name="touch_judge_one" value="{{ $app->touch_judge_one }}" required>
+                                                        name="touch_judge_one" value="{{ $app->touch_judge_one }}">
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="touch_judge_two">Touch Judge #2</label>

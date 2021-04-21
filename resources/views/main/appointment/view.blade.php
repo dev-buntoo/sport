@@ -92,12 +92,21 @@
                                         <td>{{ $app->touch_judge_one }}</td>
                                         <td>{{ $app->touch_judge_two }}</td>
                                         <td>{{ $app->coach }}</td>
-                                        <td>
-                                            <a href="{{ route('appointment.edit',$app->id) }}" type="button" class="btn btn-success">Edit</a>
-                                            <a href="{{ route('appointment.list.delete',$app->id) }}"
-                                               onclick="if(!confirm('Are you sure?')){return false;}"   class="trash-icon"><i class="fa fa-trash fa-lg"></i></a>
+                                        <td class="text-right">
+										<div class="dropdown dropdown-action">
+										<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+										<div class="dropdown-menu dropdown-menu-right">
+										<a class="dropdown-item" href="{{ route('appointment.edit',$app->id) }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+										<a class="dropdown-item" href="{{ route('appointment.list.delete',$app->id) }}" onclick="if(!confirm('Are you sure?')){return false;}"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															</div>
+														</div>
+													</td>
+                                        <!--<td>-->
+                                        <!--    <a href="{{ route('appointment.edit',$app->id) }}" type="button" class="btn btn-success">Edit</a>-->
+                                        <!--    <a href="{{ route('appointment.list.delete',$app->id) }}"-->
+                                        <!--       onclick="if(!confirm('Are you sure?')){return false;}"   class="trash-icon"><i class="fa fa-trash fa-lg"></i></a>-->
 
-                                        </td>
+                                        <!--</td>-->
                                     </tr>
                                 @endforeach
 

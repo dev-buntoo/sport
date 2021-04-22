@@ -2,13 +2,14 @@
     <div class="col-6">
         <h3>Match Reports</h3>
     </div>
-    <div class="col-6">
+  {{--  <div class="col-6">
         <div class="col-6 float-right ml-auto mb-3">
             <a href="#" class="btn add-btn" data-toggle="modal"
                 data-target="#add_addition"><i class="fa fa-plus"></i>
                 Create</a>
         </div>
     </div>
+    --}}
     <div class="col-md-12">
         <div class="table-responsive">
 

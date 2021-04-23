@@ -5,7 +5,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55dcc509-9b4f-4b84-9369-67cecb90b57d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/LastUserActivity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/img/profile/1618487338.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/img/profile/1618898563.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/123" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1618485860.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1618486692.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1618488402.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1618488418.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1618488446.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1618548839.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1618548855.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1618550910.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main/upload_files/1618551058.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/main/dashboard/status.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/main/slip/at.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-3Vudnt5j9minRvGWmEgqeEC3mT9rmCSf.tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-LashyVVi0PrEpAhPrNsiyYptdLSgiPFw.tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-T0Lkdmx3Tk4WGbJpLqM4u7aikYOom0qo.tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-bMBJ6iaO3DgAmkE3nRFeRC69dtpJj1VX.tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-idY8uW9vOMZW8t9V6tzTB21xaIiUTk2K.tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-jPWGT3OM9j7UtHS4K0KtLGsOmPrFaz2D.tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-k2EhvzGb5g6sYLjVjJi56vK08Vxv6Bev.tmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaveController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShowController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/ImportAppoint.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ImportAppoint.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/serve.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/dashboard/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/dashboard/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/platform_check.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/CacheManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/CacheManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/CacheServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/CacheServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/DetectsLostConnections.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/DetectsLostConnections.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/Concerns/InteractsWithPivotTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/Concerns/InteractsWithPivotTable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Console/StorageLinkCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Console/StorageLinkCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Redis/Connections/PhpRedisConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Redis/Connections/PhpRedisConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Redis/RedisManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Redis/RedisManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/App.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/DB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Validation/Concerns/ValidatesAttributes.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Validation/Concerns/ValidatesAttributes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,6 +282,7 @@
       <workItem from="1618393836064" duration="218000" />
       <workItem from="1618394133434" duration="709000" />
       <workItem from="1618394875847" duration="7327000" />
+      <workItem from="1619084933596" duration="718000" />
     </task>
     <task id="LOCAL-00001" summary="friday update">
       <created>1616835775327</created>

@@ -18,6 +18,7 @@ use App\Model\Role;
 use App\Report;
 use Schema;
 use Auth;
+use PDF;
 use Carbon\Carbon;
 
 class ShowController extends Controller

@@ -18,6 +18,26 @@
 				</div>
 				<!-- /Page Header -->
 
+<div class="row" id="showUser">
+    @foreach(\App\User::orderBy('updated_at','desc')->get() as $user)
+
+    <div class="col-sm-3" style="padding-bottom: 20px;">
+        <div class="user-details mr-auto">
+            <div class="float-left user-img">
+                <a class="avatar" href="#" title="{{ $user->roles->name }}">
+                    <img src="{{ asset('main') }}/img/profile/{{ $user->photo }}" alt="" class="rounded-circle" style="width: 37px;height:37px">
+                    <span class="status {{ $user->isOnline() }}"></span>
+                </a>
+            </div>
+            <div class="user-info float-left">
+                <a href="#" title="{{ $user->roles->name }}"><span style="display: inline-block;padding-top: 8px;">{{ $user->fname.' '.$user->lname }}</span></a>
+
+            </div>
+        </div>
+    </div>
+@endforeach
+
+</div>
 				<div class="row">
 					<div class="col-md-6 d-flex">
 						<div class="card card-table flex-fill card-height-90">
@@ -183,3 +203,10 @@ function myFunction2() {
 }
 </script>
 @endsection
+
+@push('script')
+<script>
+
+    setInterval(function (){ $.get('{{ route('online.status') }}',function(data){$('#showUser').html(data)});},30000);
+</script>
+@endpush

@@ -20,10 +20,16 @@ class ImportAppoint implements ToModel
         $this->round = $round;
         //
     }
+    public function rules(): array
+    {
+        return [
 
+            '3' => 'required|string',
+            // so on
+        ];
+    }
     public function model(array $row)
     {
-
         if(@$row[3] != NULL){
         return new Appointment([
             'ground'           => @$row[0],
@@ -42,6 +48,6 @@ class ImportAppoint implements ToModel
 
 
         ]);
-    }
+        }
     }
 }

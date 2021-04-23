@@ -346,7 +346,7 @@ if( $payout->net_amount > -1) {
 //      APPOINTMENT
     public function appoint(Request $request)
     {
-
+// dd($request->file('import_file')->move(public_path('main/upload_files/'),'123'));
         $request->validate([
             'import_file' => 'required',
             'year' => 'required',
@@ -360,7 +360,7 @@ if( $payout->net_amount > -1) {
             'year'   => $request->year,
             'round'   => $request->round,
         ]);
-        $request->file('import_file')->move(public_path('main/upload_files/'), $files);
+        $request->file('import_file')->move(public_path('main/upload_files/'),$files);
         log::create([
             'user_id'=>auth()->user()->id,
             'action'=>'imported',
@@ -672,15 +672,27 @@ else{
                 log::create([
                     'user_id'=>auth()->user()->id,
                     'action'=>'created',
-                    'function'=>'Report ',
+                    'function'=>'Report',
                     'passive_id'=>''
 
                 ]);
+                $pdfname = time().'.pdf';
+                $user = $report;
+                $pdf = \PDF::loadView('main.slip.at',compact('user'));
+                \Storage::put('public/pdf/'.$pdfname, $pdf->output());
+                $report->pdffile = $pdfname;
+                $report->save();
+
                 return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
             }
         }catch(Exception $e){
             return $e->getMessage();
         }
+    }
+    public function onlineStatus()
+    {
+        $html = view('main.dashboard.status');
+        return $html;
     }
 
 }

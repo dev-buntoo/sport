@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use OwenIt\Auditing\Contracts\Auditable;
-
+use Cache;
 class User extends Authenticatable implements Auditable
 {
     use Notifiable;
@@ -28,7 +28,10 @@ class User extends Authenticatable implements Auditable
     {
         return $this->belongsTo('App\Model\Role','role_id','id');
     }
-    
+    public function isOnline()
+{
+    return (Cache::has('user-is-online-' .$this->id))?'online':'offline';
+}
     /**
      * The attributes that are mass assignable.
      *
@@ -41,7 +44,6 @@ class User extends Authenticatable implements Auditable
     ];
 
     protected $dates = [
-
         'email_verified_at',
         'two_factor_expires_at',
     ];

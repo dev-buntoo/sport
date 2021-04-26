@@ -687,7 +687,7 @@ else{
                     'report' => $report,
                     'date' => 'asd'
                 );
-                \App\Email::sendrecord($data,[auth()->user()->email,$report->member->email,'syedafeefali@gmail.com'], $pdfname);
+                \App\Email::sendrecord($data,[auth()->user()->email,$report->member->email,'refereeing@parramattarefs.com.au'], $pdfname);
                 // return $report;
                 return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
             }

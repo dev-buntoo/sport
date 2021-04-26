@@ -22,10 +22,23 @@
                         <th>Away Team</th>
                         <th>Grade</th>
                         <th>Owerall Grade</th>
-                        <th>Viewed</th>
+                        <th>View PDF</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($reports as $report)
+                    <tr>
+                        <td>{{$report->date}}</td>
+                        <td>{{$report->member->fname}} {{$report->member->lname}}</td>
+                        <td>{{$report->home_team}}</td>
+                        <td>{{$report->away_team}}</td>
+                        <td>{{$report->grade_division}}</td>
+                        <td>{{$report->overall_grade}}</td>
+                        <td>
+                            <a target="_blank" href="{{ asset('storage') }}/pdf/{{ $report->pdffile }}" class="btn btn-sm btn-primary">View PDF</a>
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

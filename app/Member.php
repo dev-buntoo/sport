@@ -11,7 +11,7 @@ class Member extends Model implements Auditable
     use \OwenIt\Auditing\Auditable;
 
     protected $table = 'users';
-    
+
     public function income()
     {
         return $this->hasMany('App\Model\Income','member_id','id');
@@ -19,6 +19,10 @@ class Member extends Model implements Auditable
     public function expense()
     {
         return $this->hasMany('App\Model\Expense','member_id','id');
+    }
+    public function reports()
+    {
+        return $this->hasMany('App\Report','member_id','id');
     }
     public function roles()
     {

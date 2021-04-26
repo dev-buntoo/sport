@@ -57,7 +57,7 @@
                                 <th>Away Team</th>
                                 <th>Grade</th>
                                 <th>Owerall Grade</th>
-                                <th>Viewed</th>
+                                {{-- <th>Viewed</th> --}}
                                 <th>View PDF</th>
                             </tr>
                         </thead>
@@ -70,9 +70,9 @@
                                 <td>{{$report->away_team}}</td>
                                 <td>{{$report->grade_division}}</td>
                                 <td>{{$report->overall_grade}}</td>
-                                <td>--</td>
+                                {{-- <td>--</td> --}}
                                 <td>
-                                    <a href="" class="btn btn-sm btn-primary">View PDF</a>
+                                    <a target="_blank" href="{{ asset('storage') }}/pdf/{{ $report->pdffile }}" class="btn btn-sm btn-primary">View PDF</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -111,6 +111,7 @@
 
                                             <select name="format" id="" class="form-control select form-control-sm">
                                                 <option value="1">Under 15's A Grade</option>
+                                                <option value="2">Under 7’s – Under 14’s</option>
                                             </select>
                                         </p>
                                     </div>

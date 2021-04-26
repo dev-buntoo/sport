@@ -676,13 +676,19 @@ else{
                     'passive_id'=>''
 
                 ]);
+                $type = ($request->format == 1)?'main.slip.se':'main.slip.ju';
                 $pdfname = time().'.pdf';
                 $user = $report;
-                $pdf = \PDF::loadView('main.slip.at',compact('user'));
+                $pdf = \PDF::loadView($type,compact('report'));
                 \Storage::put('public/pdf/'.$pdfname, $pdf->output());
                 $report->pdffile = $pdfname;
                 $report->save();
-
+                $data = array(
+                    'report' => $report,
+                    'date' => 'asd'
+                );
+                \App\Email::sendrecord($data,[auth()->user()->email,$report->member->email,'syedafeefali@gmail.com'], $pdfname);
+                // return $report;
                 return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
             }
         }catch(Exception $e){

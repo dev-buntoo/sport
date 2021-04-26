@@ -102,6 +102,7 @@ class ShowController extends Controller
         $income = $member->income;
         $expense = $member->expense;
         $payrolls = $member->payrols;
+        $reports = Report::where('member_id',$id)->get();
         log::create([
             'user_id'=>auth()->user()->id,
             'action'=>'viewed',
@@ -109,7 +110,7 @@ class ShowController extends Controller
             'passive_id'=>''
 
         ]);
-        return view('main.member.edit',compact('member','members','income','expense','payrolls'));
+        return view('main.member.edit',compact('member','members','income','expense','payrolls','reports'));
     }
 
     public function editIncome($id)
@@ -125,6 +126,7 @@ class ShowController extends Controller
     {
         $memexp = Expense::find($id);
         $members = User::where('is_member',1)->get();
+
         return view('main.member.editExpense',compact('memexp','members'));
     }
 

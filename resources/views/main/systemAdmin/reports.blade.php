@@ -108,9 +108,29 @@
                                     <div class="welcome-det">
                                         <h3>Parramatta District Rugby League Referees Association</h3>
                                         <p>Match Day Coaching Sheet
-
                                             <select name="format" id="" class="form-control select form-control-sm">
                                                 <option value="1">Under 15's A Grade</option>
+                                            </select>
+                                        </p>
+                                    </div>
+                                     <div class="welcome-det" style="margin-top:20px;">
+                                        <p>Age/Divisions
+                                            <select name="format" id="" class="form-control select form-control-sm">
+                                                <option value="1">Under 15 Div 1</option>
+                                                <option value="1">Under 15 Div 2</option>
+                                                <option value="1">Under 15 Div 3</option>
+                                                <option value="1">Under 16 Div 1</option>
+                                                <option value="1">Under 16 Div 2</option>
+                                                <option value="1">Under 16 Div 3</option>
+                                                <option value="1">Under 18 Div 1</option>
+                                                <option value="1">Under 18 Div 2</option>
+                                                <option value="1">Under 20 Div 1</option>
+                                                <option value="1">Under 20 Div 2</option>
+                                                <option value="1">Under 23 Div 1</option>
+                                                <option value="1">Under 23 Div 2</option>
+                                                <option value="1">A grade Div 1 </option>
+                                                <option value="1">A grade Div 2</option>
+                                                <option value="1">A Grade Div 3</option>
                                             </select>
                                         </p>
                                     </div>

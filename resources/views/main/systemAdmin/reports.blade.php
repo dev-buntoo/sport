@@ -115,6 +115,27 @@
                                             </select>
                                         </p>
                                     </div>
+                                    <div class="welcome-det" style="margin-top:20px;">
+                                        <p>Age/Divisions
+                                            <select name="format" id="" class="form-control select form-control-sm">
+                                                <option value="1">Under 15 Div 1</option>
+                                                <option value="1">Under 15 Div 2</option>
+                                                <option value="1">Under 15 Div 3</option>
+                                                <option value="1">Under 16 Div 1</option>
+                                                <option value="1">Under 16 Div 2</option>
+                                                <option value="1">Under 16 Div 3</option>
+                                                <option value="1">Under 18 Div 1</option>
+                                                <option value="1">Under 18 Div 2</option>
+                                                <option value="1">Under 20 Div 1</option>
+                                                <option value="1">Under 20 Div 2</option>
+                                                <option value="1">Under 23 Div 1</option>
+                                                <option value="1">Under 23 Div 2</option>
+                                                <option value="1">A grade Div 1 </option>
+                                                <option value="1">A grade Div 2</option>
+                                                <option value="1">A Grade Div 3</option>
+                                            </select>
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -293,7 +314,7 @@
                                                 <div class="form-group">
                                                     <label>Laws of the Game </label>
                                                     <input class="form-control" type="text" placeholder="Note"
-                                                        name="game_law_note" required>
+                                                        name="game_law_note">
                                                 </div>
                                             </div>
                                         </div>
@@ -641,7 +662,7 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label> Additional File </label>
-                                                    <input type="file" name="file" required>
+                                                    <input type="file" name="file">
                                                 </div>
                                             </div>
                                         </div>

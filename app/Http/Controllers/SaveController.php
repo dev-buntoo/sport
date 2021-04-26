@@ -613,12 +613,17 @@ else{
             'coach_comments' => 'required',
             'overall_assesment' => 'required',
             'final_comments' => 'required',
-            'file' => 'required'
+            // 'file' => 'required'
         ]);
         try{
+            if($request->hasFile('file')){
                 $fileName = time().'.'.$request->file->extension();
-
+                
                 $request->file->move(public_path('report_additional'), $fileName);
+            }
+            else{
+                $fileName = '';
+            }
 
             // return $fileName;
             $report = new Report;

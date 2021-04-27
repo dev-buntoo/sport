@@ -38,7 +38,7 @@
 		              						<label>Referee:</label>
 		              					</td>
 		              					<td width="80%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">DayMatch</span>
+		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">{{ $report->member->fname.' '.$report->member->lname}}</span>
 		              					</td>
 		              				</tr>
 		              			</table>
@@ -97,7 +97,7 @@
 		              						<label>Date:</label>
 		              					</td>
 		              					<td width="80%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">{{ $report->date }}</span>
+		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">{{ date("d-m-Y", strtotime($report->date)) }}</span>
 		              					</td>
 		              				</tr>
 		              			</tbody></table>
@@ -184,13 +184,13 @@
 				</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Whistle Tone</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->wistla_tone_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->wistla_tone_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Clear & Concise Signals</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->c_c_signal_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->c_c_signal_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Presentation</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->presentation_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->presentation_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Pre-Match Duties</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->pre_match_duties_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->pre_match_duties_grade }}</span></td>
 					</tr>
 					<tr class="table-head">
 					<th colspan="1" style="border:2px solid #000; padding: 3px 10px;">laws of the Game</th>
@@ -198,13 +198,13 @@
 				</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Identification of Laws</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->application_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->application_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Application of Laws</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->scrum_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->scrum_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Processess</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->process_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->process_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Advantage</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->advantage_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->advantage_grade }}</span></td>
 					</tr>
 					<tr class="table-head">
 					<th colspan="1" style="border:2px solid #000; padding: 3px 10px;">Game Understanding / Awareness</th>
@@ -212,13 +212,13 @@
 				</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Penalty Selection</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->penalty_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->penalty_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Effective Ruck Communication</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->ruck_communication_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->ruck_communication_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Effective Cautions</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->effective_caution_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->effective_caution_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Player Rapport </td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->movement_patterns_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->movement_patterns_grade }}</span></td>
 					</tr>
 					<tr class="table-head">
 					<th colspan="1" style="border:2px solid #000; padding: 3px 10px;">5m, Markers & Ruck</th>
@@ -226,13 +226,13 @@
 				</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">5m Distance</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->ten_m_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->ten_m_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">5m Compliance</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->ten_m_complaince_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->ten_m_complaince_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Marker Compliance</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->marker_complaince_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->marker_complaince_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Tackle ID</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->ruck_speed_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->ruck_speed_grade }}</span></td>
 					</tr>
 					<tr class="table-head">
 					<th colspan="1" style="border:2px solid #000; padding: 3px 10px;">Safe Play Code </th>
@@ -240,13 +240,13 @@
 				</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Application</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->ruck_vocab_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->ruck_vocab_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Identification</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->tackle_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->tackle_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Advantage</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->player_rapport_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->player_rapport_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Scrums</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->communication_timming_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"  valign="middle" align="center"><span class="no-line">{{ $report->communication_timming_grade }}</span></td>
 					</tr>
 					<tr class="table-head">
 					<th colspan="1" style="border:2px solid #000; padding: 3px 10px;">Positioning</th>
@@ -254,13 +254,13 @@
 				</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">On the 5m</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->ten_m_position_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;" valign="middle" align="center"><span class="no-line">{{ $report->ten_m_position_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">In-Goal</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->in_goal_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;" valign="middle" align="center"><span class="no-line">{{ $report->in_goal_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Start & Restarts of Play</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->start_restart_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;" valign="middle" align="center"><span class="no-line">{{ $report->start_restart_grade }}</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Kicks, Breaks in Play & Attacting Situations</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">{{ $report->kicks_breaks_grade }}</span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;" valign="middle" align="center"><span class="no-line">{{ $report->kicks_breaks_grade }}</span></td>
 					</tr>
 					</tbody>
 				</table>
@@ -314,16 +314,16 @@
 		              			</table>
 						</td>
 						<td width="50%">
-								<table width="100%">
-		              				<tr>
-		              					<td width="38%" style="font-size: 14px; line-height: 16px;">
-		              						<label>Coach Signature:</label>
-		              					</td>
-		              					<td width="60%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>
-		              					</td>
-		              				</tr>
-		              			</table>
+								<!--<table width="100%">-->
+		      <!--        				<tr>-->
+		      <!--        					<td width="38%" style="font-size: 14px; line-height: 16px;">-->
+		      <!--        						<label>Coach Signature:</label>-->
+		      <!--        					</td>-->
+		      <!--        					<td width="60%" style="border-bottom: 1px solid #000;">-->
+		      <!--        						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>-->
+		      <!--        					</td>-->
+		      <!--        				</tr>-->
+		      <!--        			</table>-->
 
 						</td>
 					</tr>

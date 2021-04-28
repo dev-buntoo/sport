@@ -17,6 +17,8 @@ use App\Model\UpdateRate;
 use App\Model\ImportData;
 use App\Imports\ImportAppoint;
 use App\Imports\ImportMember;
+use App\Model\division;
+use App\Model\team;
 use Maatwebsite\Excel\Facades\Excel;
 use Auth;
 use Exception;
@@ -618,7 +620,7 @@ else{
         try{
             if($request->hasFile('file')){
                 $fileName = time().'.'.$request->file->extension();
-                
+
                 $request->file->move(public_path('report_additional'), $fileName);
             }
             else{
@@ -704,6 +706,47 @@ else{
     {
         $html = view('main.dashboard.status');
         return $html;
+    }
+    public function saveTeam(Request $request)
+    {
+        team::create($request->all());
+        return redirect()->back()->with('success','New Team added');
+    }
+    public function editTeam(Request $request)
+    {
+        $team = team::find($request->id);
+        $team->update($request->all());
+        return redirect()->back()->with('success','Team updated');
+    }
+    public function teamajax($id)
+    {
+        return team::find($id);
+    }
+    public function deleteTeam($id)
+    {
+        team::find($id)->delete();
+        return redirect()->back()->with('success','Team Deleted');
+    }
+
+    public function saveDivision(Request $request)
+    {
+        division::create($request->all());
+        return redirect()->back()->with('success','New Division added');
+    }
+    public function editDivision(Request $request)
+    {
+        $team = division::find($request->id);
+        $team->update($request->all());
+        return redirect()->back()->with('success','Division updated');
+    }
+    public function divisionajax($id)
+    {
+        return division::find($id);
+    }
+    public function deleteDivision($id)
+    {
+         division::find($id)->delete();
+        return redirect()->back()->with('success','Division Deleted');
     }
 
 }

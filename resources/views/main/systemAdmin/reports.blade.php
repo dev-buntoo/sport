@@ -115,26 +115,22 @@
                                             </select>
                                         </p>
                                     </div>
+                                    <style>
+                                        .select2-container{
+                                            width:100% !important;
+                                        }
+                                    </style>
                                     <div class="welcome-det" style="margin-top:20px;">
                                         <p>Age/Divisions
-                                            <select name="format" id="" class="form-control select form-control-sm">
-                                                <option value="1">Under 15 Div 1</option>
-                                                <option value="1">Under 15 Div 2</option>
-                                                <option value="1">Under 15 Div 3</option>
-                                                <option value="1">Under 16 Div 1</option>
-                                                <option value="1">Under 16 Div 2</option>
-                                                <option value="1">Under 16 Div 3</option>
-                                                <option value="1">Under 18 Div 1</option>
-                                                <option value="1">Under 18 Div 2</option>
-                                                <option value="1">Under 20 Div 1</option>
-                                                <option value="1">Under 20 Div 2</option>
-                                                <option value="1">Under 23 Div 1</option>
-                                                <option value="1">Under 23 Div 2</option>
-                                                <option value="1">A grade Div 1 </option>
-                                                <option value="1">A grade Div 2</option>
-                                                <option value="1">A Grade Div 3</option>
-                                            </select>
+
                                         </p>
+                                       <div>
+                                        <select  id="" name="division" class=" form-control-sm selecttag" >
+                                            @foreach ($division as $item )
+                                            <option value="{{ $item->name }}" width="100%">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                       </div>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -162,20 +158,20 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label>Home Team</label>
-                                                        <select class="form-control select" name="home_team" required>
-                                                            <option value="A">Home Team A</option>
-                                                            <option value="B">Home Team B</option>
-                                                            <option value="C">Home Team C</option>
+                                                        <select class="selecttag" name="home_team" required>
+                                                            @foreach ($team as $item )
+                                                            <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label>Away Team</label>
-                                                        <select class="form-control select" name="away_team" required>
-                                                            <option value="A">Away Team A</option>
-                                                            <option value="B">Away Team B</option>
-                                                            <option value="C">Away Team C</option>
+                                                        <select class="selecttag" name="away_team" required>
+                                                            @foreach ($team as $item )
+                                                            <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -682,3 +678,4 @@
 <!-- /Create Project Modal -->
 
 @endsection
+

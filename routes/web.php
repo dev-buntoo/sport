@@ -149,3 +149,20 @@ Route::get('reports', 'ShowController@showReports')->name('reports.show');
 Route::post('reports', 'SaveController@saveReport')->name('reports.store');
 
 Route::get('status-online','HomeController@onlineStatus')->name('online.status');
+
+
+Route::get('reports/team','ShowController@showTeam')->name('report.team.show');
+Route::post('reports/team/save','SaveController@saveTeam')->name('report.team.save');
+Route::get('reports/team/edit','SaveController@editTeam')->name('report.team.update');
+Route::get('reports/team/delete/{id}','SaveController@deleteTeam')->name('report.team.delete');
+
+
+Route::get('reports/divisionajax','ShowController@showDivision')->name('report.division.ajax');
+Route::get('reports/teamajax','ShowController@showTeam')->name('report.team.ajax');
+
+
+Route::get('reports/division','ShowController@showDivision')->name('report.division.show');
+Route::post('reports/division/save','SaveController@saveDivision')->name('report.division.save');
+Route::get('reports/division/edit','SaveController@editDivision')->name('report.division.update');
+Route::get('reports/division/delete/{id}','SaveController@deleteDivision')->name('report.division.delete');
+

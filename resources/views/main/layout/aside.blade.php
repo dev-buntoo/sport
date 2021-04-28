@@ -44,12 +44,25 @@
                             <li><a href="{{ route('system.auditlog') }}">Audit Logs</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="{{ route('reports.show') }}"><i class="la la-pie-chart"></i> <span>Reports</span></a>
+
+                    <li class="submenu">
+                        <a href="#" class=""><i class="la la-pie-chart"></i> <span>Reports</span> <span
+                                class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="{{ route('reports.show') }}">Create Reports</a></li>
+                            <li><a href="{{ route('report.team.show') }}">Create Teams</a></li>
+                            <li><a href="{{ route('report.division.show') }}">Create Divisions</a></li>
+                        </ul>
                     </li>
                     @else
-                    <li>
-                        <a href="{{ route('reports.show') }}"><i class="la la-pie-chart"></i> <span>Reports</span></a>
+                    <li class="submenu">
+                        <a href="#" class=""><i class="la la-pie-chart"></i> <span>Reports</span> <span
+                                class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="{{ route('reports.show') }}">Create Reports</a></li>
+                            <li><a href="{{ route('report.team.show') }}">Create Teams</a></li>
+                            <li><a href="{{ route('report.division.show') }}">Create Divisions</a></li>
+                        </ul>
                     </li>
                     @endif
 

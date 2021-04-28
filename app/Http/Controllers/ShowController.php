@@ -13,8 +13,10 @@ use App\Model\Expense;
 use App\Model\Payout;
 use App\Model\UpdateRate;
 use App\Model\Appointment;
+use App\Model\division;
 use App\Model\ImportData;
 use App\Model\Role;
+use App\Model\team;
 use App\Report;
 use Schema;
 use Auth;
@@ -401,6 +403,8 @@ class ShowController extends Controller
             return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
          }
         $members = Member::where('is_member', '1')->get();
+        $team = team::all();
+        $division = division::all();
         $reports = Report::get();
         log::create([
             'user_id'=>auth()->user()->id,
@@ -409,7 +413,17 @@ class ShowController extends Controller
             'passive_id'=>''
 
         ]);
-        return view('main.systemAdmin.reports',['members'=>$members, 'reports'=>$reports]);
+        return view('main.systemAdmin.reports',['members'=>$members, 'reports'=>$reports,'team'=>$team,'division'=>$division]);
+    }
+    public function showTeam()
+    {
+        $teams =team::all();
+        return view('main.report.team',compact('teams'));
+    }
+    public function showDivision()
+    {
+        $divisions = division::all();
+        return view('main.report.division',compact('divisions'));
     }
     //       END
     // ==================

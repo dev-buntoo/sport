@@ -17,14 +17,16 @@
 					</div>
 				</div>
 				<!-- /Page Header -->
-                   <div class="kanban-board card mb-0">
+	
+					<div class="kanban-board card">
 						<div class="card-body">
 							<div class="kanban-cont">
-								<div class="row" id="showUser">
-                                    @foreach(\App\User::orderBy('updated_at','desc')->get() as $user)
+								<div class="kanban-list kanban-primary" style="background-color: transparent;width: 100%;max-width: 200px;">
+									<div class="kanban-header" style="background-color: transparent;width: 100%;max-width: 200px;">
+									 @foreach(\App\User::orderBy('updated_at','desc')->get() as $user)
                                 
-                                    <div class="col-sm-3" style="padding-bottom: 20px;">
-                                        <div class="user-details mr-auto">
+                                      <div style="width:200px">
+                                            <div class="user-details" style="width:300px;">
                                             <div class="float-left user-img">
                                                 <a class="avatar" href="#" title="{{ $user->roles->name }}">
                                                     <img src="{{ asset('main') }}/img/profile/{{ $user->photo }}" alt="" class="rounded-circle" style="width: 37px;height:37px">
@@ -36,10 +38,11 @@
                                 
                                             </div>
                                         </div>
-                                    </div>
+                                      </div>
                                 @endforeach
-                                
-                                </div>
+									</div>
+								</div>
+
 							</div>
 						</div>
 					</div>

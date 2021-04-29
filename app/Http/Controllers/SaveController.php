@@ -631,7 +631,7 @@ else{
             $report = new Report;
             $report->member_id = $request->member;
             $report->format = $request->format;
-            $report->coach = Auth::user()->fname;
+            $report->coach =  Auth::user()->fname.' '.Auth::user()->lname;
             $report->date = $request->date;
             $report->home_team = $request->home_team;
             $report->away_team = $request->away_team;
@@ -694,7 +694,7 @@ else{
                     'report' => $report,
                     'date' => 'asd'
                 );
-                \App\Email::sendrecord($data,['systemdev@mcorpx.com.au' , 'ethan@mcorpx.com.au','refereeing@parramattarefs.com.au'], $pdfname);
+                \App\Email::sendrecord($data,['systemdev@mcorpx.com.au' , 'ethan@mcorpx.com.au','refereeing@parramattarefs.com.au'], $pdfname,$report->home_team." V ".$report->away_team." / ".$request->division." Match Day Report ".date("d-m-Y", strtotime($report->date)));
                 // return $report;
                 return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
             }

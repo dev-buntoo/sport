@@ -52,11 +52,12 @@
                         <thead>
                             <tr>
                                 <th>Match Report Date</th>
-                                <th>Member Name</th>
+                                <th>Member</th>
+                                <th>Coach</th>
                                 <th>Home Team</th>
                                 <th>Away Team</th>
                                 <th>Grade</th>
-                                <th>Owerall Grade</th>
+                                <th>Overall Grade</th>
                                 {{-- <th>Viewed</th> --}}
                                 <th>View PDF</th>
                             </tr>
@@ -66,6 +67,7 @@
                             <tr>
                                 <td>{{$report->date}}</td>
                                 <td>{{$report->member->fname}} {{$report->member->lname}}</td>
+                                 <td>Coach</td>
                                 <td>{{$report->home_team}}</td>
                                 <td>{{$report->away_team}}</td>
                                 <td>{{$report->grade_division}}</td>
@@ -669,6 +671,7 @@
                     </div>
                     <div class="submit-section">
                         <button class="btn btn-primary submit-btn">Submit</button>
+                         <button class="btn btn-primary submit-btn">Draft</button>
                     </div>
                 </form>
             </div>

@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.4.9|^8.0|^7.4.3|^7.3.27",
         "barryvdh/laravel-dompdf": "^0.9.0",
+        "doctrine/dbal": "^2.0",
         "fideloper/proxy": "^4.4",
         "laravel/framework": "^6.20",
         "laravel/tinker": "^2.5",

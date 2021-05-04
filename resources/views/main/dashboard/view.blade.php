@@ -17,14 +17,14 @@
 					</div>
 				</div>
 				<!-- /Page Header -->
-	
+
 					<div class="kanban-board card">
 						<div class="card-body">
 							<div class="kanban-cont">
 								<div class="kanban-list kanban-primary" style="background-color: transparent;width: 100%;max-width: 200px;">
 									<div class="kanban-header" style="background-color: transparent;width: 100%;max-width: 200px;">
-									 @foreach(\App\User::orderBy('updated_at','desc')->get() as $user)
-                                
+									 @foreach(\App\User::orderBy('updated_at','desc')->where('is_member',0)->get() as $user)
+
                                       <div style="width:200px">
                                             <div class="user-details" style="width:300px;">
                                             <div class="float-left user-img">
@@ -34,8 +34,8 @@
                                                 </a>
                                             </div>
                                             <div class="user-info float-left">
-                                                <a href="#" title="{{ $user->roles->name }}"><span style="display: inline-block;padding-top: 8px;">{{ $user->fname.' '.$user->lname }}</span></a>
-                                
+                                                <a href="#" title="{{ ($user->updated_at->diffForHumans()) }}"><span style="display: inline-block;padding-top: 8px;">{{ $user->fname.' '.$user->lname }}</span></a>
+
                                             </div>
                                         </div>
                                       </div>

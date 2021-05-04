@@ -24,7 +24,7 @@ use Auth;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use App\Report;
-
+use App\Model\Draft;
 class SaveController extends Controller
 {
     public function saveProfile(Request $request)
@@ -748,5 +748,21 @@ else{
          division::find($id)->delete();
         return redirect()->back()->with('success','Division Deleted');
     }
+    public function saveDraft(Request $request)
+    {
+        // return $request->all();
+
+
+        // $report->communication_timming_grade = $request->comm_timming_grade;
+        $request->merge([
+        'member_id' => $request->member,
+        'ruck_communication_grade'=>$request->ruck_comm_grade,
+        'communication_timming_grade' => $request->comm_timming_grade,
+        ]);
+        unset($request['member'],$request['ruck_comm_grade'],$request['comm_timming_grade'],$request['file']);
+        Draft::create($request->all());
+        return ['success'=>'Saved in Draft'];
+    }
+    
 
 }

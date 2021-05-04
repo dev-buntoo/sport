@@ -14,6 +14,7 @@ use App\Model\Payout;
 use App\Model\UpdateRate;
 use App\Model\Appointment;
 use App\Model\division;
+use App\Model\Draft;
 use App\Model\ImportData;
 use App\Model\Role;
 use App\Model\team;
@@ -424,6 +425,25 @@ class ShowController extends Controller
     {
         $divisions = division::all();
         return view('main.report.division',compact('divisions'));
+    }
+    public function showDraft()
+    {
+        if(!Auth::user()->roles->view_report){
+            return redirect()->route('dashboard.show')->with('error','You don\'t have permission to access this page.');
+         }
+        $members = Member::where('is_member', '1')->get();
+        $team = team::all();
+        $division = division::all();
+        $reports = Draft::get();
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'reports',
+            'passive_id'=>''
+
+        ]);
+        return view('main.report.draft',['members'=>$members, 'reports'=>$reports,'team'=>$team,'division'=>$division]);
+
     }
     //       END
     // ==================

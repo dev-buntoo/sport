@@ -20,10 +20,10 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h3 class="page-title"> Members Match Reports</h3>
+                    <h3 class="page-title"> Members Match Drafts</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Members Match Reports</li>
+                        <li class="breadcrumb-item active">Members Match Drafts</li>
                     </ul>
                 </div>
 
@@ -33,8 +33,7 @@
 
                 <div class="col-md-3 d-flex float-right">
 
-                    <button class="btn btn-primary add-btn" type="button" data-toggle="modal"
-                        data-target="#addReport"><i class="fa fa-plus"></i> Create Report</button>
+
                 </div>
 
             </div>
@@ -59,7 +58,7 @@
                                 <th>Grade</th>
                                 <th>Overall Grade</th>
                                 {{-- <th>Viewed</th> --}}
-                                <th>View PDF</th>
+                                {{-- <th>View Draft</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -73,9 +72,8 @@
                                 <td>{{$report->grade_division}}</td>
                                 <td>{{$report->overall_grade}}</td>
                                 {{-- <td>--</td> --}}
-                                <td>
-                                    <a target="_blank" href="{{ asset('storage') }}/pdf/{{ $report->pdffile }}" class="btn btn-sm btn-primary">View PDF</a>
-                                </td>
+                                {{-- <td>
+                                </td> --}}
                             </tr>
                             @endforeach
                         </tbody>

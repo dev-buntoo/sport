@@ -58,7 +58,7 @@
                                 <th>Grade</th>
                                 <th>Overall Grade</th>
                                 {{-- <th>Viewed</th> --}}
-                                {{-- <th>View Draft</th> --}}
+                                <th>View Draft</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -72,8 +72,13 @@
                                 <td>{{$report->grade_division}}</td>
                                 <td>{{$report->overall_grade}}</td>
                                 {{-- <td>--</td> --}}
-                                {{-- <td>
-                                </td> --}}
+                                <td>
+                                    <a
+                                    {{-- data-toggle="modal"
+                                    data-target="#addReport" --}}
+                                    onclick="showDraft({{ $report->report_id}})"
+                                     class="btn btn-sm btn-primary">View </a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -669,7 +674,6 @@
                     </div>
                     <div class="submit-section">
                         <button class="btn btn-primary submit-btn">Submit</button>
-                         <button class="btn btn-primary submit-btn" onclick="addDraft()">Draft</button>
                     </div>
                 </form>
             </div>
@@ -687,17 +691,23 @@
         orignal.push($(this).val());
 });
 orignal.reverse();
-    function addDraft(){
-x='{';
+// console.log(orignal);
+    function showDraft(data){
+newa =[];
 $('form  [name]').each(function(){
-x += '"'+$(this).attr('name')+'"'+':'+'"'+$(this).val()+'"'+',';
-// $(this).val(orignal.pop());
+
+$(this).val(orignal.pop());
 });
-x=x.slice(0,-1);
-x+='}';
-data = JSON.parse(x);
-$.get("{{ route('report.draft') }}",data,function(rep){ toastr.success(rep.success );});
-$("#addReport").modal('hide');
+$.get("{{ url('reports/draft/ajax/') }}/"+data,function(rep){
+    names = Object.keys(rep);
+    values = Object.values(rep);
+    for(i=0; i<=names.length;i++){
+        $("[name='"+names.pop()+"']").val(values.pop());
+
+    }
+ });
+
+$("#addReport").modal('show');
     }
 </script>
 @endpush

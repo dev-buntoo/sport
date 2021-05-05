@@ -671,7 +671,7 @@
                     </div>
                     <div class="submit-section">
                         <button class="btn btn-primary submit-btn">Submit</button>
-                         <button class="btn btn-primary submit-btn" onclick="addDraft()">Draft</button>
+                         <a href="#" class="btn btn-primary submit-btn" onclick="addDraft()">Draft</a>
                     </div>
                 </form>
             </div>

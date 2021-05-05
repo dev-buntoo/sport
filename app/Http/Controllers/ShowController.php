@@ -445,6 +445,11 @@ class ShowController extends Controller
         return view('main.report.draft',['members'=>$members, 'reports'=>$reports,'team'=>$team,'division'=>$division]);
 
     }
+    public function ajaxDraft($id)
+    {
+        $data = Draft::where('report_id',$id)->first();
+    return    $data->toArray();
+    }
     //       END
     // ==================
     //

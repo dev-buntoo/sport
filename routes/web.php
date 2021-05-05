@@ -165,6 +165,7 @@ Route::get('reports/division','ShowController@showDivision')->name('report.divis
 Route::post('reports/division/save','SaveController@saveDivision')->name('report.division.save');
 Route::get('reports/draft','SaveController@saveDraft')->name('report.draft');
 Route::get('reports/draft/show','ShowController@showDraft')->name('report.draft.show');
+Route::get('reports/draft/ajax/{id}','ShowController@ajaxDraft')->name('report.draft.ajax');
 Route::get('reports/division/edit','SaveController@editDivision')->name('report.division.update');
 Route::get('reports/division/delete/{id}','SaveController@deleteDivision')->name('report.division.delete');
 

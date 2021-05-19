@@ -2,12 +2,6 @@
     xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
-    <!--[if gte mso 9]><xml>
-		<o:OfficeDocumentSettings>
-		<o:AllowPNG/>
-		<o:PixelsPerInch>96</o:PixelsPerInch>
-		</o:OfficeDocumentSettings>
-		</xml><![endif]-->
     <title>parramattarefs/</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -171,52 +165,6 @@
                         <tbody>
                             <!--//Header section ends-->
 
-                            <!--Banner section-->
-                            <tr>
-                                <td valign="middle" align="center">
-                                    <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
-                                        <tbody>
-                                            <tr>
-                                                <td valign="top" align="center">
-                                                    <img class="em_img" alt="Welcome to EmailWeb Newsletter"
-                                                        src="http://admin.parramattarefs.com.au/main/img/logo.png" border="0" height="230">
-                                                </td>
-                                                <td>
-                                                    <h5 style="margin-bottom: 5px; font-size: 20px;">Ethan Murray</h5>
-                                                    <p>Director of Finance & Sponsorship</p>
-                                                    <p><strong>Mobile:</strong>0439 003 970</p>
-                                                    <p><strong>Email:</strong> finance@parramattarefs.com.au</p>
-                                                    <p><strong>Website:</strong>parramattarefs.com.au</p>
-                                                    <a href="#" target="_blank"
-                                                        style="text-decoration:none;">
-                                                        <img src="http://chrismuster.co.uk/images/linkedin.png"
-                                                            alt="twitter"
-                                                            style="font-family:Arial,sans-serif;font-size:14px;line-height:14px;color:#ffffff;max-width:27px;"
-                                                            width="27" border="0" height="26">
-                                                    </a>
-                                                    <a href="#" target="_blank"
-                                                        style="text-decoration:none;">
-                                                        <img src="http://chrismuster.co.uk/images/twitter.png"
-                                                            alt="twitter"
-                                                            style="font-family:Arial,sans-serif;font-size:14px;line-height:14px;color:#ffffff;max-width:27px;"
-                                                            width="27" border="0" height="26">
-                                                    </a>
-                                                    <a href="#" target="_blank"
-                                                        style="text-decoration:none;">
-                                                        <img src="http://chrismuster.co.uk/images/facebook.png"
-                                                            alt="twitter"
-                                                            style="font-family:Arial,sans-serif;font-size:14px;line-height:14px;color:#ffffff;max-width:27px;"
-                                                            width="27" border="0" height="26">
-                                                    </a>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <!--//Banner section ends-->
-
                             <!--Content Text Section-->
                             <tr>
                                 <td style="padding:35px 70px 30px;" class="em_padd" valign="top" bgcolor="#0d1121"
@@ -227,13 +175,14 @@
                                                 <td style="font-family:'Open Sans', Arial, sans-serif; 
                                              font-size:16px; 
                                              line-height:30px; 
-                                             color:#ffffff;" valign="top" align="center">
+                                             color:#ffffff;" valign="top" align="left">
 
                                                     Hi {{$report->member->fname.' '.$report->member->lname}},<br>Please find your report attached to this email.
                                                     If
                                                     you have any issues or concerns please feel free to reply to this
-                                                    email.
-
+                                                    email.<br>
+                                                    Kind Regard <br>
+                                                    {{$report->coach}}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -253,20 +202,6 @@
                                                     &nbsp;
                                                 </td>
                                                 <!--—End-this is space of 25px to separate two paragraphs ---->
-                                            </tr>
-                                            <tr>
-                                                <td style="font-family:'Open Sans', Arial, sans-serif; 
-                                             font-size:18px; 
-                                             line-height:22px; 
-                                             color:#fbeb59; 
-                                             text-transform:uppercase; 
-                                             letter-spacing:2px; 
-                                             padding-bottom:12px;" valign="top" align="center">
-
-                                                    Then if you can include this email sign into the bottom of the email
-                                                    after this which is here http://parramattarefs.com.au/email_sign/
-
-                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

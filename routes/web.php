@@ -147,6 +147,7 @@ Route::post('system/admin/update', 'SaveController@editUser')->name('user.update
 // Reports Routes
 Route::get('reports', 'ShowController@showReports')->name('reports.show');
 Route::post('reports', 'SaveController@saveReport')->name('reports.store');
+Route::get('reports/create', 'ShowController@createReports')->name('reports.create');
 
 Route::get('status-online','HomeController@onlineStatus')->name('online.status');
 

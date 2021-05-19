@@ -38,7 +38,14 @@
 
        <!-- Select2 -->
        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
-
+<script type="text/javascript">
+            $(document).ready(function () {
+                $("#create-overall").change(function () {
+                    $(".create-childrens").next().find(".select2-selection__rendered").text($('option:selected', this).attr('value'));
+                    $(".create-childrens").val($('option:selected', this).attr('value'));
+                })
+            });
+        </script>
        <script>
            $('.js-example-basic-single').select2();
        </script>

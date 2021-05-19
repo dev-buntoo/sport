@@ -18,7 +18,7 @@
                     </div>
                     <div class="col">
                         <div class="text-newpay" style="border-left:4px solid #00c5fb;padding-left:10px;margin-bottom: 10px;">
-                            <h2 class="page-title">$3333.00</h2>
+                            <h2 class="page-title">$0.00</h2>
                             <div class="small text-muted"> TOTAL GAMES COST</div>
                         </div>
                         <div class="text-newpay" style="border-left:4px solid #00c5fb;padding-left:10px;margin-bottom: 10px;">

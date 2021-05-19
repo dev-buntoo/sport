@@ -33,8 +33,8 @@
 
                 <div class="col-md-3 d-flex float-right">
 
-                    <button class="btn btn-primary add-btn" type="button" data-toggle="modal"
-                        data-target="#addReport"><i class="fa fa-plus"></i> Create Report</button>
+                       <a class="btn btn-primary add-btn" type="button" href="{{ route('reports.create') }}" ><i class="fa fa-plus"></i> Create Report</a>
+
                 </div>
 
             </div>

@@ -415,6 +415,22 @@ class ShowController extends Controller
         ]);
         return view('main.systemAdmin.reports',['members'=>$members, 'reports'=>$reports,'team'=>$team,'division'=>$division]);
     }
+      public function createReports()
+    {
+
+        $members = Member::where('is_member', '1')->get();
+        $team = team::all();
+        $division = division::all();
+        $reports = Report::get();
+        log::create([
+            'user_id'=>auth()->user()->id,
+            'action'=>'viewed',
+            'function'=>'reports',
+            'passive_id'=>''
+
+        ]);
+        return view('main.report.create',['members'=>$members, 'reports'=>$reports,'team'=>$team,'division'=>$division]);
+    }
     public function showTeam()
     {
         $teams =team::all();

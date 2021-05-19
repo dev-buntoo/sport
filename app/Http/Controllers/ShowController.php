@@ -132,6 +132,24 @@ class ShowController extends Controller
         return view('main.member.editExpense',compact('memexp','members'));
     }
 
+
+    public function editIncomePayroll($id)
+    {
+        $memin = Income::find($id);
+        $members = User::where('is_member',1)->get();
+
+        return view('main.payroll.transaction.editIncome',compact('memin','members'));
+    }
+
+
+    public function editExpensePayroll($id)
+    {
+        $memexp = Expense::find($id);
+        $members = User::where('is_member',1)->get();
+
+        return view('main.payroll.transaction.editExpense',compact('memexp','members'));
+    }
+
     //       END
     // ===================
     //     APPOINTMENT
@@ -441,7 +459,23 @@ class ShowController extends Controller
         $divisions = division::all();
         return view('main.report.division',compact('divisions'));
     }
+    public function showExpense(){
+
+        $members = User::all();
+        $memberlist = User::all();
+        $expense = Expense::all();
+        return view('main.payroll.transaction.expense',compact('members','expense'));
+    }
+    public function showIncome(){
+
+        $members = User::all();
+        $memberlist = User::all();
+        $income = Income::all();
+        return view('main.payroll.transaction.income',compact('members','income'));
+    }
+
     //       END
     // ==================
-    //
+
+   //
 }

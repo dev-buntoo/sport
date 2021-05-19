@@ -195,6 +195,19 @@ else{          $password = $user->password;
         return redirect()->route('member.edit',$expense->member_id)->with('tab','trans');
 
     }
+        public function updateIncomePayroll(Request $request)
+    {
+        $income = Income::find($request->id);
+        $income->update($request->all());
+        return redirect()->route('income.show');
+    }
+    public function updateExpensePayroll(Request $request)
+    {
+        $expense = Expense::find($request->id);
+        $expense->update($request->all());
+        return redirect()->route('expense.show');
+
+    }
     public function deleteIncome($id)
     {
       $income =  Income::find($id);

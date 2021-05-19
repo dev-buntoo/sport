@@ -20,6 +20,8 @@
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="{{ route('payroll.show') }}"> Payroll </a></li>
+                            <li><a href="{{ route('expense.show') }}"> Expense  </a></li>
+                            <li><a href="{{ route('income.show') }}"> Income  </a></li>
                             <!-- <li><a href="salary-view.html"> Payslip </a></li> -->
 {{--                            <li><a href="{{ route('payrun.show') }}"> Pay Run </a></li>--}}
                         </ul>
@@ -49,7 +51,8 @@
                         <a href="#" class=""><i class="la la-pie-chart"></i> <span>Reports</span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="{{ route('reports.show') }}">Create Reports</a></li>
+                            <li><a href="{{ route('reports.show') }}">View Reports</a></li>
+                            <li><a href="{{ route('reports.create') }}">Create Reports</a></li>
                             <li><a href="{{ route('report.team.show') }}">Create Teams</a></li>
                             <li><a href="{{ route('report.division.show') }}">Create Divisions</a></li>
                         </ul>
@@ -59,9 +62,10 @@
                         <a href="#" class=""><i class="la la-pie-chart"></i> <span>Reports</span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="{{ route('reports.show') }}">Create Reports</a></li>
+                            <li><a href="{{ route('reports.show') }}">View Reports</a></li>
+                            <li><a href="{{ route('reports.create') }}">Create Reports</a></li>
 {{--                            <li><a href="{{ route('report.team.show') }}">Create Teams</a></li>
-                            <li><a href="{{ route('report.division.show') }}">Create Divisions</a></li> 
+                            <li><a href="{{ route('report.division.show') }}">Create Divisions</a></li>
                             --}}
                         </ul>
                     </li>

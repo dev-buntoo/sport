@@ -95,6 +95,8 @@ Route::get('appointment/update-rate', 'ShowController@showUpdaterate')->name('ap
 Route::post('appointment/saveRate', 'SaveController@updateRate')->name('appointment.saveRate');
 Route::get('appointment/removeline/{id}', 'SaveController@deleteupdateRate')->name('appointment.removeline');
 Route::get('payroll', 'ShowController@showPayroll')->name('payroll.show');
+Route::get('payroll/expense', 'ShowController@showExpense')->name('expense.show');
+Route::get('payroll/income', 'ShowController@showIncome')->name('income.show');
 Route::get('payrun', 'ShowController@showPayrun')->name('payrun.show');
 
 Route::post('process-payrun', 'SaveController@stepPayrun')->name('payrun.process');
@@ -126,8 +128,15 @@ Route::post('member/import', 'SaveController@ImportMemberData')->name('member.im
 Route::get('member/expense/edit/{id}', 'ShowController@editExpense')->name('member.expense.edit');
 Route::get('member/income/edit/{id}', 'ShowController@editIncome')->name('member.income.edit');
 
+Route::get('payroll/expense/edit/{id}', 'ShowController@editExpensePayroll')->name('payroll.expense.edit');
+Route::get('payroll/income/edit/{id}', 'ShowController@editIncomePayroll')->name('payroll.income.edit');
+
 Route::post('member/income/update', 'SaveController@updateIncome')->name('member.income.update');
 Route::post('member/expense/update', 'SaveController@updateExpense')->name('member.expense.update');
+
+Route::post('payroll/income/update', 'SaveController@updateIncomePayroll')->name('payroll.income.update');
+Route::post('payroll/expense/update', 'SaveController@updateExpensePayroll')->name('payroll.expense.update');
+
 
 Route::post('payroll/generate', 'SaveController@createPayslip')->name('payroll.generate');
 Route::get('payroll/sendEmail/{id}', 'ShowController@sendPayroll')->name('payroll.sendEmail');
@@ -166,4 +175,3 @@ Route::get('reports/division','ShowController@showDivision')->name('report.divis
 Route::post('reports/division/save','SaveController@saveDivision')->name('report.division.save');
 Route::get('reports/division/edit','SaveController@editDivision')->name('report.division.update');
 Route::get('reports/division/delete/{id}','SaveController@deleteDivision')->name('report.division.delete');
-

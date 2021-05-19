@@ -1,6 +1,17 @@
 @extends('root')
 @section('content')
 
+    <!--<script-->
+    <!--  src="https://code.jquery.com/jquery-3.6.0.min.js"-->
+    <!--  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="-->
+    <!--  crossorigin="anonymous"-->
+    <!--></script>-->
+    <!--<link-->
+    <!--  href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"-->
+    <!--  rel="stylesheet"-->
+    <!--/>-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>-->
+
 			<!-- Page Wrapper -->
             <div class="page-wrapper">
 
@@ -51,7 +62,7 @@
                                             <div class="col-sm-3">
                                                 <div class="form-group">
                                                     <label>Members Name </label>
-                                                    <select name="member" class="select select2">
+                                                    <select name="member" class="select js-example-basic-single">
                                                         @foreach ($members as $member)
                                                             <option value="{{$member->id}}">{{$member->fname}} {{$member->lname}}</option>
                                                             @endforeach
@@ -696,7 +707,9 @@
 
 <script>
 
-
+// $(document).ready(function() {
+//     $('.js-example-basic-single').select2();
+// });
     function changeTo5(){
         
                 var e = document.getElementById("change");

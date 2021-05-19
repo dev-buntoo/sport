@@ -46,12 +46,7 @@
                 })
             });
         </script>
-       <script>
-           $('.js-example-basic-single').select2();
-       </script>
-    <script>
-    $('.selecttag').select2({tags:true});
-    </script>
+       
 <!--Script For Location-->
 <script>
     (function($) {

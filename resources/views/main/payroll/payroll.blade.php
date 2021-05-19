@@ -19,20 +19,23 @@
                     <div class="col">
                         <div class="text-newpay" style="border-left:4px solid #00c5fb;padding-left:10px;margin-bottom: 10px;">
                             <h2 class="page-title">$0.00</h2>
-                            <div class="small text-muted"> TOTAL GAMES COST</div>
+                            <div class="small text-muted"> REFEREES & TJ'S</div>
                         </div>
                         <div class="text-newpay" style="border-left:4px solid #00c5fb;padding-left:10px;margin-bottom: 10px;">
                             <h2 class="page-title">$0.00</h2>
-                            <div class="small text-muted"> TOTAL GAMES COST</div>
-                        </div>
-                        <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">
-                            <h2 class="page-title">$0.00</h2>
-                            <div class="small text-muted"> TOTAL GAMES COST</div>
+                            <div class="small text-muted"> COACHES</div>
                         </div>
 
                     </div>
                     <div class="col">
-
+                         <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">
+                            <h2 class="page-title">$0.00</h2>
+                            <div class="small text-muted"> OTHER INCOME</div>
+                        </div>
+                         <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">
+                            <h2 class="page-title">$0.00</h2>
+                            <div class="small text-muted"> EXPENCES</div>
+                        </div>
 
                     </div>
                     <div class="col-auto float-right ml-auto">

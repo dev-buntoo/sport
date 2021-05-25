@@ -4,6 +4,17 @@
 
     <!-- jQuery -->
     <script src="{{asset('main')}}/js/jquery-3.2.1.min.js"></script>
+    
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    
+    
+    
 
     <!-- Bootstrap Core JS -->
     <script src="{{asset('main')}}/js/popper.min.js"></script>
@@ -354,6 +365,30 @@ function generate() {
 
 
 <script>
+    $(document).ready(function () {
+      $(".Members").select2({
+          tags:true
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $(".Home").select2({
+          tags:true
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $(".Away").select2({
+          tags:true
+      });
+    });
+  </script>
+
+
+
+<script>
 
 
 @if($msg =Session::get('success'))
@@ -372,6 +407,8 @@ function generate() {
     @endif
 
 </script>
+
+
 
     @stack('script')
 

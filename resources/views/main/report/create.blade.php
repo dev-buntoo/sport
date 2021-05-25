@@ -1,16 +1,6 @@
 @extends('root')
 @section('content')
-
-    <!--<script-->
-    <!--  src="https://code.jquery.com/jquery-3.6.0.min.js"-->
-    <!--  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="-->
-    <!--  crossorigin="anonymous"-->
-    <!--></script>-->
-    <!--<link-->
-    <!--  href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"-->
-    <!--  rel="stylesheet"-->
-    <!--/>-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>-->
+    
 
 			<!-- Page Wrapper -->
             <div class="page-wrapper">
@@ -62,17 +52,35 @@
                                             <div class="col-sm-3">
                                                 <div class="form-group">
                                                     <label>Members Name </label>
-                                                    <select name="member" class="select js-example-basic-single">
+                                                    <select name="member" class="Members">
                                                         @foreach ($members as $member)
                                                             <option value="{{$member->id}}">{{$member->fname}} {{$member->lname}}</option>
                                                             @endforeach
+                                                        <!--<option value = "Ali Sobh">Ali Sobh</option>-->
+                                                        <!--<option value = "Ali Sobh">Jarrod McFarland</option>-->
+                                                        <!--<option value = "Ali Sobh">Corey Fisher</option>-->
+                                                        <!--<option value = "Ali Sobh">Lukas Durrant</option>-->
+                                                        <!--<option value = "Ali Sobh">Harrison Buxton</option>-->
+                                                        <!--<option value = "Ali Sobh">Jacob Dean</option>-->
+                                                        <!--<option value = "Ali Sobh">Bassam Agha</option>-->
+                                                        <!--<option value = "Ali Sobh">Danny Constantine</option>-->
+                                                        <!--<option value = "Ali Sobh">Raymond Doung</option>-->
+                                                        <!--<option value = "Ali Sobh">Calliope Harvey</option>-->
+                                                        <!--<option value = "Ali Sobh">Mark Harvey</option>-->
+                                                        <!--<option value = "Ali Sobh">Lachlan Smith</option>-->
+                                                        <!--<option value = "Ali Sobh">Kallin Dries</option>-->
+                                                        <!--<option value = "Ali Sobh">Brock Miller</option>-->
+                                                        <!--<option value = "Ali Sobh">Bernard Biala</option>-->
+                                                        <!--<option value = "Ali Sobh">Sarkis Wakim</option>-->
+                                                        <!--<option value = "Ali Sobh">Michael Karam</option>-->
+                                                        <!--<option value = "Ali Sobh">Thomas Cowling</option>-->
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
                                                     <label>Home Team </label>
-                                                    <select class="form-control select" name="home_team" onkeyup="filterFunction()" class="myDropdown myInput" required>
+                                                      <select class="Home" class="form-control select" name="home_team" onkeyup="filterFunction()" class="myDropdown myInput" required>
                                                         @foreach ($team as $item )
                                                             <option value="{{ $item->name }}">{{ $item->name }}</option>
                                                         @endforeach
@@ -82,7 +90,7 @@
                                             <div class="col-sm-3">
                                                 <div class="form-group">
                                                     <label>Away Team</label>
-                                                        <select class="form-control select" name="away_team" required>
+                                                        <select  class="Away" class="form-control select" name="away_team" required>
                                                             <!--<input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">-->
                                                              @foreach ($team as $item )
                                                             <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -316,7 +324,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Movement</label>
+                                                    <label>Player Rapport</label>
                                                     <select class="form-group select create-childrens" name="movement_patterns_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -383,7 +391,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Ruck/PTB Speed</label>
+                                                    <label>Tackle ID</label>
                                                     <select class="form-group select create-childrens" name="ruck_speed_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -406,7 +414,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label>Communication & Tackle Id </label>
+                                                    <label>Safe Play Code </label>
                                                 </div>
                                             </div>
                                         </div>
@@ -414,7 +422,7 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Ruck Vocab</label>
+                                                    <label>Application</label>
                                                     <select class="form-group select create-childrens" name="ruck_vocab_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -426,7 +434,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Tackle ID</label>
+                                                    <label>Identification</label>
                                                     <select class="form-group select create-childrens" name="tackle_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -438,7 +446,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Player Report</label>
+                                                    <label>Advantage</label>
                                                     <select class="form-group select create-childrens" name="player_rapport_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -450,7 +458,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Coming Timing</label>
+                                                    <label>Scrums</label>
                                                     <select class="form-group select create-childrens" name="comm_timming_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -707,9 +715,6 @@
 
 <script>
 
-// $(document).ready(function() {
-//     $('.js-example-basic-single').select2();
-// });
     function changeTo5(){
         
                 var e = document.getElementById("change");
@@ -729,5 +734,7 @@
                }
     }
 </script>
+
+
 
 @endsection

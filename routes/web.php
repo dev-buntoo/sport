@@ -10,11 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Member;
+
 Route::get('slip-test', function () {
     //    $a = \App\Model\log::all();
     //  dd($a);
-    $pdf = PDF::loadView('pdf.invoice', $data);
-    return $pdf->download('invoice.pdf');
+    // $pdf = PDF::loadView('pdf.invoice', $data);
+    // return $pdf->download('invoice.pdf');
  // \App\Email::sendrecord();
     //   return view('main.slip.payslip');
 });
@@ -123,6 +126,8 @@ Route::post('member/update', 'SaveController@updateMember')->name('member.update
 Route::post('member/income/save', 'SaveController@saveIncome')->name('member.income.save');
 Route::get('member/income/delete/{id}', 'SaveController@deleteIncome')->name('member.income.delete');
 Route::post('member/expense/save', 'SaveController@saveExpense')->name('member.expense.save');
+Route::post('payroll/expense/save', 'SaveController@bulkExpense')->name('payroll.expense.save');
+Route::post('payroll/income/save', 'SaveController@bulkIncome')->name('payroll.income.save');
 Route::get('member/expense/delete/{id}', 'SaveController@deleteExpense')->name('member.expense.delete');
 Route::post('member/import', 'SaveController@ImportMemberData')->name('member.import');
 Route::get('member/expense/edit/{id}', 'ShowController@editExpense')->name('member.expense.edit');

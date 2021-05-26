@@ -77,16 +77,22 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="POST" action="{{route('member.expense.save')}}">
+                            <form method="POST" action="{{route('payroll.expense.save')}}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="col-form-label">Member Name</label>
-                                            <select class="js-example-basic-single" name="member_id" required  style="width: 100%;">
-                                                @foreach($members as $mem)
+                                            <select class="js-example-basic-single" name="condition" required  style="width: 100%;">
+
+<option value="1"> Active members (No life members) </option>
+<option value="2"> Active Member (Life members) </option>
+<option value="3"> Non active members (No life members) </option>
+<option value="4"> Non active members (Life members) </option>
+                                                {{-- @foreach($members as $mem)
                                                 <option  value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
                                                 @endforeach
+                                                --}}
                                              </select>
                                         </div>
                                     </div>

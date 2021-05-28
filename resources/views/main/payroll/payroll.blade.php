@@ -123,27 +123,27 @@
                                         <th>NET</th>
                                     </tr>
                                     </thead>
-                                    <!--<tbody>-->
+                                   <tbody>
 
-                                    <!--@forelse($payruns as $payrun)-->
+                                    @forelse($payruns as $payrun)
 
-                                    <!--<tr>-->
-                                    <!--    <td><strong>{{date('F Y',strtotime(str_replace('/', '-', $payrun->startDate)))}}</strong></td>-->
-                                    <!--</tr>-->
-                                    <!--<tr>-->
-                                    <!--    <td><a href="{{route('payrun.complete',$payrun->id)}}">{{$payrun->startDate}} to {{$payrun->endDate}}  </a></td>-->
-                                    <!--    <td>{{$payrun->payrunDate}}</td>-->
-                                    <!--    <td>{{$payrun->schedule}}</td>-->
-                                    <!--    <td>{{$payrun->countmember}}</td>-->
-                                    <!--    <td> ${{$payrun->payslip->sum('credit')}}</td>-->
-                                    <!--    <td>${{$payrun->payslip->sum('debit')}}</td>-->
-                                    <!--    <td>${{$payrun->payslip->sum('credit') - $payrun->payslip->sum('debit')}}</td>-->
-                                    <!--</tr>-->
-                                    <!--@empty-->
-                                    <!--    <tr>Not user</tr>-->
-                                    <!--@endforelse-->
+                                    <tr>
+                                        <td><strong>{{date('F Y',strtotime(str_replace('/', '-', $payrun->startDate)))}}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="{{route('payrun.complete',$payrun->id)}}">{{$payrun->startDate}} to {{$payrun->endDate}}  </a></td>
+                                        <td>{{$payrun->payrunDate}}</td>
+                                        <td>{{$payrun->schedule}}</td>
+                                        <td>{{$payrun->countmember}}</td>
+                                        <td> ${{$payrun->payslip->sum('credit')}}</td>
+                                        <td>${{$payrun->payslip->sum('debit')}}</td>
+                                        <td>${{$payrun->payslip->sum('credit') - $payrun->payslip->sum('debit')}}</td>
+                                    </tr>
+                                    @empty
+                                        <tr>Not user</tr>
+                                    @endforelse
 
-                                    <!--</tbody>-->
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

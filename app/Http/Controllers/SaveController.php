@@ -173,18 +173,39 @@ class SaveController extends Controller
     public function saveIncome(Request $request)
     {
         Income::create($request->all());
+        log::create([
+            'user_id' => auth()->user()->id,
+            'action' => 'created',
+            'function' => 'income',
+            'passive_id' => ''
+
+        ]);
         return redirect()->back()->with('tab', 'trans');
     }
     public function updateIncome(Request $request)
     {
         $income = Income::find($request->id);
         $income->update($request->all());
+        log::create([
+            'user_id' => auth()->user()->id,
+            'action' => 'updated',
+            'function' => 'income',
+            'passive_id' => ''
+
+        ]);
         return redirect()->route('member.edit', $income->member_id)->with('tab', 'trans');
     }
     public function updateExpense(Request $request)
     {
         $expense = Expense::find($request->id);
         $expense->update($request->all());
+        log::create([
+            'user_id' => auth()->user()->id,
+            'action' => 'updated',
+            'function' => 'expense',
+            'passive_id' => ''
+
+        ]);
         return redirect()->route('member.edit', $expense->member_id)->with('tab', 'trans');
     }
     public function updateIncomePayroll(Request $request)
@@ -197,22 +218,50 @@ class SaveController extends Controller
     {
         $expense = Expense::find($request->id);
         $expense->update($request->all());
+        log::create([
+            'user_id' => auth()->user()->id,
+            'action' => 'updated',
+            'function' => 'expense',
+            'passive_id' => ''
+
+        ]);
         return redirect()->route('expense.show');
     }
     public function deleteIncome($id)
     {
         $income =  Income::find($id);
+        log::create([
+            'user_id' => auth()->user()->id,
+            'action' => 'deleted',
+            'function' => 'income',
+            'passive_id' => ''
+
+        ]);
         $income->delete();
         return redirect()->back()->with('tab', 'trans');
     }
     public function saveExpense(Request $request)
     {
         Expense::create($request->all());
+        log::create([
+            'user_id' => auth()->user()->id,
+            'action' => 'created',
+            'function' => 'expense',
+            'passive_id' => ''
+
+        ]);
         return redirect()->back()->with('tab', 'trans');
     }
     public function deleteExpense($id)
     {
         $expense =  Expense::find($id);
+        log::create([
+            'user_id' => auth()->user()->id,
+            'action' => 'deleted',
+            'function' => 'expense',
+            'passive_id' => ''
+
+        ]);
         $expense->delete();
         return redirect()->back()->with('tab', 'trans');
     }
@@ -317,6 +366,8 @@ class SaveController extends Controller
                         $payslip->credit = $inc->amount;
                         $payslip->name = $inc->description;
                         $income = $income + $inc->amount;
+                        $inc->is_paid = 1;
+                        $inc->save();
                         $payslip->save();
                     }
                 }
@@ -333,6 +384,8 @@ class SaveController extends Controller
                         $payslip->debit = $exp->amount;
                         $payslip->name = $exp->description;
                         $expense = $expense + $exp->amount;
+                        $exp->is_paid = 1;
+                        $exp->save();
                         $payslip->save();
                     }
                 }
@@ -687,19 +740,25 @@ class SaveController extends Controller
                 $type = ($request->format == 1) ? 'main.slip.se' : 'main.slip.ju';
                 $pdfname = time() . '.pdf';
                 $user = $report;
+                $report->save();
+                return redirect()->route('reports.show')->with('success', 'Report Generated Successfuly');
                 $pdf = \PDF::loadView($type, compact('report'));
+                //   dd($pdf);
                 \Storage::put('public/pdf/' . $pdfname, $pdf->output());
                 $report->pdffile = $pdfname;
                 $report->save();
+                dd($report);
                 $data = array(
                     'report' => $report,
                     'date' => 'asd'
                 );
-                \App\Email::sendrecord($data, ['systemdev@mcorpx.com.au', 'ethan@mcorpx.com.au', 'refereeing@parramattarefs.com.au'], $pdfname, $report->home_team . " V " . $report->away_team . " / " . $request->division . " Match Day Report " . date("d-m-Y", strtotime($report->date)));
+                // 'systemdev@mcorpx.com.au', 'ethan@mcorpx.com.au', 'refereeing@parramattarefs.com.au'
+                \App\Email::sendrecord($data, ['sport@bzbeetech.com'], $pdfname, $report->home_team . " V " . $report->away_team . " / " . $request->division . " Match Day Report " . date("d-m-Y", strtotime($report->date)));
                 // return $report;
                 return redirect()->route('reports.show')->with('success', 'Report Generated Successfuly');
             }
         } catch (Exception $e) {
+            // return redirect()->route('reports.show')->with('success',$e->getMessage());
             return $e->getMessage();
         }
     }
@@ -753,16 +812,16 @@ class SaveController extends Controller
     {
         $data = '';
         if ($request->condition == 1) {
-            $data = Member::where('status', 'Active')->where('life_member', 'No')->get();
+            $data = Member::where('status', 'Active')->where('life_member', 'No')->where('is_member', 1)->get();
         }
         if ($request->condition == 2) {
-            $data = Member::where('status', 'Active')->where('life_member', 'Yes')->get();
+            $data = Member::where('status', 'Active')->where('life_member', 'Yes')->where('is_member', 1)->get();
         }
         if ($request->condition == 3) {
-            $data = Member::where('status', 'Non-Active')->where('life_member', 'No')->get();
+            $data = Member::where('status', 'Non-Active')->where('life_member', 'No')->where('is_member', 1)->get();
         }
         if ($request->condition == 4) {
-            $data = Member::where('status', 'Non-Active')->where('life_member', 'Yes')->get();
+            $data = Member::where('status', 'Non-Active')->where('life_member', 'Yes')->where('is_member', 1)->get();
         }
 
 
@@ -775,23 +834,23 @@ class SaveController extends Controller
                     "description" => $request->description
                 ]);
         }
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Bulk expense added successfully');;
     }
     public function bulkIncome(Request $request)
     {
 
         $data = '';
         if ($request->condition == 1) {
-            $data = Member::where('status', 'Active')->where('life_member', 'No')->get();
+            $data = Member::where('status', 'Active')->where('life_member', 'No')->where('is_member', 1)->get();
         }
         if ($request->condition == 2) {
-            $data = Member::where('status', 'Active')->where('life_member', 'Yes')->get();
+            $data = Member::where('status', 'Active')->where('life_member', 'Yes')->where('is_member', 1)->get();
         }
         if ($request->condition == 3) {
-            $data = Member::where('status', 'Non-Active')->where('life_member', 'No')->get();
+            $data = Member::where('status', 'Non-Active')->where('life_member', 'No')->where('is_member', 1)->get();
         }
         if ($request->condition == 4) {
-            $data = Member::where('status', 'Non-Active')->where('life_member', 'Yes')->get();
+            $data = Member::where('status', 'Non-Active')->where('life_member', 'Yes')->where('is_member', 1)->get();
         }
 
 
@@ -804,6 +863,6 @@ class SaveController extends Controller
                     "description" => $request->description
                 ]);
         }
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Bulk income added successfully');
     }
 }

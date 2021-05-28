@@ -56,7 +56,7 @@
                                 <th>Coach</th>
                                 <th>Home Team</th>
                                 <th>Away Team</th>
-                                <th>Grade</th>
+                                {{--<th>Grade</th>--}}
                                 <th>Overall Grade</th>
                                 {{-- <th>Viewed</th> --}}
                                 <th>View PDF</th>
@@ -70,11 +70,12 @@
                                  <td>Coach</td>
                                 <td>{{$report->home_team}}</td>
                                 <td>{{$report->away_team}}</td>
-                                <td>{{$report->grade_division}}</td>
+                                {{--<td>{{$report->grade_division}}</td>--}}
                                 <td>{{$report->overall_grade}}</td>
                                 {{-- <td>--</td> --}}
                                 <td>
-                                    <a target="_blank" href="{{ asset('storage') }}/pdf/{{ $report->pdffile }}" class="btn btn-sm btn-primary">View PDF</a>
+                                    {{--<a target="_blank" href="{{ asset('storage') }}/pdf/{{ $report->pdffile }}" class="btn btn-sm btn-primary">View PDF</a>--}}
+                                    <a  href="#" class="btn btn-sm btn-primary">View PDF</a>
                                 </td>
                             </tr>
                             @endforeach

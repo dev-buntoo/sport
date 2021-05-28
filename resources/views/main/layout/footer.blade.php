@@ -12,9 +12,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     
-    
-    
-    
+
 
     <!-- Bootstrap Core JS -->
     <script src="{{asset('main')}}/js/popper.min.js"></script>
@@ -25,7 +23,7 @@
 
     <!-- Select2 JS -->
     <script src="{{asset('main')}}/js/select2.min.js"></script>
-
+    <!--<script src="{{asset('main')}}/js/table2excel.js"></script>-->
     <!-- Datetimepicker JS -->
     <script src="{{asset('main')}}/js/moment.min.js"></script>
     <script src="{{asset('main')}}/js/bootstrap-datetimepicker.min.js"></script>

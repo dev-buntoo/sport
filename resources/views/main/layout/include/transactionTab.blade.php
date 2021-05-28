@@ -20,6 +20,7 @@
                         <th>Amount</th>
                         <th>Notes</th>
                         <th>Dates</th>
+                        <th>Paid</th>
                         <th>Payment</th>
                     </tr>
                 </thead>
@@ -31,6 +32,7 @@
                         <td>$ {{$exp->amount}}</td>
                         <td>{{$exp->description}}</td>
                         <td>{{$exp->date}}</td>
+                        <td>@if($exp->is_paid) Yes @else No @endif</td>
                         <td>
                             <a href="{{ route('member.expense.edit',$exp->id) }}" data-toggle="tooltip"
                                 data-placement="top" title="Edit"
@@ -78,6 +80,7 @@
                         <th>Amount</th>
                         <th>Notes</th>
                         <th>Date</th>
+                        <th>Paid</th>
                         <th>Payment</th>
                     </tr>
                 </thead>
@@ -89,6 +92,7 @@
                         <td>$ {{$inc->amount}}</td>
                         <td>{{$inc->description}}</td>
                         <td>{{$inc->date}}</td>
+                        <td>@if($inc->is_paid) Yes @else No @endif</td>
                         <td>
                             <a href="{{ route('member.income.edit',$inc->id) }}" data-toggle="tooltip"
                                 data-placement="top" title="Edit"

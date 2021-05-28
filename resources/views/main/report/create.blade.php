@@ -1,6 +1,10 @@
 @extends('root')
 @section('content')
-    
+    <style>
+        .select2-container{
+            width:100% !important;
+        }
+    </style>
 
 			<!-- Page Wrapper -->
             <div class="page-wrapper">
@@ -153,7 +157,7 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Whistle Tone</label>
+                                                    <label>Whistle</label>
                                                     <select class="form-group select create-childrens" name="wistla_tone_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -324,7 +328,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Player Rapport</label>
+                                                    <label id="rapp">Movement</label>
                                                     <select class="form-group select create-childrens" name="movement_patterns_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -391,7 +395,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Tackle ID</label>
+                                                    <label id="tack">Ruck/PTB Speed</label>
                                                     <select class="form-group select create-childrens" name="ruck_speed_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -414,7 +418,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label>Safe Play Code </label>
+                                                    <label id="safe">Communication & Tackle ID</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -422,7 +426,7 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Application</label>
+                                                    <label id="app">Ruck Vocab</label>
                                                     <select class="form-group select create-childrens" name="ruck_vocab_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -434,7 +438,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Identification</label>
+                                                    <label id="idt">Tackle ID</label>
                                                     <select class="form-group select create-childrens" name="tackle_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -446,7 +450,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Advantage</label>
+                                                    <label id="adv">Player Report</label>
                                                     <select class="form-group select create-childrens" name="player_rapport_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -458,7 +462,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Scrums</label>
+                                                    <label id="coms">Comms Timing</label>
                                                     <select class="form-group select create-childrens" name="comm_timming_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -718,20 +722,39 @@
     function changeTo5(){
         
                 var e = document.getElementById("change");
-                if(e.options[e.selectedIndex].value=== "2"){
+                if(e.options[e.selectedIndex].value=== "1" )
+               {
+                   
+                   document.querySelector("#app").innerHTML = "Ruck Vocab";
+                   document.querySelector("#idt").innerHTML = "Tackle ID";
+                   document.querySelector("#adv").innerHTML = "Player Report";
+                   document.querySelector("#rapp").innerHTML = "Movement";
+                    document.querySelector("#safe").innerHTML = "Communication & Tackle ID";
+                    document.querySelector("#tack").innerHTML = "Ruck/PTB Speed";
+                    document.querySelector("#rapp").innerHTML = "Movement";
+                    document.querySelector("#coms").innerHTML = "Comms Timing";
+                    document.querySelector("#Label1").innerHTML = "10m, Markers & Ruck";
+                    document.querySelector("#Label2").innerHTML = "10m Distance";
+                    document.querySelector("#Label3").innerHTML = "10m Complaince";
+                    document.querySelector("#Label4").innerHTML = "On 10m";
+               }
+                if(e.options[e.selectedIndex].value=== "2")
+                {
+                    document.querySelector("#app").innerHTML = "Application";
+                    document.querySelector("#idt").innerHTML = "Identification";
+                    document.querySelector("#adv").innerHTML = "Advantage";
+                    document.querySelector("#rapp").innerHTML = "Movement";
+                    document.querySelector("#safe").innerHTML = "Safe Play Code";
+                    document.querySelector("#tack").innerHTML = "Tackle ID";
+                    document.querySelector("#rapp").innerHTML = "Player Rapport";
+                    document.querySelector("#coms").innerHTML = "Scrums";
                     document.querySelector("#Label1").innerHTML = "5m, Markers & Ruck";
                     document.querySelector("#Label2").innerHTML = "5m Distance";
                     document.querySelector("#Label3").innerHTML = "5m Complaince";
                     document.querySelector("#Label4").innerHTML = "On 5m";
                       
                 }
-               if(e.options[e.selectedIndex].value=== "1" )
-               {
-                    document.querySelector("#Label1").innerHTML = "10m, Markers & Ruck";
-                    document.querySelector("#Label2").innerHTML = "10m Distance";
-                    document.querySelector("#Label3").innerHTML = "10m Complaince";
-                    document.querySelector("#Label4").innerHTML = "On 10m";
-               }
+               
     }
 </script>
 

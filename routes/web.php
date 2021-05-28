@@ -12,13 +12,41 @@
 */
 
 use App\Member;
+use App\Model\UpdateRate;
 
-Route::get('slip-test', function () {
+use function PHPUnit\Framework\callback;
+
+function printFormatted(callable $format, $str)
+{
+    echo $format($str);
+    echo "<br>";
+}
+
+function exclaim($str)
+{
+    return $str . "!";
+}
+
+
+function getData(callable $Model, $id)
+{
+    $Model($id);
+}
+Route::get('test', function () {
+
+    $pdf = \PDF::loadView('main.slip.test');
+
+    \Storage::put('public/pdf/' . 'jonour.pdf', $pdf->output());
+    // return    UpdateRate::find(44)->appointment()->sum('coach_rate');
+
+    // $ad = \OwenIt\Auditing\Models\Audit::find(20)->first();
+    // printFormatted($ad->auditable_type . "::findOrfail", $ad->auditable_id);
+    // dd($ad);
     //    $a = \App\Model\log::all();
     //  dd($a);
     // $pdf = PDF::loadView('pdf.invoice', $data);
     // return $pdf->download('invoice.pdf');
- // \App\Email::sendrecord();
+    // \App\Email::sendrecord();
     //   return view('main.slip.payslip');
 });
 Route::get('/clear-cache', function () {
@@ -163,20 +191,20 @@ Route::get('reports', 'ShowController@showReports')->name('reports.show');
 Route::post('reports', 'SaveController@saveReport')->name('reports.store');
 Route::get('reports/create', 'ShowController@createReports')->name('reports.create');
 
-Route::get('status-online','HomeController@onlineStatus')->name('online.status');
+Route::get('status-online', 'HomeController@onlineStatus')->name('online.status');
 
 
-Route::get('reports/team','ShowController@showTeam')->name('report.team.show');
-Route::post('reports/team/save','SaveController@saveTeam')->name('report.team.save');
-Route::get('reports/team/edit','SaveController@editTeam')->name('report.team.update');
-Route::get('reports/team/delete/{id}','SaveController@deleteTeam')->name('report.team.delete');
+Route::get('reports/team', 'ShowController@showTeam')->name('report.team.show');
+Route::post('reports/team/save', 'SaveController@saveTeam')->name('report.team.save');
+Route::get('reports/team/edit', 'SaveController@editTeam')->name('report.team.update');
+Route::get('reports/team/delete/{id}', 'SaveController@deleteTeam')->name('report.team.delete');
 
 
-Route::get('reports/divisionajax','ShowController@showDivision')->name('report.division.ajax');
-Route::get('reports/teamajax','ShowController@showTeam')->name('report.team.ajax');
+Route::get('reports/divisionajax', 'ShowController@showDivision')->name('report.division.ajax');
+Route::get('reports/teamajax', 'ShowController@showTeam')->name('report.team.ajax');
 
 
-Route::get('reports/division','ShowController@showDivision')->name('report.division.show');
-Route::post('reports/division/save','SaveController@saveDivision')->name('report.division.save');
-Route::get('reports/division/edit','SaveController@editDivision')->name('report.division.update');
-Route::get('reports/division/delete/{id}','SaveController@deleteDivision')->name('report.division.delete');
+Route::get('reports/division', 'ShowController@showDivision')->name('report.division.show');
+Route::post('reports/division/save', 'SaveController@saveDivision')->name('report.division.save');
+Route::get('reports/division/edit', 'SaveController@editDivision')->name('report.division.update');
+Route::get('reports/division/delete/{id}', 'SaveController@deleteDivision')->name('report.division.delete');

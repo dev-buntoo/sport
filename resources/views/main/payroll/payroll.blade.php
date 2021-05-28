@@ -1,7 +1,6 @@
 @extends('root')
 @section( 'content')
 
-
     <!-- Page Wrapper -->
     <div class="page-wrapper" style="min-height: 789px;">
 
@@ -25,25 +24,23 @@
                             <h2 class="page-title">$0.00</h2>
                             <div class="small text-muted"> COACHES</div>
                         </div>
-                         <div class="text-newpay" style="border-left:4px solid #00c5fb;padding-left:10px;margin-bottom: 10px;">
-                            <h2 class="page-title">$0.00</h2>
-                            <div class="small text-muted"> COACHES</div>
-                        </div>
+                         
 
                     </div>
                     <div class="col">
-                        <!-- <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">-->
-                        <!--    <h2 class="page-title">$0.00</h2>-->
-                        <!--    <div class="small text-muted"> OTHER INCOME</div>-->
-                        <!--</div>-->
-                        <!-- <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">-->
-                        <!--    <h2 class="page-title">$0.00</h2>-->
-                        <!--    <div class="small text-muted"> EXPENCES</div>-->
-                        <!--</div>-->
+                         <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">
+                            <h2 class="page-title">$0.00</h2>
+                            <div class="small text-muted"> OTHER INCOME</div>
+                        </div>
+                         <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">
+                            <h2 class="page-title">$0.00</h2>
+                            <div class="small text-muted"> EXPENCES</div>
+                        </div>
 
                     </div>
                     <div class="col-auto float-right ml-auto">
-                        <button class="btn btn-primary add-btn" type="button" data-toggle="modal" data-target="#add_addition"><i class="fa fa-plus"></i> New pay run</button>
+                        <button class="btn btn-primary add-btn" type="button" data-toggle="modal" data-target="#add_addition"><i class="fa fa-plus"></i> New Pay Run</button><br /><br />
+                        <button class="btn btn-primary add-btn" type="button" id="toexcel"><i class="fa fa-plus"></i> Export</button> 
                     </div>
                 </div>
             </div>
@@ -75,7 +72,8 @@
                     <div class="payroll-table">
                         <div class="table-responsive">
                             <div class="table-responsive">
-                                <table class="datatable table table-stripped mb-0">
+                                <!--<button onclick=""> Click Me!</button>-->
+                                <table class="datatable table table-stripped mb-0" id="export">
                                     <thead>
                                     <tr>
                                         <th>MEMBER</th>
@@ -125,27 +123,27 @@
                                         <th>NET</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <!--<tbody>-->
 
-                                    @forelse($payruns as $payrun)
+                                    <!--@forelse($payruns as $payrun)-->
 
-                                    <tr>
-                                        <td><strong>{{date('F Y',strtotime(str_replace('/', '-', $payrun->startDate)))}}</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="{{route('payrun.complete',$payrun->id)}}">{{$payrun->startDate}} to {{$payrun->endDate}}  </a></td>
-                                        <td>{{$payrun->payrunDate}}</td>
-                                        <td>{{$payrun->schedule}}</td>
-                                        <td>{{$payrun->countmember}}</td>
-                                        <td> ${{$payrun->payslip->sum('credit')}}</td>
-                                        <td>${{$payrun->payslip->sum('debit')}}</td>
-                                        <td>${{$payrun->payslip->sum('credit') - $payrun->payslip->sum('debit')}}</td>
-                                    </tr>
-                                    @empty
-                                        <tr>Not user</tr>
-                                    @endforelse
+                                    <!--<tr>-->
+                                    <!--    <td><strong>{{date('F Y',strtotime(str_replace('/', '-', $payrun->startDate)))}}</strong></td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--    <td><a href="{{route('payrun.complete',$payrun->id)}}">{{$payrun->startDate}} to {{$payrun->endDate}}  </a></td>-->
+                                    <!--    <td>{{$payrun->payrunDate}}</td>-->
+                                    <!--    <td>{{$payrun->schedule}}</td>-->
+                                    <!--    <td>{{$payrun->countmember}}</td>-->
+                                    <!--    <td> ${{$payrun->payslip->sum('credit')}}</td>-->
+                                    <!--    <td>${{$payrun->payslip->sum('debit')}}</td>-->
+                                    <!--    <td>${{$payrun->payslip->sum('credit') - $payrun->payslip->sum('debit')}}</td>-->
+                                    <!--</tr>-->
+                                    <!--@empty-->
+                                    <!--    <tr>Not user</tr>-->
+                                    <!--@endforelse-->
 
-                                    </tbody>
+                                    <!--</tbody>-->
                                 </table>
                             </div>
                         </div>
@@ -191,7 +189,8 @@
                                 >Pay Period Starting
                                     <span class="text-danger">*</span></label
                                 >
-                                <p class="displayDatePicker">12/07/2021</p>
+                                <br/>
+                                <textarea class="displayDatePicker"  rows="1" cols="15">12/07/2021</textarea>
                             </div>
                             <div class="form-group">
                                 <label
@@ -239,9 +238,25 @@
 @endsection
 @push('script')
 
-    <script type="text/javascript">
-        let val = "";
+<script src=
+"//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js">
+</script>
+
+ <script>
+$(document).ready(function(){
+    $("#toexcel").click(function(){
+
+  $("#export").table2excel({
+    exclude:".noExl",
+    filename:"Payroll",//do not include extension
+    fileext:".xlsx" // file extension
+  });
+});
+});
+</script>
+<script>
         $(document).ready(function () {
+            let val = "";
             $(".js-example-basic-single").select2();
 
             $("select.optionlist").change(function () {
@@ -280,4 +295,7 @@
             });
         });
     </script>
+    
+
+ 
 @endpush

@@ -54,6 +54,8 @@ class ShowController extends Controller
 
         ]);
         $logs= log::orderBy('created_at', 'desc')->get();
+        // $logs = [];
+        // dd($logs);
         return view('main.dashboard.view',compact('audits','logs'));
     }
 

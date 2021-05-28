@@ -593,7 +593,7 @@ else{
             'away_penalties' => 'required|numeric',
             'home_score' => 'required|numeric',
             'away_score' => 'required|numeric',
-            'grade_division' => 'required|in:N,S,A,E',
+            // 'grade_division' => 'required|in:N,S,A,E',
             'overall_grade' => 'required|in:N,S,A,E',
             // 'signals_note' => 'required',
             'wistla_tone_grade' => 'required|in:N,S,A,E',
@@ -699,10 +699,14 @@ else{
                 $type = ($request->format == 1)?'main.slip.se':'main.slip.ju';
                 $pdfname = time().'.pdf';
                 $user = $report;
+                $report->save();
+                return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
                 $pdf = \PDF::loadView($type,compact('report'));
-                \Storage::put('public/pdf/'.$pdfname, $pdf->output());
+            //   dd($pdf);
+                 \Storage::put('public/pdf/'.$pdfname, $pdf->output());
                 $report->pdffile = $pdfname;
                 $report->save();
+                dd($report);
                 $data = array(
                     'report' => $report,
                     'date' => 'asd'
@@ -712,6 +716,7 @@ else{
                 return redirect()->route('reports.show')->with('success','Report Generated Successfuly');
             }
         }catch(Exception $e){
+            // return redirect()->route('reports.show')->with('success',$e->getMessage());
             return $e->getMessage();
         }
     }

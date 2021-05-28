@@ -2309,9 +2309,10 @@ table.dataTable thead>tr>td.sorting {
 -----------------------*/
 
 .select2-container .select2-selection--single {
-    border: 1px solid #e3e3e3;
-    border-radius: 0.25rem;
-    height: 44px;
+    border: 1px solid #e3e3e3 !important;
+    border-radius: 0.25rem !important;
+    height: 44px !important;
+    width:100% !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
@@ -2331,7 +2332,9 @@ table.dataTable thead>tr>td.sorting {
     top: 50%;
     width: 0;
 }
-
+.select2-container{
+    width:100% !important;
+}
 .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
     border-color: transparent transparent #ccc;
     border-width: 0 6px 6px;
@@ -9972,3 +9975,4 @@ input[type=number] {
         top: 78px;
     }
 }
+

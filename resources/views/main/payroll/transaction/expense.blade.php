@@ -18,14 +18,17 @@
     <div class="col-6">
         <div class="col-6 float-right ml-auto mb-3">
             <a href="#" class="btn add-btn" data-toggle="modal"
-                data-target="#expence-create"><i class="fa fa-plus"></i>
+                data-target="#expence-create" style="margin-bottom:10px;"><i class="fa fa-plus"></i>
                 Create</a>
+                 <a href="#" class="btn add-btn" id="toexcel"
+                ><i class="fa fa-plus"></i>
+                Export</a>
         </div>
     </div>
     <div class="col-md-12">
         <div class="table-responsive">
 
-            <table class="table table-striped custom-table mb-0 datatable">
+            <table class="table table-striped custom-table mb-0 datatable" id="export">
                 <thead>
                     <tr>
                         <th>Member Name</th>
@@ -33,7 +36,7 @@
                         <th>Amount</th>
                         <th>Notes</th>
                         <th>Dates</th>
-                        <th>Payment</th>
+                        <th class="noExl">Payment</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -222,5 +225,27 @@
         </div>
         <!-- /Page Wrapper -->
 
-
 @endsection
+
+@push('script')      
+        <script src=
+"//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+</script>
+<script src=
+"//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js">
+</script>
+
+<script>
+$(document).ready(function(){
+    $("#toexcel").click(function(){
+
+  $("#export").table2excel({
+    exclude:".noExl",
+    filename:"Expenses",//do not include extension
+    fileext:".xlsx" // file extension
+  });
+});
+});
+</script>
+        
+@endpush

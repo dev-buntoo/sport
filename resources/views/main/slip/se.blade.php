@@ -194,7 +194,7 @@
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;" valign="middle" align="center"><span class="no-line">{{ $report->pre_match_duties_grade }}</span></td>
 					</tr>
 					<tr class="table-head">
-					<th colspan="1" style="border:2px solid #000; padding: 3px 10px;">laws of the Game</th>
+					<th colspan="1" style="border:2px solid #000; padding: 3px 10px;">Laws of the Game</th>
 					<th colspan="7" valign="middle" style="padding-left: 10px;"><span style="border-bottom: 1px solid #000; padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;">{{ $report->game_law_note }}</span></th>
 				</tr>
 					<tr>

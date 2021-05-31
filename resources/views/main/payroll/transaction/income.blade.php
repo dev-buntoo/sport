@@ -12,7 +12,6 @@
     <div class="col-6">
         <h3>Manage Income</h3>
     </div>
-    <div class="col-6">
         <div class="col-6 float-right ml-auto mb-3">
             <a href="#" class="btn add-btn" data-toggle="modal"
                 data-target="#income-create" style="margin-bottom:10px;"><i class="fa fa-plus"></i>
@@ -21,7 +20,6 @@
                 ><i class="fa fa-plus"></i>
                 Export</a>
         </div>
-    </div>
     <div class="col-md-12">
         <div class="table-responsive">
 
@@ -79,21 +77,16 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="POST" action="{{route('payroll.income.save')}}" >
+                            <form method="POST" action="{{route('member.income.save')}}" >
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="col-form-label">Member Name</label>
-                                            <select class="js-example-basic-single" name="condition" required  style="width: 100%;">
-
-<option value="1"> Active members (No life members) </option>
-<option value="2"> Active Member (Life members) </option>
-<option value="3"> Non active members (No life members) </option>
-<option value="4"> Non active members (Life members) </option>
-                                                {{-- @foreach($members as $mem)
+                                            <select class="js-example-basic-single form-control" name="member_id" required style="width: 100%;">
+                                            @foreach($members as $mem)
                                                 <option  value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
-                                            @endforeach --}}
+                                            @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -111,7 +104,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label">Income</label>
-                                        <select class="select" name="income">
+                                        <select class="select form-control" name="income">
                                             <option value="Games through referee">Games through referee</option>
                                             <option value="Coach">Coach</option>
                                             <option value="Executive role">Executive role</option>
@@ -155,7 +148,7 @@
 
 											<div class="form-group form-focus select-focus">
                                                 <label class="col-form-label">Member Name<span class="text-danger">*</span></label>
-                                                <select class="select floating">
+                                                <select class="select floating form-control">
                                                     <option>Select Member Name</option>
                                                     <option>Global Technologies</option>
                                                     <option>Delta Infotech</option>
@@ -231,9 +224,9 @@
 
 
 @push('script')      
-        <script src=
-"//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">
-</script>
+<!--        <script src=-->
+<!--"//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">-->
+<!--</script>-->
 <script src=
 "//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js">
 </script>

@@ -2,13 +2,11 @@
     <div class="col-6">
         <h3>Manage Expenses</h3>
     </div>
-    <div class="col-6">
         <div class="col-6 float-right ml-auto mb-3">
             <a href="#" class="btn add-btn" data-toggle="modal"
                 data-target="#expence-create"><i class="fa fa-plus"></i>
                 Create</a>
         </div>
-    </div>
     <div class="col-md-12">
         <div class="table-responsive">
 
@@ -62,13 +60,11 @@
     <div class="col-6">
         <h3>Manage Income</h3>
     </div>
-    <div class="col-6">
         <div class="col-6 float-right ml-auto mb-3">
             <a href="#" class="btn add-btn" data-toggle="modal"
                 data-target="#income-create"><i class="fa fa-plus"></i>
                 Create</a>
         </div>
-    </div>
     <div class="col-md-12">
         <div class="table-responsive">
 
@@ -135,7 +131,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="col-form-label">Member Name</label>
-                                            <select class="js-example-basic-single" name="member_id" required  style="width: 100%;">
+                                            <select class="js-example-basic-single form-control" name="member_id" required  style="width: 100%;">
                                                 @foreach($members as $mem)
                                                 <option  value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
                                                 @endforeach

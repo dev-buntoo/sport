@@ -1,6 +1,12 @@
 @extends('root')
 @section('content')
-
+<style>
+    @media screen and (min-width: 480px) {
+ .mr-2, .mx-2 {
+    margin-right: 0px !important;
+}
+}
+</style>
         <!-- Page Wrapper -->
         <div class="page-wrapper">
 
@@ -15,7 +21,6 @@
     <div class="col-6">
         <h3>Manage Expenses</h3>
     </div>
-    <div class="col-6">
         <div class="col-6 float-right ml-auto mb-3">
             <a href="#" class="btn add-btn" data-toggle="modal"
                 data-target="#expence-create" style="margin-bottom:10px;"><i class="fa fa-plus"></i>
@@ -24,7 +29,6 @@
                 ><i class="fa fa-plus"></i>
                 Export</a>
         </div>
-    </div>
     <div class="col-md-12">
         <div class="table-responsive">
 
@@ -86,7 +90,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="col-form-label">Member Name</label>
-                                            <select class="js-example-basic-single" name="condition" required  style="width: 100%;">
+                                            <select class="js-example-basic-single form-control" name="condition" required  style="width: 100%;">
 
 <option value="1"> Active members (No life members) </option>
 <option value="2"> Active Member (Life members) </option>
@@ -113,7 +117,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label">Expense</label>
-                                        <select class="select" name="expense">
+                                        <select class="select form-control" name="expense" style="width:100%;">
                                             <option value="Social levy">Social levy</option>
                                             <option value="Social events">Social events</option>
                                             <option value="Gear">Gear</option>

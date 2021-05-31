@@ -1,6 +1,6 @@
 @extends('root')
 @section( 'content')
-
+        
     <!-- Page Wrapper -->
     <div class="page-wrapper" style="min-height: 789px;">
 
@@ -17,30 +17,30 @@
                     </div>
                     <div class="col">
                         <div class="text-newpay" style="border-left:4px solid #00c5fb;padding-left:10px;margin-bottom: 10px;">
-                            <h2 class="page-title">${{ $reftj }}</h2>
+                            <h2 class="page-title">$0.00</h2>
                             <div class="small text-muted"> REFEREES & TJ'S</div>
                         </div>
                         <div class="text-newpay" style="border-left:4px solid #00c5fb;padding-left:10px;margin-bottom: 10px;">
-                            <h2 class="page-title">${{ $couchTotal }}</h2>
+                            <h2 class="page-title">$0.00</h2>
                             <div class="small text-muted"> COACHES</div>
                         </div>
-
+                         
 
                     </div>
                     <div class="col">
-                        <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">
-                           <h2 class="page-title">${{ $incomeTotal }}</h2>
-                           <div class="small text-muted"> OTHER INCOME</div>
+                         <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">
+                            <h2 class="page-title">$0.00</h2>
+                            <div class="small text-muted"> OTHER INCOME</div>
                         </div>
                          <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">
-                            <h2 class="page-title">${{ $expenseTotal }}</h2>
-                               <div class="small text-muted"> EXPENCES</div>
+                            <h2 class="page-title">$0.00</h2>
+                            <div class="small text-muted"> EXPENCES</div>
                         </div>
 
                     </div>
                     <div class="col-auto float-right ml-auto">
                         <button class="btn btn-primary add-btn" type="button" data-toggle="modal" data-target="#add_addition"><i class="fa fa-plus"></i> New Pay Run</button><br /><br />
-                        <button class="btn btn-primary add-btn" type="button" id="toexcel"><i class="fa fa-plus"></i> Export</button>
+                        <button class="btn btn-primary add-btn" type="button" id="toexcel"><i class="fa fa-plus"></i> Export</button> 
                     </div>
                 </div>
             </div>
@@ -97,6 +97,32 @@
 
                                     </tbody>
                                 </table>
+                                
+                    <!--            <table style="display:none" id="exportTable">-->
+                    <!--                <thead>-->
+                    <!--                <tr>-->
+                    <!--                    <th>MEMBER</th>-->
+                    <!--                    <th>ROLE</th>-->
+                    <!--                    <th>PAY SCHEDULE</th>-->
+                    <!--                    <th>LAST PAID</th>-->
+                    <!--                </tr>-->
+                    <!--                </thead>-->
+                    <!--                <tbody>-->
+
+                    <!--@foreach($payrolls as $pay)-->
+
+
+                    <!--                <tr>-->
+                    <!--                    <td> <a href="{{route('member.edit',$pay->member->id)}}">{{$pay->member->fname.' '.$pay->member->lname}}</a></td>-->
+                    <!--                    <td>{{$pay->member->role}}</td>-->
+                    <!--                    <td>{{$pay->member->payment_frequency}}</td>-->
+                    <!--                    <td>01/01/2021 </td>-->
+                    <!--                </tr>-->
+                    <!--@endforeach-->
+
+                    <!--                </tbody>-->
+                    <!--            </table>-->
+                                
                             </div>
                         </div>
                     </div>
@@ -123,27 +149,27 @@
                                         <th>NET</th>
                                     </tr>
                                     </thead>
-                                   <tbody>
+                                    <!--<tbody>-->
 
-                                    @forelse($payruns as $payrun)
+                                    <!--@forelse($payruns as $payrun)-->
 
-                                    <tr>
-                                        <td><strong>{{date('F Y',strtotime(str_replace('/', '-', $payrun->startDate)))}}</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="{{route('payrun.complete',$payrun->id)}}">{{$payrun->startDate}} to {{$payrun->endDate}}  </a></td>
-                                        <td>{{$payrun->payrunDate}}</td>
-                                        <td>{{$payrun->schedule}}</td>
-                                        <td>{{$payrun->countmember}}</td>
-                                        <td> ${{$payrun->payslip->sum('credit')}}</td>
-                                        <td>${{$payrun->payslip->sum('debit')}}</td>
-                                        <td>${{$payrun->payslip->sum('credit') - $payrun->payslip->sum('debit')}}</td>
-                                    </tr>
-                                    @empty
-                                        <tr>Not user</tr>
-                                    @endforelse
+                                    <!--<tr>-->
+                                    <!--    <td><strong>{{date('F Y',strtotime(str_replace('/', '-', $payrun->startDate)))}}</strong></td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--    <td><a href="{{route('payrun.complete',$payrun->id)}}">{{$payrun->startDate}} to {{$payrun->endDate}}  </a></td>-->
+                                    <!--    <td>{{$payrun->payrunDate}}</td>-->
+                                    <!--    <td>{{$payrun->schedule}}</td>-->
+                                    <!--    <td>{{$payrun->countmember}}</td>-->
+                                    <!--    <td> ${{$payrun->payslip->sum('credit')}}</td>-->
+                                    <!--    <td>${{$payrun->payslip->sum('debit')}}</td>-->
+                                    <!--    <td>${{$payrun->payslip->sum('credit') - $payrun->payslip->sum('debit')}}</td>-->
+                                    <!--</tr>-->
+                                    <!--@empty-->
+                                    <!--    <tr>Not user</tr>-->
+                                    <!--@endforelse-->
 
-                                    </tbody>
+                                    <!--</tbody>-->
                                 </table>
                             </div>
                         </div>
@@ -190,7 +216,7 @@
                                     <span class="text-danger">*</span></label
                                 >
                                 <br/>
-                                <textarea class="displayDatePicker"  rows="1" cols="15">12/07/2021</textarea>
+                                <input class="displayDatePicker form-control datetimepicker" value="12/07/2021" type="text" />
                             </div>
                             <div class="form-group">
                                 <label
@@ -237,23 +263,24 @@
 
 @endsection
 @push('script')
-
 <script src=
-"//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js">
+"https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js">
 </script>
 
  <script>
 $(document).ready(function(){
     $("#toexcel").click(function(){
-
-  $("#export").table2excel({
-    exclude:".noExl",
-    filename:"Payroll",//do not include extension
-    fileext:".xlsx" // file extension
-  });
-});
+        $("body").append(tableHtml);
+      $("#exportTable").table2excel({
+        exclude:".noExl",
+        filename:"Payroll",//do not include extension
+        fileext:".xlsx" // file extension
+      });
+      
+    });
 });
 </script>
+
 <script>
         $(document).ready(function () {
             let val = "";
@@ -265,37 +292,40 @@ $(document).ready(function(){
                 if (val === "End of Season") {
                     var dt = new Date();
                     var year = dt.getFullYear();
-                    $(".displayDatePicker").html(`01/01/${year}`);
-                    $(".displayDatePickerh").val($(".displayDatePicker").html());
+                    $(".displayDatePicker").val(`01/01/${year}`);
                 }
             });
 
             $("#datepicker").focusout(function () {
                 if (val === "Fortnightly") {
-                    $(".displayDatePicker").html($(this).val());
-                    var x = $(".displayDatePicker").html();
+                    var x = $("#datepicker").val();
+                    console.log(x);
                     var newString = x.split("/");
-                    var year = newString[2];
                     var day = newString[0];
+                    console.log(day);
                     var month = newString[1];
+                    var year = newString[2];
                     if (day.length < 2) day = "0" + day;
+                    console.log(day);
                     if (month.length < 2) month = "0" + month;
                     var dat = `${year}-${month}-${day}`;
                     var gp = new Date(dat);
                     var a1 = gp.getDate() - 13;
                     gp.setDate(a1);
                     var year1 = String(gp.getFullYear());
+                    console.log(year1);
                     var day1 = String(gp.getDate());
+                    console.log(day1);
                     var month1 = String(gp.getMonth() + 1);
+                    console.log(month1);
                     if (day1.length < 2) day1 = "0" + day1;
                     if (month1.length < 2) month1 = "0" + month1;
-                    $(".displayDatePicker").html(`${day1}/${month1}/${year1}`);
-                    $(".displayDatePickerh").val($(".displayDatePicker").html());
+                    $(".displayDatePicker").val(`${day1}/${month1}/${year1}`);
                 }
             });
         });
     </script>
+    
 
-
-
+ 
 @endpush

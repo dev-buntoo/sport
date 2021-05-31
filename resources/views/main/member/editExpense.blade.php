@@ -36,7 +36,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="col-form-label">Member Name</label>
-                                                <select class="js-example-basic-single" name="member_id" required  style="width: 100%;">
+                                                <select class="js-example-basic-single form-control" name="member_id" required  style="width: 100%;">
                                                     @foreach($members as $mem)
                                                     <option  @if($mem->id == $memexp->member_id) selected @endif  value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
                                                     @endforeach

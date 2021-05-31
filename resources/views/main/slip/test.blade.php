@@ -59,7 +59,7 @@
 		              </table>
 						<table width="100%">
 							<tr>
-								<td width="50%" style="font-weight: 400; padding-right: 10px; font-size: 12px; line-height: 16px;">
+								<td width="50%" style="font-weight: 400; padding-right: 0; font-size: 12px; line-height: 16px;">
 									<table width="100%">
 		              				<tr>
 		              					<td width="20%">
@@ -74,8 +74,8 @@
 								<td width="50%" style="font-weight: 400; padding-right: 10px; font-size: 12px; line-height: 16px;">
 									<table width="100%">
 		              				<tr>
-		              					<td width="10%">
-		              						<label>V:</label>
+		              					<td width="8%">
+		              						<label>V</label>
 		              					</td>
 		              					<td width="90%" style="border-bottom: 1px solid #000;">
 		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>
@@ -160,7 +160,8 @@
 		        </td>
 		            <table style="border-collapse: collapse; margin-top: 0;">
 							<tr>
-								<th colspan="1" valign="top" align="left" width="115" style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;">Key</th>
+								<th colspan="1" valign="top" align="left" width="115" style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 24px;">Key</th>
+								<th colspan="7" style="border: none;"></th>
 							</tr>
 							<tr>
 								<th valign="top" width="115" align="left" style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;">Needing Improvement</th>
@@ -176,19 +177,25 @@
 		      </tr>
 		        </table>
 
-				<table class="table-form" style="margin-top: 10px; border-collapse: collapse; max-width: 600px; position: relative;">
+				<table class="table-form" style="margin-top: 10px; border-collapse: collapse; max-width: 600px;">
 					<tbody align="left" valign="top" style="font-size: 10px;line-height: 13px;">
 				<tr class="table-head">
-					<th width="20%" colspan="1" style="border:2px solid #000; padding: 3px 10px;">Signals / Presentation</th>
-					<th width="80%" colspan="7" valign="middle" style="display: inline-block;">
-						<table>
-							<tr>
-								<td style="position: absolute; left: 20%; width: 80%; border-bottom: 2px solid;">
-									<span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
-								</td>
-							</tr>
-						</table>
-					</th>
+					<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
+		            <table width="100%">
+		              <tr>
+		                <th style="padding: 1px 5px; text-align: left; height: 30px; vertical-align: top;">Signals / Presentation</th>
+		              </tr>
+		            </table>
+		          </td>
+		          <td colspan="7" width="75%" valign="middle" style="vertical-align: middle !important; padding: 0;">
+		            <table width="100%">
+		              <tr>
+		                <td style="padding: 0; border-bottom: 2px solid #000;">
+		                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+		                </td>
+		              </tr>
+		            </table>
+		          </td>
 				</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Whistle Tone</td>
@@ -201,17 +208,23 @@
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
 					</tr>
 					<tr class="table-head">
-					<th width="20%" colspan="1" style="border:2px solid #000; padding: 3px 10px; height: 30px;">laws of the Game</th>
-					<th width="80%" colspan="7" valign="middle" style="display: inline-block;">
-						<table>
-							<tr>
-								<td style="position: absolute; left: 20%; width: 80%; border-bottom: 2px solid;">
-									<span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
-								</td>
-							</tr>
-						</table>
-					</th>
-				</tr>
+						<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
+			            <table width="100%">
+			              <tr>
+			                <th style="padding: 1px 5px; text-align: left; height: 30px; vertical-align: top;">laws of the Game</th>
+			              </tr>
+			            </table>
+			          </td>
+			          <td colspan="7" width="75%" valign="middle" style="vertical-align: middle !important; padding: 0;">
+			            <table width="100%">
+			              <tr>
+			                <td style="padding: 0; border-bottom: 2px solid #000;">
+			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+			                </td>
+			              </tr>
+			            </table>
+			          </td>
+					</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Identification of Laws</td>
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
@@ -223,17 +236,23 @@
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
 					</tr>
 					<tr class="table-head">
-					<th width="20%" colspan="1" style="border:2px solid #000; padding: 3px 10px;">Game Understanding / Awareness</th>
-					<th width="80%" colspan="7" valign="middle" style="display: inline-block;">
-						<table>
-							<tr>
-								<td style="position: absolute; left: 20%; width: 80%; border-bottom: 2px solid;">
-									<span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
-								</td>
-							</tr>
-						</table>
-					</th>
-				</tr>
+						<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
+			            <table width="100%">
+			              <tr>
+			                <th style="padding: 1px 5px; text-align: left; height: 30px; vertical-align: top;">Game Understanding / Awareness</th>
+			              </tr>
+			            </table>
+			          </td>
+			          <td colspan="7" width="75%" valign="middle" style="vertical-align: middle !important; padding: 0;">
+			            <table width="100%">
+			              <tr>
+			                <td style="padding: 0; border-bottom: 2px solid #000;">
+			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+			                </td>
+			              </tr>
+			            </table>
+			          </td>
+					</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Penalty Selection</td>
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
@@ -245,17 +264,23 @@
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
 					</tr>
 					<tr class="table-head">
-					<th width="20%" colspan="1" style="border:2px solid #000; padding: 3px 10px; height: 30px;">5m, Markers & Ruck</th>
-					<th width="80%" colspan="7" valign="middle" style="display: inline-block;">
-						<table>
-							<tr>
-								<td style="position: absolute; left: 20%; width: 80%; border-bottom: 2px solid;">
-									<span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
-								</td>
-							</tr>
-						</table>
-					</th>
-				</tr>
+						<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
+			            <table width="100%">
+			              <tr>
+			                <th style="padding: 1px 5px; text-align: left; height: 30px; vertical-align: top;">5m, Markers & Ruck</th>
+			              </tr>
+			            </table>
+			          </td>
+			          <td colspan="7" width="75%" valign="middle" style="vertical-align: middle !important; padding: 0;">
+			            <table width="100%">
+			              <tr>
+			                <td style="padding: 0; border-bottom: 2px solid #000;">
+			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+			                </td>
+			              </tr>
+			            </table>
+			          </td>
+					</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">5m Distance</td>
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
@@ -267,17 +292,23 @@
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
 					</tr>
 					<tr class="table-head">
-					<th width="20%" colspan="1" style="border:2px solid #000; padding: 3px 10px; height: 30px;">Safe Play Code </th>
-					<th width="80%" colspan="7" valign="middle" style="display: inline-block;">
-						<table>
-							<tr>
-								<td style="position: absolute; left: 20%; width: 80%; border-bottom: 2px solid;">
-									<span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
-								</td>
-							</tr>
-						</table>
-					</th>
-				</tr>
+						<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
+			            <table width="100%">
+			              <tr>
+			                <th style="padding: 1px 5px; text-align: left; height: 30px; vertical-align: top;">Safe Play Code</th>
+			              </tr>
+			            </table>
+			          </td>
+			          <td colspan="7" width="75%" valign="middle" style="vertical-align: middle !important; padding: 0;">
+			            <table width="100%">
+			              <tr>
+			                <td style="padding: 0; border-bottom: 2px solid #000;">
+			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+			                </td>
+			              </tr>
+			            </table>
+			          </td>
+					</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Application</td>
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
@@ -289,23 +320,29 @@
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
 					</tr>
 					<tr class="table-head">
-					<th width="20%" colspan="1" style="border:2px solid #000; padding: 3px 10px; height: 30px;">Positioning</th>
-					<th width="80%" colspan="7" valign="middle" style="display: inline-block;">
-						<table>
-							<tr>
-								<td style="position: absolute; left: 20%; width: 80%; border-bottom: 2px solid;">
-									<span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
-								</td>
-							</tr>
-						</table>
-					</th>
-				</tr>
+						<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
+			            <table width="100%">
+			              <tr>
+			                <th style="padding: 1px 5px; text-align: left; height: 30px; vertical-align: top;">Positioning</th>
+			              </tr>
+			            </table>
+			          </td>
+			          <td colspan="7" width="75%" valign="middle" style="vertical-align: middle !important; padding: 0;">
+			            <table width="100%">
+			              <tr>
+			                <td style="padding: 0; border-bottom: 2px solid #000;">
+			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+			                </td>
+			              </tr>
+			            </table>
+			          </td>
+					</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">On the 5m</td>
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">In-Goal</td>
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
-						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Start & Restarts of Play</td>
+						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Start & Restarts</td>
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Kicks, Breaks in Play & Attacting Situations</td>
 						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
@@ -315,18 +352,18 @@
 
 				<table width="100%">
 					<tr>
-						<td width="100%" style="border-bottom: 2px solid #000;">
-							<label style="font-size: 12px; line-height: 14px; padding: 4px 0; font-weight: 600;">Coaching Comments/Summary:</label><span style="font-size: 10px; line-height: 20px; padding: 5px 10px;"></span>
+						<td width="100%" style="border-bottom: 2px solid #000; height: 20px;">
+							<label style="font-size: 12px; line-height: 14px; padding: 4px 0; font-weight: 600;">Coaching Comments/Summary:</label><span style="font-size: 10px; line-height: 20px; height: 20px; padding: 5px 10px;"></span>
 						</td>
 					</tr>
 					<tr>
-						<td width="100%" style="border-bottom: 2px solid #000;">
-							<span style="font-size: 10px; line-height: 20px; padding: 5px 10px;"></span>
+						<td width="100%" style="border-bottom: 2px solid #000; height: 20px;">
+							<span style="font-size: 10px; line-height: 20px; padding: 5px 10px; height: 20px;"></span>
 						</td>
 					</tr>
 					<tr>
-						<td width="100%" style="border-bottom: 2px solid #000;">
-							<span style="font-size: 10px; line-height: 20px; padding: 5px 10px;"></span>
+						<td width="100%" style="border-bottom: 2px solid #000; height: 20px;">
+							<span style="font-size: 10px; line-height: 20px; padding: 5px 10px; height: 20px;"></span>
 						</td>
 					</tr>
 				</table>
@@ -337,15 +374,19 @@
 							<h2 style="margin-bottom: 0; font-size: 14px; line-height: 18px; margin-top: 10px;">Overall Assessment</h2>
 						</td>
 					</tr>
+				</table>
+				<table width="100%" class="table-form" style="border-collapse: collapse;">
+					<tr>
 						<td>
-							<table width="100%" class="table-form" style="border-collapse: collapse;">
-								<tr>
-									<th width="182px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px;">Needing Improvement <input name="name" type="checkbox" style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: middle;"></th>
-									<th width="182px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px;">Meeting Expectations <input name="name1" type="checkbox" style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: middle;"></th>
-									<th width="188px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px;">Exceeding Expectations <input name="name2" type="checkbox" style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: middle;"></th>
-								</tr>
-							</table>
+							<table width="100%" style="border-collapse: collapse; vertical-align: middle;">
+							<tr>
+								<th width="182px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px; height: 14px;">Needing Improvement <input name="name" type="checkbox" style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: text-top;"></th>
+								<th width="182px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px; height: 14px;">Meeting Expectations <input name="name1" type="checkbox" style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: text-top;"></th>
+								<th width="188px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px;  height: 14px;">Exceeding Expectations <input name="name2" type="checkbox" style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: text-top;"></th>
+							</tr>
+						</table>
 						</td>
+					</tr>
 				</table>
 
 				<table width="100%">
@@ -355,12 +396,12 @@
 						</td>
 					</tr>
 					<tr>
-						<td width="100%" style="border-bottom: 2px solid #000;">
+						<td width="100%" style="border-bottom: 2px solid #000; height: 20px;">
 							<span style="font-size: 10px; line-height: 20px; padding: 0px 10px;"></span>
 						</td>
 					</tr>
 					<tr>
-						<td width="100%" style="border-bottom: 2px solid #000;">
+						<td width="100%" style="border-bottom: 2px solid #000; height: 20px;">
 							<span style="font-size: 10px; line-height: 20px; padding: 0px 10px;"></span>
 						</td>
 					</tr>

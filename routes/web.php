@@ -13,6 +13,8 @@
 
 use App\Member;
 use App\Model\UpdateRate;
+use App\Report;
+use Illuminate\Support\Facades\Mail;
 
 use function PHPUnit\Framework\callback;
 
@@ -32,7 +34,14 @@ function getData(callable $Model, $id)
 {
     $Model($id);
 }
-Route::get('test', function () {
+Route::get('slip/{format}/{id}', function ($format, $id) {
+    if ($format == 2)
+        return view('main.slip.ju', ['report' => Report::find($id)]);
+    else
+        return view('main.slip.se', ['report' => Report::find($id)]);
+    Mail::send(['html' => 'main.slip.ju'], ['report' => Report::find(50)], function ($message) {
+        $message->to('alirazakhan410@gmail.com', '')->subject('PaySlip');
+    });
 
     $pdf = \PDF::loadView('main.slip.test');
 

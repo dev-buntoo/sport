@@ -75,7 +75,7 @@
                                 {{-- <td>--</td> --}}
                                 <td>
                                     {{--<a target="_blank" href="{{ asset('storage') }}/pdf/{{ $report->pdffile }}" class="btn btn-sm btn-primary">View PDF</a>--}}
-                                    <a  href="#" class="btn btn-sm btn-primary">View PDF</a>
+                                    <a target="_blank" href="{{ url('/slip')."/".$report->format."/".$report->report_id  }}" class="btn btn-sm btn-primary">View PDF</a>
                                 </td>
                             </tr>
                             @endforeach

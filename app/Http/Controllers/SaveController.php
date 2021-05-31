@@ -24,6 +24,7 @@ use Auth;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use App\Report;
+use Illuminate\Support\Facades\Mail;
 
 class SaveController extends Controller
 {
@@ -426,12 +427,12 @@ class SaveController extends Controller
             'passive_id' => ''
 
         ]);
-        if (Auth::user()->role_id == 3) {
-            Excel::import(new ImportAppoint($importdata->id, $request->year, $request->round), public_path('main/upload_files/') . $files);
-            $importdata->is_added = 1;
-            $importdata->save();
-            return back()->with('success', 'Appointment imported successfully.');
-        }
+        // if (Auth::user()->role_id == 3) {
+        //     Excel::import(new ImportAppoint($importdata->id, $request->year, $request->round), public_path('main/upload_files/') . $files);
+        //     $importdata->is_added = 1;
+        //     $importdata->save();
+        //     return back()->with('success', 'Appointment imported successfully.');
+        // }
 
 
 
@@ -741,6 +742,9 @@ class SaveController extends Controller
                 $pdfname = time() . '.pdf';
                 $user = $report;
                 $report->save();
+                Mail::send(['html' => $type], ['report' => $report], function ($message) {
+                    $message->to(['alirazakhan410@gmail.com', 'syedafeefali@gmail.com'], '')->subject('PaySlip');
+                });
                 return redirect()->route('reports.show')->with('success', 'Report Generated Successfuly');
                 $pdf = \PDF::loadView($type, compact('report'));
                 //   dd($pdf);

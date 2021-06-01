@@ -13,12 +13,8 @@
         <h3>Manage Income</h3>
     </div>
         <div class="col-6 float-right ml-auto mb-3">
-            <a href="#" class="btn add-btn" data-toggle="modal"
-                data-target="#income-create" style="margin-bottom:10px;"><i class="fa fa-plus"></i>
-                Create</a>
-                <a href="#" class="btn add-btn" id="toexcel"
-                ><i class="fa fa-plus"></i>
-                Export</a>
+            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#income-create" style="margin-bottom:10px; margin-left:10px;"><i class="fa fa-plus"></i> Create</a>
+                <a href="#" class="btn add-btn" id="toexcel"><i class="fa fa-plus"></i> Export</a>
         </div>
     <div class="col-md-12">
         <div class="table-responsive">
@@ -148,7 +144,7 @@
 
 											<div class="form-group form-focus select-focus">
                                                 <label class="col-form-label">Member Name<span class="text-danger">*</span></label>
-                                                <select class="select floating form-control">
+                                                <select class="select floating">
                                                     <option>Select Member Name</option>
                                                     <option>Global Technologies</option>
                                                     <option>Delta Infotech</option>

@@ -26,10 +26,10 @@
                                  {{--<input type="file" name="import_file"  class="form-control">--}}
                             </div>
 
-                            <div class="col-md-3 d-flex">
+                            <div class="text-right mb-4 clearfix" style="display:contents">
                                {{-- <button  type="file" class="btn add-btn "><i class="fa fa-plus"></i>  Import File</button> --}}
-                                <button  type="button" class="btn add-btn " data-toggle="modal" data-target="#excel_file"> Select Excel File</button>
-                                <button  type="button" class="btn add-btn " id="export_excel_file">Export</button>
+                                <button  type="button" class="btn add-btn " data-toggle="modal" data-target="#excel_file" > Select Excel File</button>
+                                <button  type="button" class="btn add-btn " id="export_excel_file" style="margin-left:10px;">Export</button>
                             </div>
                         </form>
                     </div>

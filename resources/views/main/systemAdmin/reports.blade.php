@@ -31,7 +31,7 @@
                 <div class="col-md-3 float-right ml-auto">
                 </div>
 
-                <div class="col-md-3 d-flex float-right">
+                <div class="text-right mb-4 clearfix">
 
                        <a class="btn btn-primary add-btn" type="button" href="{{ route('reports.create') }}" ><i class="fa fa-plus"></i> Create Report</a>
 
@@ -52,6 +52,7 @@
                         <thead>
                             <tr>
                                 <th>Match Report Date</th>
+                                 <th>Created by</th>
                                 <th>Member</th>
                                 <th>Coach</th>
                                 <th>Home Team</th>
@@ -66,6 +67,7 @@
                             @foreach ($reports as $report)
                             <tr>
                                 <td>{{$report->date}}</td>
+                                <td>Created by</td>
                                 <td>{{$report->member->fname}} {{$report->member->lname}}</td>
                                  <td>Coach</td>
                                 <td>{{$report->home_team}}</td>

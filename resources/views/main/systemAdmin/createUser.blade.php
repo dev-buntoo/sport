@@ -90,8 +90,8 @@
 
                                     <div class="text-center mt-1">
                                         <button class="btn btn-primary submit-btn">Create</button>
-                                        <button class="btn btn-secondary submit-btn"
-                                            data-dismiss="modal">Cancel</button>
+                                        <a class="btn btn-secondary submit-btn"
+                                            href="{{url('system/admin/')}}">Cancel</a>
                                     </div>
                                 </form>
                             </div>

@@ -22,12 +22,8 @@
         <h3>Manage Expenses</h3>
     </div>
         <div class="col-6 float-right ml-auto mb-3">
-            <a href="#" class="btn add-btn" data-toggle="modal"
-                data-target="#expence-create" style="margin-bottom:10px;"><i class="fa fa-plus"></i>
-                Create</a>
-                 <a href="#" class="btn add-btn" id="toexcel"
-                ><i class="fa fa-plus"></i>
-                Export</a>
+            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#expence-create" style="margin-bottom:10px; margin-left:10px;"><i class="fa fa-plus"></i> Create</a>
+            <a href="#" class="btn add-btn" id="toexcel" style=""><i class="fa fa-plus"></i> Export</a>
         </div>
     <div class="col-md-12">
         <div class="table-responsive">
@@ -92,10 +88,10 @@
                                             <label class="col-form-label">Member Name</label>
                                             <select class="js-example-basic-single form-control" name="condition" required  style="width: 100%;">
 
-<option value="1"> Active members (No life members) </option>
-<option value="2"> Active Member (Life members) </option>
-<option value="3"> Non active members (No life members) </option>
-<option value="4"> Non active members (Life members) </option>
+                                                    <option value="1"> Active members (No life members) </option>
+                                                    <option value="2"> Active Member (Life members) </option>
+                                                    <option value="3"> Non active members (No life members) </option>
+                                                    <option value="4"> Non active members (Life members) </option>
                                                 {{-- @foreach($members as $mem)
                                                 <option  value="{{ $mem->id }}">{{ $mem->fname.' '.$mem->lname }} | {{ $mem->member_number }}</option>
                                                 @endforeach
@@ -164,7 +160,7 @@
 
 											<div class="form-group form-focus select-focus">
                                                 <label class="col-form-label">Member Name<span class="text-danger">*</span></label>
-                                                <select class="select floating">
+                                                <select class="select floating form-control">
                                                     <option>Select Member Name</option>
                                                     <option>Global Technologies</option>
                                                     <option>Delta Infotech</option>

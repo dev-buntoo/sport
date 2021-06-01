@@ -38,10 +38,11 @@
                         </div>
 
                     </div>
-                    <div class="col-auto float-right ml-auto">
-                        <button class="btn btn-primary add-btn" type="button" data-toggle="modal" data-target="#add_addition"><i class="fa fa-plus"></i> New Pay Run</button><br /><br />
-                        <button class="btn btn-primary add-btn" type="button" id="toexcel"><i class="fa fa-plus"></i> Export</button> 
+                    <div class="text-right mb-4 clearfix" style="display:contents">
+                         <button class="btn btn-primary add-btn" type="button" data-toggle="modal" data-target="#add_addition"><i class="fa fa-plus"></i> New Pay Run</button><br /><br />
+                         <button class="btn btn-primary add-btn" type="button" id="toexcel" style="margin-left: 10px;"><i class="fa fa-plus "></i> Export</button> 
                     </div>
+                  
                 </div>
             </div>
             <!-- /Page Header -->
@@ -98,30 +99,30 @@
                                     </tbody>
                                 </table>
                                 
-                    <!--            <table style="display:none" id="exportTable">-->
-                    <!--                <thead>-->
-                    <!--                <tr>-->
-                    <!--                    <th>MEMBER</th>-->
-                    <!--                    <th>ROLE</th>-->
-                    <!--                    <th>PAY SCHEDULE</th>-->
-                    <!--                    <th>LAST PAID</th>-->
-                    <!--                </tr>-->
-                    <!--                </thead>-->
-                    <!--                <tbody>-->
+                                <table style="display:none" id="exportTable">
+                                    <thead>
+                                    <tr>
+                                        <th>MEMBER</th>
+                                        <th>ROLE</th>
+                                        <th>PAY SCHEDULE</th>
+                                        <th>LAST PAID</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                    <!--@foreach($payrolls as $pay)-->
+                    @foreach($payrolls as $pay)
 
 
-                    <!--                <tr>-->
-                    <!--                    <td> <a href="{{route('member.edit',$pay->member->id)}}">{{$pay->member->fname.' '.$pay->member->lname}}</a></td>-->
-                    <!--                    <td>{{$pay->member->role}}</td>-->
-                    <!--                    <td>{{$pay->member->payment_frequency}}</td>-->
-                    <!--                    <td>01/01/2021 </td>-->
-                    <!--                </tr>-->
-                    <!--@endforeach-->
+                                    <tr>
+                                        <td> <a href="{{route('member.edit',$pay->member->id)}}">{{$pay->member->fname.' '.$pay->member->lname}}</a></td>
+                                        <td>{{$pay->member->role}}</td>
+                                        <td>{{$pay->member->payment_frequency}}</td>
+                                        <td>01/01/2021 </td>
+                                    </tr>
+                    @endforeach
 
-                    <!--                </tbody>-->
-                    <!--            </table>-->
+                                    </tbody>
+                                </table>
                                 
                             </div>
                         </div>
@@ -270,7 +271,7 @@
  <script>
 $(document).ready(function(){
     $("#toexcel").click(function(){
-        $("body").append(tableHtml);
+        // $("body").append(tableHtml);
       $("#exportTable").table2excel({
         exclude:".noExl",
         filename:"Payroll",//do not include extension
@@ -299,25 +300,19 @@ $(document).ready(function(){
             $("#datepicker").focusout(function () {
                 if (val === "Fortnightly") {
                     var x = $("#datepicker").val();
-                    console.log(x);
                     var newString = x.split("/");
                     var day = newString[0];
-                    console.log(day);
                     var month = newString[1];
                     var year = newString[2];
                     if (day.length < 2) day = "0" + day;
-                    console.log(day);
                     if (month.length < 2) month = "0" + month;
                     var dat = `${year}-${month}-${day}`;
                     var gp = new Date(dat);
                     var a1 = gp.getDate() - 13;
                     gp.setDate(a1);
                     var year1 = String(gp.getFullYear());
-                    console.log(year1);
                     var day1 = String(gp.getDate());
-                    console.log(day1);
                     var month1 = String(gp.getMonth() + 1);
-                    console.log(month1);
                     if (day1.length < 2) day1 = "0" + day1;
                     if (month1.length < 2) month1 = "0" + month1;
                     $(".displayDatePicker").val(`${day1}/${month1}/${year1}`);

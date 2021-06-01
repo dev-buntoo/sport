@@ -28,8 +28,8 @@
                                         <div class="row">
                                             <div class="col-sm-5">
                                                 <div class="form-group">
-                                                    <label>Match Day Coaching Sheet </label>
-                                                    <select name="format" class="select" id="change" onchange="changeTo5()">
+                                                    <label>Match Day Coaching Sheet<span class="text-danger">*</span> </label>
+                                                    <select name="format" class="select" id="change" onchange="changeTo5()" required>
                                                         <option value="1" >Under 15's A Grade</option>
                                                         <option value="2">Under 7’s – Under 14’s</option>
                                                     </select>
@@ -37,8 +37,8 @@
                                              </div>
                                             <div class="col-sm-5">
                                                 <div class="form-group">
-                                                    <label>Age/Divisions </label>
-                                                    <select name="division" class="select">
+                                                    <label>Age/Divisions<span class="text-danger">*</span> </label>
+                                                    <select name="division" class="select" required>
                                                     @foreach ($division as $item )
                                             <option value="{{ $item->name }}" width="100%">{{ $item->name }}</option>
                                             @endforeach
@@ -47,15 +47,15 @@
                                             </div>
                                              <div class="col-sm-2">
                                                 <div class="form-group">
-                                                    <label>Date </label>
-                                                    <input class="form-control" type="date" name="date">
+                                                    <label>Date <span class="text-danger">*</span></label>
+                                                    <input class="form-control" type="date" name="date" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Members Name </label>
+                                                    <label>Members Name<span class="text-danger">*</span> </label>
                                                     <select name="member" class="Members">
                                                         @foreach ($members as $member)
                                                             <option value="{{$member->id}}">{{$member->fname}} {{$member->lname}}</option>
@@ -83,7 +83,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Home Team </label>
+                                                    <label>Home Team<span class="text-danger">*</span> </label>
                                                       <select class="Home" class="form-control select" name="home_team" onkeyup="filterFunction()" class="myDropdown myInput" required>
                                                         @foreach ($team as $item )
                                                             <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -93,7 +93,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Away Team</label>
+                                                    <label>Away Team <span class="text-danger">*</span></label>
                                                         <select  class="Away" class="form-control select" name="away_team" required>
                                                             <!--<input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">-->
                                                              @foreach ($team as $item )
@@ -157,7 +157,7 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Whistle</label>
+                                                    <label>Whistle<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="wistla_tone_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -169,7 +169,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Signals </label>
+                                                    <label>Signals<span class="text-danger">*</span> </label>
                                                     <select class="form-group select create-childrens" name="c_c_signal_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -181,7 +181,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Presentation</label>
+                                                    <label>Presentation<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="presentation_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -193,7 +193,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Pre-Match</label>
+                                                    <label>Pre-Match <span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="pre_match_duties_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -225,7 +225,7 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>ID of Laws</label>
+                                                    <label>ID of Laws<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="application_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -237,7 +237,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Scrums </label>
+                                                    <label>Scrums<span class="text-danger">*</span> </label>
                                                     <select class="form-group select create-childrens" name="scrum_grade" required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -249,7 +249,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Processes</label>
+                                                    <label>Processes<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="process_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -261,7 +261,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Advantage</label>
+                                                    <label>Advantage<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="advantage_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -276,7 +276,7 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <input class="form-control" type="text" placeholder="Note"
-                                                        name="signals_note">
+                                                        name="game_law_note">
                                                 </div>
                                             </div>
                                         </div>
@@ -292,7 +292,7 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Pen Selection</label>
+                                                    <label>Pen Selection<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="penalty_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -304,7 +304,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Ruck Comms </label>
+                                                    <label>Ruck Comms <span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="ruck_comm_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -316,7 +316,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Caution</label>
+                                                    <label>Caution<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="effective_caution_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -328,7 +328,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label id="rapp">Movement</label>
+                                                    <label id="rapp">Movement<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="movement_patterns_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -343,7 +343,7 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <input class="form-control" type="text" placeholder="Note"
-                                                        name="signals_note">
+                                                        name="understandig_note">
                                                 </div>
                                             </div>
                                         </div>
@@ -359,7 +359,7 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label id="Label2">10m Distance</label>
+                                                    <label id="Label2">10m Distance<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="ten_m_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -371,7 +371,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label id="Label3">10m Complaince </label>
+                                                    <label id="Label3">10m Complaince<span class="text-danger">*</span> </label>
                                                     <select class="form-group select create-childrens" name="ten_m_complaince_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -383,7 +383,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Markers</label>
+                                                    <label>Markers<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="marker_complaince_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -395,7 +395,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label id="tack">Ruck/PTB Speed</label>
+                                                    <label id="tack">Ruck/PTB Speed<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="ruck_speed_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -410,7 +410,7 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <input class="form-control" type="text" placeholder="Note"
-                                                        name="signals_note">
+                                                        name="marker_ruck_note">
                                                 </div>
                                             </div>
                                         </div>
@@ -426,7 +426,7 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label id="app">Ruck Vocab</label>
+                                                    <label id="app">Ruck Vocab<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="ruck_vocab_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -438,7 +438,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label id="idt">Tackle ID</label>
+                                                    <label id="idt">Tackle ID<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="tackle_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -450,7 +450,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label id="adv">Player Report</label>
+                                                    <label id="adv">Player Report<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="player_rapport_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -462,7 +462,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label id="coms">Comms Timing</label>
+                                                    <label id="coms">Comms Timing<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="comm_timming_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -477,7 +477,7 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <input class="form-control" type="text" placeholder="Note"
-                                                        name="signals_note">
+                                                        name="communication_note">
                                                 </div>
                                             </div>
                                         </div>
@@ -493,7 +493,7 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label id="Label4">On 10m</label>
+                                                    <label id="Label4">On 10m<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="ten_m_position_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -505,7 +505,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>In-Goal</label>
+                                                    <label>In-Goal<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="in_goal_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -517,7 +517,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Start & Restart</label>
+                                                    <label>Start & Restart<span class="text-danger">*</span><span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="start_restart_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -529,7 +529,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>General Kicks</label>
+                                                    <label>General Kicks<span class="text-danger">*</span></label>
                                                     <select class="form-group select create-childrens" name="kicks_breaks_grade"  required>
                                                         <option value="0" selected>Grade</option>
                                                         <option value="N">N</option>
@@ -544,21 +544,21 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <input class="form-control" type="text" placeholder="Note"
-                                                        name="signals_note">
+                                                        name="positioning_note">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label>Coaching Comments / Summary </label>
+                                                    <label>Coaching Comments / Summary<span class="text-danger">*</span> </label>
                                                     <textarea class="form-control" rows="4" name="coach_comments" required></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <label> Overall Assessment </label>
+                                                <label> Overall Assessment <span class="text-danger">*</span></label>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="radio">
@@ -585,7 +585,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label> Comments </label>
+                                                    <label> Comments <span class="text-danger">*</span></label>
                                                     <textarea class="form-control" rows="4" name="final_comments" required></textarea>
                                                 </div>
                                             </div>

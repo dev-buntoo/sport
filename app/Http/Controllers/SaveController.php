@@ -743,7 +743,7 @@ class SaveController extends Controller
                 $user = $report;
                 $report->save();
                 Mail::send(['html' => $type], ['report' => $report], function ($message) {
-                    $message->to(['alirazakhan410@gmail.com', 'syedafeefali@gmail.com'], '')->subject('PaySlip');
+                    $message->to([' referee@parramattarefs.com.au', 'finance@parramattarefs.com.au'], '')->subject('PaySlip');
                 });
                 return redirect()->route('reports.show')->with('success', 'Report Generated Successfuly');
                 $pdf = \PDF::loadView($type, compact('report'));

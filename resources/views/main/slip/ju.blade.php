@@ -11,7 +11,7 @@
 			<td width="100%" colspan="12" style="max-width: 600px;">
 				<table width="100%">
 					<tr>
-						<td>
+						<td style="max-width: 600px;">
 					<table width="100%" style="margin-bottom: 0;">
 						<tr>
 							<td  width="10%" align="left">
@@ -89,10 +89,10 @@
 							<tr>
 								<td style="font-weight: 400; padding-right: 10px; font-size: 12px; line-height: 16px;">
 									<table width="100%">
-		                <tbody><tr>
+							<tr>
 		              		<td width="50%" style="font-weight: 400; padding-right: 10px; font-size: 12px; line-height: 16px;">
 		              			<table width="100%">
-		              				<tbody><tr>
+		              				<tr>
 		              					<td width="20%">
 		              						<label>Date:</label>
 		              					</td>
@@ -100,7 +100,7 @@
 		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">{{ date("d-m-Y", strtotime($report->date)) }}</span>
 		              					</td>
 		              				</tr>
-		              			</tbody></table>
+		              			</table>
 								</td>
 								<td width="50%" style="font-weight: 400; padding-right: 10px; font-size: 12px; line-height: 16px;padding-top: 20px;">
 									<table width="100%">
@@ -115,7 +115,7 @@
 		              			</tbody></table>
 								</td>
 		                  </tr>
-		              </tbody></table>
+		              	</table>
 								</td>
 							</tr>
 		         </table>
@@ -136,16 +136,16 @@
 												<th colspan="2" style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;">Penalties</th>
 											</tr>
 											<tr>
-												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;"><span>{{ $report->home_penalties }}</span></td>
-												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;"><span>{{ $report->away_penalties }}</span></td>
+												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span>{{ $report->home_penalties }}</span></td>
+												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span>{{ $report->away_penalties }}</span></td>
 											</tr>
 											<tr>
 												<th colspan="2" cellspacing="0" style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;">Score</th>
 
 											</tr>
 											<tr>
-												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;"><span>{{ $report->home_score }}</span></td>
-												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;"><span>{{ $report->away_score }}</span></td>
+												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span>{{ $report->home_score }}</span></td>
+												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span>{{ $report->away_score }}</span></td>
 											</tr>
 											<tr>
 												<th style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;">Overall Grading</th>
@@ -158,7 +158,9 @@
 						</tbody>
 					</table>
 		        </td>
-		            <table style="border-collapse: collapse; margin-top: 0;">
+		    </tr>
+		</table>
+		            <table style="border-collapse: collapse; margin-top: 0; max-width: 515px;">
 							<tr>
 								<th colspan="1" valign="top" align="left" width="115" style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 24px;">Key</th>
 								<th colspan="7" style="border: none;"></th>
@@ -174,8 +176,6 @@
 								<th valign="top" align="left" style="border:2px solid #000; padding: 3px 10px; font-size: 10px; line-height: 14px;">(E)</th>
 							</tr>
 						</table>
-		      </tr>
-		        </table>
 
 				<table class="table-form" style="margin-top: 10px; border-collapse: collapse; max-width: 600px;">
 					<tbody align="left" valign="top" style="font-size: 10px;line-height: 13px;">
@@ -380,12 +380,10 @@
 						<td>
 							<table width="100%" style="border-collapse: collapse; vertical-align: middle;">
 							<tr>
-                                    <th width="182px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px; height: 14px;">Needing Improvement <input name="name" type="checkbox" @if($report->overall_assesment == "Needing Improvement") checked @endif style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: text-top;;"></th>
-									<th width="182px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px; height: 14px;">Meeting Expectations <input name="name1" type="checkbox" @if($report->overall_assesment == "Meeting Expectations") checked @endif style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: text-top;;"></th>
-									<th width="188px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px; height: 14px;">Exceeding Expectations <input name="name2" type="checkbox" @if($report->overall_assesment == "Exceeding Expectations") checked @endif style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: text-top;;"></th>
+								<th width="182px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px; height: 14px;">Needing Improvement <input name="name" type="checkbox" @if($report-overall_assesment == "Needing Improvement") checked @endif style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: text-top;"></th>
+								<th width="182px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px; height: 14px;">Meeting Expectations <input name="name1" type="checkbox" @if($report-overall_assesment == "Meeting Expectations") checked @endif style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: text-top;"></th>
+								<th width="188px" align="left" style="border:2px solid #000; padding: 5px 10px; font-size: 10px; line-height: 14px;  height: 14px;">Exceeding Expectations <input name="name2" type="checkbox" @if($report-overall_assesment == "Exceeding Expectations") checked @endif style="width: 10px; height: 10px; margin: 0 0 0 3px; vertical-align: text-top;"></th>
 							</tr>
-
-
 						</table>
 						</td>
 					</tr>
@@ -419,7 +417,7 @@
 		              						<label>Coach Name:</label>
 		              					</td>
 		              					<td width="65%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">{{ $report->coach }}</span>
+		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">{{ $report->cocah }}</span>
 		              					</td>
 		              				</tr>
 		              			</table>
@@ -427,12 +425,12 @@
 						<td width="50%">
 								<table width="100%">
 		              				<tr>
-		              					<td width="38%" style="font-size: 14px; line-height: 16px;">
-		              						<label>Coach Signature:</label>
+		              					<td width="40%" style="font-size: 14px; line-height: 16px;">
+		              						<!-- <label>Coach Signature:</label> -->
 		              					</td>
-		              					<td width="60%" style="border-bottom: 1px solid #000;">
+		              					<!-- <td width="60%" style="border-bottom: 1px solid #000;">
 		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>
-		              					</td>
+		              					</td> -->
 		              				</tr>
 		              			</table>
 

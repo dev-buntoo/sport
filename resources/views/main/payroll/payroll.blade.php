@@ -1,6 +1,6 @@
 @extends('root')
 @section( 'content')
-        
+
     <!-- Page Wrapper -->
     <div class="page-wrapper" style="min-height: 789px;">
 
@@ -17,32 +17,32 @@
                     </div>
                     <div class="col">
                         <div class="text-newpay" style="border-left:4px solid #00c5fb;padding-left:10px;margin-bottom: 10px;">
-                            <h2 class="page-title">$0.00</h2>
+                            <h2 class="page-title">${{ $reftj }}</h2>
                             <div class="small text-muted"> REFEREES & TJ'S</div>
                         </div>
                         <div class="text-newpay" style="border-left:4px solid #00c5fb;padding-left:10px;margin-bottom: 10px;">
-                            <h2 class="page-title">$0.00</h2>
+                            <h2 class="page-title">${{ $couchTotal }}</h2>
                             <div class="small text-muted"> COACHES</div>
                         </div>
-                         
+
 
                     </div>
                     <div class="col">
                          <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">
-                            <h2 class="page-title">$0.00</h2>
+                            <h2 class="page-title">${{ $incomeTotal }}</h2>
                             <div class="small text-muted"> OTHER INCOME</div>
                         </div>
                          <div class="text-newpay" style="border-left:4px solid #74a515;padding-left:10px;margin-bottom: 10px;">
-                            <h2 class="page-title">$0.00</h2>
+                            <h2 class="page-title">${{ $expenseTotal }}</h2>
                             <div class="small text-muted"> EXPENCES</div>
                         </div>
 
                     </div>
                     <div class="text-right mb-4 clearfix" style="display:contents">
                          <button class="btn btn-primary add-btn" type="button" data-toggle="modal" data-target="#add_addition"><i class="fa fa-plus"></i> New Pay Run</button><br /><br />
-                         <button class="btn btn-primary add-btn" type="button" id="toexcel" style="margin-left: 10px;"><i class="fa fa-plus "></i> Export</button> 
+                         <button class="btn btn-primary add-btn" type="button" id="toexcel" style="margin-left: 10px;"><i class="fa fa-plus "></i> Export</button>
                     </div>
-                  
+
                 </div>
             </div>
             <!-- /Page Header -->
@@ -98,7 +98,7 @@
 
                                     </tbody>
                                 </table>
-                                
+
                                 <table style="display:none" id="exportTable">
                                     <thead>
                                     <tr>
@@ -123,7 +123,7 @@
 
                                     </tbody>
                                 </table>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -277,7 +277,7 @@ $(document).ready(function(){
         filename:"Payroll",//do not include extension
         fileext:".xlsx" // file extension
       });
-      
+
     });
 });
 </script>
@@ -320,7 +320,7 @@ $(document).ready(function(){
             });
         });
     </script>
-    
 
- 
+
+
 @endpush

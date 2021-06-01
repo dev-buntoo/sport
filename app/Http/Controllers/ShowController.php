@@ -103,6 +103,7 @@ class ShowController extends Controller
         $income = $member->income;
         $expense = $member->expense;
         $payrolls = $member->payrols;
+        // dd($payrolls[0]->record);
         $reports = Report::where('member_id', $id)->get();
         log::create([
             'user_id' => auth()->user()->id,
@@ -311,7 +312,9 @@ class ShowController extends Controller
     public function genrateSlip($id)
     {
         $payslip = Payout::find($id);
-
+        if ($payslip->payrun == null) {
+            return redirect()->back()->with('error', 'Something wents wrong');
+        }
         //            dd($payslip->payrun);
         $slip = $payslip->record;
         return view('main.slip.payslip', compact('payslip', 'slip'));

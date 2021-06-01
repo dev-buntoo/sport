@@ -694,7 +694,7 @@ class SaveController extends Controller
             $report->away_penalties = $request->away_penalties;
             $report->home_score = $request->home_score;
             $report->away_score = $request->away_score;
-            $report->grade_division = $request->grade_division;
+            $report->grade_division = $request->division;
             $report->overall_grade = $request->overall_grade;
             $report->signals_note = $request->signals_note;
             $report->wistla_tone_grade = $request->wistla_tone_grade;
@@ -730,6 +730,7 @@ class SaveController extends Controller
             $report->overall_assesment = $request->overall_assesment;
             $report->final_comments = $request->final_comments;
             $report->file_name = $fileName;
+            // $report->created_by = auth()->user()->id;
             if ($report->save()) {
                 log::create([
                     'user_id' => auth()->user()->id,
@@ -742,6 +743,7 @@ class SaveController extends Controller
                 $pdfname = time() . '.pdf';
                 $user = $report;
                 $report->save();
+                // dd($report);
                 Mail::send(['html' => $type], ['report' => $report], function ($message) {
                     $message->to([' referee@parramattarefs.com.au', 'finance@parramattarefs.com.au'], '')->subject('PaySlip');
                 });

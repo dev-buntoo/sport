@@ -11,7 +11,7 @@
 			<td width="100%" colspan="12" style="max-width: 600px;">
 				<table width="100%">
 					<tr>
-						<td>
+						<td style="max-width: 600px;">
 					<table width="100%" style="margin-bottom: 0;">
 						<tr>
 							<td  width="10%" align="left">
@@ -38,7 +38,7 @@
 		              						<label>Referee:</label>
 		              					</td>
 		              					<td width="80%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>
+		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">xyz</span>
 		              					</td>
 		              				</tr>
 		              			</table>
@@ -50,7 +50,7 @@
 		              						<label>Grade:</label>
 		              					</td>
 		              					<td width="80%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>
+		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">A</span>
 		              					</td>
 		              				</tr>
 		              			</table>
@@ -66,7 +66,7 @@
 		              						<label>Teams:</label>
 		              					</td>
 		              					<td width="80%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>
+		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">xyz</span>
 		              					</td>
 		              				</tr>
 		              			</table>
@@ -78,7 +78,7 @@
 		              						<label>V</label>
 		              					</td>
 		              					<td width="90%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>
+		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">xyz</span>
 		              					</td>
 		              				</tr>
 		              			</table>
@@ -89,18 +89,18 @@
 							<tr>
 								<td style="font-weight: 400; padding-right: 10px; font-size: 12px; line-height: 16px;">
 									<table width="100%">
-		                <tbody><tr>
+							<tr>
 		              		<td width="50%" style="font-weight: 400; padding-right: 10px; font-size: 12px; line-height: 16px;">
 		              			<table width="100%">
-		              				<tbody><tr>
+		              				<tr>
 		              					<td width="20%">
 		              						<label>Date:</label>
 		              					</td>
 		              					<td width="80%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>
+		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">31-5-2021</span>
 		              					</td>
 		              				</tr>
-		              			</tbody></table>
+		              			</table>
 								</td>
 								<td width="50%" style="font-weight: 400; padding-right: 10px; font-size: 12px; line-height: 16px;padding-top: 20px;">
 									<table width="100%">
@@ -115,7 +115,7 @@
 		              			</tbody></table>
 								</td>
 		                  </tr>
-		              </tbody></table>
+		              	</table>
 								</td>
 							</tr>
 		         </table>
@@ -136,20 +136,20 @@
 												<th colspan="2" style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;">Penalties</th>
 											</tr>
 											<tr>
-												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span></span></td>
-												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span></span></td>
+												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span>xyz</span></td>
+												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span>xyz</span></td>
 											</tr>
 											<tr>
 												<th colspan="2" cellspacing="0" style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;">Score</th>
 
 											</tr>
 											<tr>
-												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span></span></td>
-												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span></span></td>
+												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span>xyz</span></td>
+												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 14px;"><span>xyz</span></td>
 											</tr>
 											<tr>
 												<th style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;">Overall Grading</th>
-												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;"><span></span></td>
+												<td style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px;"><span>A</span></td>
 											</tr>
 										</tbody>
 									</table>
@@ -158,7 +158,9 @@
 						</tbody>
 					</table>
 		        </td>
-		            <table style="border-collapse: collapse; margin-top: 0;">
+		    </tr>
+		</table>
+		            <table style="border-collapse: collapse; margin-top: 0; max-width: 515px;">
 							<tr>
 								<th colspan="1" valign="top" align="left" width="115" style="border:2px solid #000; padding: 3px 10px; font-size: 10px;line-height: 14px; height: 24px;">Key</th>
 								<th colspan="7" style="border: none;"></th>
@@ -174,8 +176,6 @@
 								<th valign="top" align="left" style="border:2px solid #000; padding: 3px 10px; font-size: 10px; line-height: 14px;">(E)</th>
 							</tr>
 						</table>
-		      </tr>
-		        </table>
 
 				<table class="table-form" style="margin-top: 10px; border-collapse: collapse; max-width: 600px;">
 					<tbody align="left" valign="top" style="font-size: 10px;line-height: 13px;">
@@ -191,7 +191,7 @@
 		            <table width="100%">
 		              <tr>
 		                <td style="padding: 0; border-bottom: 2px solid #000;">
-		                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+		                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;">Note</span>
 		                </td>
 		              </tr>
 		            </table>
@@ -199,13 +199,13 @@
 				</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Whistle Tone</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Clear & Concise Signals</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Presentation</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Pre-Match Duties</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 					</tr>
 					<tr class="table-head">
 						<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
@@ -219,7 +219,7 @@
 			            <table width="100%">
 			              <tr>
 			                <td style="padding: 0; border-bottom: 2px solid #000;">
-			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;">Note</span>
 			                </td>
 			              </tr>
 			            </table>
@@ -227,13 +227,13 @@
 					</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Identification of Laws</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Application of Laws</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Processess</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Advantage</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 					</tr>
 					<tr class="table-head">
 						<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
@@ -247,7 +247,7 @@
 			            <table width="100%">
 			              <tr>
 			                <td style="padding: 0; border-bottom: 2px solid #000;">
-			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;">Note</span>
 			                </td>
 			              </tr>
 			            </table>
@@ -255,13 +255,13 @@
 					</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Penalty Selection</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Effective Ruck Communication</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Effective Cautions</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Player Rapport </td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 					</tr>
 					<tr class="table-head">
 						<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
@@ -275,7 +275,7 @@
 			            <table width="100%">
 			              <tr>
 			                <td style="padding: 0; border-bottom: 2px solid #000;">
-			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;">Note</span>
 			                </td>
 			              </tr>
 			            </table>
@@ -283,13 +283,13 @@
 					</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">5m Distance</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">5m Compliance</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Marker Compliance</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Tackle ID</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 					</tr>
 					<tr class="table-head">
 						<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
@@ -303,7 +303,7 @@
 			            <table width="100%">
 			              <tr>
 			                <td style="padding: 0; border-bottom: 2px solid #000;">
-			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;">Note</span>
 			                </td>
 			              </tr>
 			            </table>
@@ -311,13 +311,13 @@
 					</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Application</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Identification</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Advantage</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Scrums</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 					</tr>
 					<tr class="table-head">
 						<td width="25%" style="border:2px solid #000; vertical-align: top !important;">
@@ -331,7 +331,7 @@
 			            <table width="100%">
 			              <tr>
 			                <td style="padding: 0; border-bottom: 2px solid #000;">
-			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;"></span>
+			                  <span style=" padding: 0 10px; font-weight: normal; font-size: 10px; line-height: 14px;">Note</span>
 			                </td>
 			              </tr>
 			            </table>
@@ -339,13 +339,13 @@
 					</tr>
 					<tr>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">On the 5m</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">In-Goal</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Start & Restarts</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 						<td style="border:2px solid #000; padding: 3px 10px; font-weight: 400;">Kicks, Breaks in Play & Attacting Situations</td>
-						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line"></span></td>
+						<td width="30" style="border:2px solid #000; padding: 3px 10px; font-weight: 400;"><span class="no-line">A</span></td>
 					</tr>
 					</tbody>
 				</table>
@@ -353,7 +353,7 @@
 				<table width="100%">
 					<tr>
 						<td width="100%" style="border-bottom: 2px solid #000; height: 20px;">
-							<label style="font-size: 12px; line-height: 14px; padding: 4px 0; font-weight: 600;">Coaching Comments/Summary:</label><span style="font-size: 10px; line-height: 20px; height: 20px; padding: 5px 10px;"></span>
+							<label style="font-size: 12px; line-height: 14px; padding: 4px 0; font-weight: 600;">Coaching Comments/Summary:</label><span style="font-size: 10px; line-height: 20px; height: 20px; padding: 5px 10px;">Note</span>
 						</td>
 					</tr>
 					<tr>
@@ -397,7 +397,7 @@
 					</tr>
 					<tr>
 						<td width="100%" style="border-bottom: 2px solid #000; height: 20px;">
-							<span style="font-size: 10px; line-height: 20px; padding: 0px 10px;"></span>
+							<span style="font-size: 10px; line-height: 20px; padding: 0px 10px;">Note</span>
 						</td>
 					</tr>
 					<tr>
@@ -417,7 +417,7 @@
 		              						<label>Coach Name:</label>
 		              					</td>
 		              					<td width="65%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>
+		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">Note</span>
 		              					</td>
 		              				</tr>
 		              			</table>
@@ -425,11 +425,11 @@
 						<td width="50%">
 								<table width="100%">
 		              				<tr>
-		              					<td width="38%" style="font-size: 14px; line-height: 16px;">
+		              					<td width="40%" style="font-size: 14px; line-height: 16px;">
 		              						<label>Coach Signature:</label>
 		              					</td>
 		              					<td width="60%" style="border-bottom: 1px solid #000;">
-		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;"></span>
+		              						<span style="padding: 0 5px; font-size: 10px; line-height: 14px;">Note</span>
 		              					</td>
 		              				</tr>
 		              			</table>

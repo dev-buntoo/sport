@@ -11,6 +11,7 @@
 <div class="row">
     <div class="col-6">
         <h3>Manage Income</h3>
+        (${{ $income->sum('amount') }} total incomes)
     </div>
         <div class="col-6 float-right ml-auto mb-3">
             <a href="#" class="btn add-btn" data-toggle="modal" data-target="#income-create" style="margin-bottom:10px; margin-left:10px;"><i class="fa fa-plus"></i> Create</a>
@@ -219,7 +220,7 @@
 @endsection
 
 
-@push('script')      
+@push('script')
 <!--        <script src=-->
 <!--"//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">-->
 <!--</script>-->
@@ -239,5 +240,5 @@ $(document).ready(function(){
 });
 });
 </script>
-        
+
 @endpush
